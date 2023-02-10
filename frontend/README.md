@@ -1,1 +1,1 @@
-# Aggie Compute
+# Frontend Design Structure
