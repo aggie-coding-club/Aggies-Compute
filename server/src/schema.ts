@@ -52,6 +52,33 @@ const Query = objectType({
         })
       },
     })
+    
+
+    t.nonNull.list.nonNull.field('users', {
+      type: 'User',
+      args: {
+        searchString: stringArg(),
+        skip: intArg(),
+        take: intArg(),
+        orderBy: arg({
+          type: 'PostOrderByUpdatedAtInput',
+        }),
+      },
+      resolve: (_parent, args, context: Context) => {
+        const or = args.searchString
+          ? {
+              OR: [
+                { title: { contains: args.searchString } },
+                { content: { contains: args.searchString } },
+              ],
+            }
+          : {}
+
+        return context.prisma.user.findMany()
+      },
+    })
+
+
 
     t.nonNull.list.nonNull.field('feed', {
       type: 'Post',
