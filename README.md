@@ -9,4 +9,6 @@
 ## Frontend
 
     React
-    Tailwind / CSS
+    Tailwind / CSS (style)
+    Typescript
+    Apollo-client (Connection)
