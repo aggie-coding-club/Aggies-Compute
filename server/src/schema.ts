@@ -52,7 +52,6 @@ const Query = objectType({
         })
       },
     })
-    
 
     t.nonNull.list.nonNull.field('users', {
       type: 'User',
@@ -77,8 +76,6 @@ const Query = objectType({
         return context.prisma.user.findMany()
       },
     })
-
-
 
     t.nonNull.list.nonNull.field('feed', {
       type: 'Post',

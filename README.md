@@ -1,8 +1,7 @@
-# aggie_compute - Project Structure
+# Aggie Compute - Project Structure
 
 ## Server
 
-    NodeJs
     GraphQL
     Prisma + Postgres
 
