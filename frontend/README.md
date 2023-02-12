@@ -1,11 +1,11 @@
 # Frontend Design Structure
 
-## Overall Structure
-
+## Overall Structure (Subject to Change depending on progress)
+ 
     Design (60%)
     Algorithms (20%)
     Plan (10%)
-    Connection (10)
+    Backend (10%)
 
 ## Page Structure
 
