@@ -22,6 +22,14 @@
         Design page
         code algorithm(s)
         code frontend
+        
+## HOW TO RUN CODE
+    
+    Frontend:
+        run 'yarn' to get dependencies
+        run 'yarn start' to start react app
+
+        
 
 ## Algorithms TODOs (Difficulty Level (1:5))
 
