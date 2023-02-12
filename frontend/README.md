@@ -1,11 +1,19 @@
 # Frontend Design Structure
 
-## Overall Structure (Subject to Change depending on progress)
- 
-    Design (60%)
-    Algorithms (20%)
-    Plan (10%)
-    Backend (10%)
+## Overall Structure 
+    Frontend Technology
+      React 
+      Tailwind / CSS (style)
+      Typescript
+      Apollo-client (Connection)
+    
+    Work Load
+      Plan (15%)
+      Design (50%)
+      Algorithms (30%)
+          Code 
+          Test
+      Backend Connections (5%)
 
 ## Page Structure
 
