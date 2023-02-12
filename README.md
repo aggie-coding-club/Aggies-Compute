@@ -1,17 +1,3 @@
-# Aggie Compute - Project Structure
-
-## Server
-
-    GraphQL
-    Prisma + Postgres
-
-## Frontend
-
-    React
-    Tailwind / CSS (style)
-    Typescript
-    Apollo-client (Connection)
-
 # Welcome to Aggie Compute!
 We value everybody's contribution to bringing our idea to fruition. 
 
