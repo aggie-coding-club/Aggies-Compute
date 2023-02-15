@@ -1,17 +1,18 @@
 # Frontend Design Structure
 
-## Overall Structure 
+## Overall Structure
+
     Frontend Technology
-      React 
+      React
       Tailwind / CSS (style)
       Typescript
       Apollo-client (Connection)
-    
+
     Work Load
       Plan (15%)
       Design (50%)
       Algorithms (30%)
-          Code 
+          Code
           Test
       Backend Connections (5%)
 
@@ -22,22 +23,29 @@
         Design page
         code algorithm(s)
         code frontend
-        
-## HOW TO RUN CODE
-    
+
+## HOW TO RUN
+
     Frontend:
         run 'yarn' to get dependencies
         run 'yarn start' to start react app
 
-        
-
 ## Algorithms TODOs (Difficulty Level (1:5))
-
-    Calculus
-        Derative (5)
 
     Basic Arithmetic
         Prime Factorization of a number (1)
+
+
+    Pre-Calculus
+        Graphing
+
+    Calculus
+        Derative (5)
+        indefinte integral(5)
+        Riemann Sum of Function/Table (1)
+        Taylor/ Maclauring Series
+        Wronskain
+
 
     Number Theory
         All primitive roots modulo of a number (5)
@@ -62,7 +70,6 @@
             Affine (1)
             ADFGVX (2)
         Modern
-            RSA (3)
             Diffie-Hellman Key (3)
         Discrete Logarithm Problem
             Pohiligar Hollman (2)
