@@ -1,6 +1,6 @@
 import { gauss_elimination } from '../rref';
-import 'mathjs';
 import { frac_mat_toString } from '../helper_LinAlg';
+import 'mathjs';
 
 var math = require('mathjs');
 

@@ -22,6 +22,11 @@ require("mathjs");
  *      multiple pivote row by -1 * currnet row value and add row to curent row
  * 3. Ensure if any 0,0,0,0 column then flip to bottom
  */
+var math = require('mathjs');
+function simple_test() {
+    return 'hello';
+}
+exports.simple_test = simple_test;
 function gauss_elimination(mat, reduced) {
     if (reduced === void 0) { reduced = true; }
     mat = mat.map(function (value, index, matrix) {
@@ -85,13 +90,3 @@ function gauss_elimination(mat, reduced) {
     return mat;
 }
 exports.gauss_elimination = gauss_elimination;
-var math = require('mathjs');
-// var fun: number[][] = [
-//   [1, 1, -1, 7],
-//   [1, -1, 2, 3],
-//   [2, 1, 1, 9]
-// ];
-// var fun_matrix: math.Matrix = math.matrix(fun);
-// fun_matrix = gauss_elimination(fun_matrix, false);
-// console.log('final: ');
-// frac_mat_toString(fun_matrix);
