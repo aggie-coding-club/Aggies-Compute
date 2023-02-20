@@ -9,11 +9,15 @@
       Apollo-client (Connection)
 
     Work Load
-      Plan (15%)
-      Design (50%)
+      Plan (10%)
+      Design (60%)
+          Input/Output
+          Algorithm Steps
+          Education Section
+          Animations of problem being solved
       Algorithms (30%)
           Code
-          Test
+          Test (jest)
       Backend Connections (5%)
 
 ## Page Structure
@@ -30,8 +34,8 @@
         run 'yarn' to get dependencies
         run 'yarn start' to start react app
 
-
 ## Performing Individual Test
+
     tsc filename.tsx
     node filename.js
 
