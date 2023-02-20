@@ -75,7 +75,6 @@ export function gauss_elimination(mat: math.Matrix, reduced: boolean) {
       ++skip_pivote;
       continue;
     }
-    console.log('after pivot created');
     frac_mat_toString(mat);
     // Reduce Row using Pivot
     let start = pivote[0] + 1;
@@ -83,7 +82,6 @@ export function gauss_elimination(mat: math.Matrix, reduced: boolean) {
       start = 0;
     }
     for (let row = start; row < mat.size()[0]; ++row) {
-      console.log(row, column);
       if (row == column) {
         continue;
       }
