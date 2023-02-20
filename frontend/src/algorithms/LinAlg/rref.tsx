@@ -116,7 +116,11 @@ var fun: math.Fraction[][] = [
   [math.fraction(4), math.fraction(7), math.fraction(10), math.fraction(13)]
 ];
 
-var fun_matrix = math.matrix(fun);
+var fun_matrix: math.Matrix = math.matrix(fun);
 fun_matrix = gauss_elimination(fun_matrix, true);
-
-console.log('final', fun_matrix._data);
+for (let i = 0; i < fun_matrix.size()[0]; ++i) {
+  for (let j = 0; j < fun_matrix.size()[1]; ++j) {
+    console.log(fun_matrix.get([i, j]), ', ');
+  }
+  console.log();
+}
