@@ -30,6 +30,11 @@
         run 'yarn' to get dependencies
         run 'yarn start' to start react app
 
+
+## Performing Individual Test
+    tsc filename.tsx
+    node filename.js
+
 ## Algorithms TODOs (Difficulty Level (1:5))
 
     Basic Arithmetic
