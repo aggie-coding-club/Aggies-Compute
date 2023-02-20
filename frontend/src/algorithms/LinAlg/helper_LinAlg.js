@@ -1,5 +1,7 @@
 "use strict";
 exports.__esModule = true;
+require("mathjs");
+var math = require('mathjs');
 function frac_mat_toString(mat) {
     var string_list = [];
     for (var i = 0; i < mat.size()[0]; ++i) {
@@ -22,3 +24,8 @@ function frac_mat_toString(mat) {
     // return string_list;
 }
 exports.frac_mat_toString = frac_mat_toString;
+// TODO: Row/column matrix operations
+function matrix_OP(mat) {
+    return mat;
+}
+exports.matrix_OP = matrix_OP;

@@ -22,7 +22,7 @@ import { frac_mat_toString } from './helper_LinAlg';
  *      multiple pivote row by -1 * currnet row value and add row to curent row
  * 3. Ensure if any 0,0,0,0 column then flip to bottom
  */
-export function gauss_elimination(mat: math.Matrix, reduced: boolean) {
+export function gauss_elimination(mat: math.Matrix, reduced: boolean = true) {
   mat = mat.map(function (value, index, matrix) {
     return math.fraction(value, 1);
   });
@@ -75,7 +75,6 @@ export function gauss_elimination(mat: math.Matrix, reduced: boolean) {
       ++skip_pivote;
       continue;
     }
-    frac_mat_toString(mat);
     // Reduce Row using Pivot
     let start = pivote[0] + 1;
     if (reduced) {
@@ -102,12 +101,6 @@ export function gauss_elimination(mat: math.Matrix, reduced: boolean) {
 }
 
 var math = require('mathjs');
-// var fun: math.Fraction[][] = [
-//   [math.fraction(1), math.fraction(1), math.fraction(-1), math.fraction(1)],
-//   [math.fraction(3), math.fraction(6), math.fraction(9), math.fraction(1)],
-//   [math.fraction(4), math.fraction(7), math.fraction(10), math.fraction(13)]
-// ];
-
 var fun: number[][] = [
   [1, 1, -1, 7],
   [1, -1, 2, 3],
@@ -115,6 +108,6 @@ var fun: number[][] = [
 ];
 
 var fun_matrix: math.Matrix = math.matrix(fun);
-fun_matrix = gauss_elimination(fun_matrix, true);
+fun_matrix = gauss_elimination(fun_matrix, false);
 console.log('final: ');
 frac_mat_toString(fun_matrix);

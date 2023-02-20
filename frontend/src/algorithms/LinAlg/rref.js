@@ -24,6 +24,7 @@ var helper_LinAlg_1 = require("./helper_LinAlg");
  * 3. Ensure if any 0,0,0,0 column then flip to bottom
  */
 function gauss_elimination(mat, reduced) {
+    if (reduced === void 0) { reduced = true; }
     mat = mat.map(function (value, index, matrix) {
         return math.fraction(value, 1);
     });
@@ -66,15 +67,12 @@ function gauss_elimination(mat, reduced) {
             ++skip_pivote;
             continue;
         }
-        console.log('after pivot created');
-        helper_LinAlg_1.frac_mat_toString(mat);
         // Reduce Row using Pivot
         var start = pivote[0] + 1;
         if (reduced) {
             start = 0;
         }
         for (var row = start; row < mat.size()[0]; ++row) {
-            console.log(row, column);
             if (row == column) {
                 continue;
             }
@@ -88,17 +86,12 @@ function gauss_elimination(mat, reduced) {
 }
 exports.gauss_elimination = gauss_elimination;
 var math = require('mathjs');
-// var fun: math.Fraction[][] = [
-//   [math.fraction(1), math.fraction(1), math.fraction(-1), math.fraction(1)],
-//   [math.fraction(3), math.fraction(6), math.fraction(9), math.fraction(1)],
-//   [math.fraction(4), math.fraction(7), math.fraction(10), math.fraction(13)]
-// ];
 var fun = [
     [1, 1, -1, 7],
     [1, -1, 2, 3],
     [2, 1, 1, 9]
 ];
 var fun_matrix = math.matrix(fun);
-fun_matrix = gauss_elimination(fun_matrix, true);
+fun_matrix = gauss_elimination(fun_matrix, false);
 console.log('final: ');
 helper_LinAlg_1.frac_mat_toString(fun_matrix);
