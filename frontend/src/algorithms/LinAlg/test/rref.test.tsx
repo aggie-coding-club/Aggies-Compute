@@ -19,14 +19,17 @@ test('matrix_basic_1: ', () => {
   const matrixBasic1_result: math.Matrix = math.matrix(basic1_result);
 
   let actual_matrix: math.Matrix = gauss_elimination(matrixBasic1, true);
-  frac_mat_toString(actual_matrix);
-  frac_mat_toString(matrixBasic1_result);
+
   for (let i = 0; i < actual_matrix.size()[0]; ++i) {
     for (let j = 0; j < actual_matrix.size()[1]; ++j) {
-      //   console.log(actual_matrix.get([i, j]));
-      //   console.log(matrixBasic1_result.get([i, j]));
       expect(actual_matrix.get([i, j]).s).toStrictEqual(
         matrixBasic1_result.get([i, j]).s
+      );
+      expect(actual_matrix.get([i, j]).d).toStrictEqual(
+        matrixBasic1_result.get([i, j]).d
+      );
+      expect(actual_matrix.get([i, j]).n).toStrictEqual(
+        matrixBasic1_result.get([i, j]).n
       );
     }
   }

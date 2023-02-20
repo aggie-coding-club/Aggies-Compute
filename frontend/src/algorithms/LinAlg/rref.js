@@ -1,7 +1,6 @@
 "use strict";
 exports.__esModule = true;
 require("mathjs");
-var helper_LinAlg_1 = require("./helper_LinAlg");
 /**
  * Guass-Jordan Elimination
  * Guass Jordan Elimination Method is used to obtian either
@@ -43,7 +42,6 @@ function gauss_elimination(mat, reduced) {
         }
         if (math.compare(pivote_value, math.Fraction(1)) == 0) {
             // pivote found
-            continue;
         }
         else if (math.compare(pivote_value, math.Fraction(0)) == 0) {
             // attempt swaps, if possible create pivote
@@ -72,7 +70,9 @@ function gauss_elimination(mat, reduced) {
         if (reduced) {
             start = 0;
         }
+        console.log('start', start);
         for (var row = start; row < mat.size()[0]; ++row) {
+            console.log(row, column);
             if (row == column) {
                 continue;
             }
@@ -86,12 +86,12 @@ function gauss_elimination(mat, reduced) {
 }
 exports.gauss_elimination = gauss_elimination;
 var math = require('mathjs');
-var fun = [
-    [1, 1, -1, 7],
-    [1, -1, 2, 3],
-    [2, 1, 1, 9]
-];
-var fun_matrix = math.matrix(fun);
-fun_matrix = gauss_elimination(fun_matrix, false);
-console.log('final: ');
-helper_LinAlg_1.frac_mat_toString(fun_matrix);
+// var fun: number[][] = [
+//   [1, 1, -1, 7],
+//   [1, -1, 2, 3],
+//   [2, 1, 1, 9]
+// ];
+// var fun_matrix: math.Matrix = math.matrix(fun);
+// fun_matrix = gauss_elimination(fun_matrix, false);
+// console.log('final: ');
+// frac_mat_toString(fun_matrix);

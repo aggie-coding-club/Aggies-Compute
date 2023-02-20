@@ -46,7 +46,6 @@ export function gauss_elimination(mat: math.Matrix, reduced: boolean = true) {
 
     if (math.compare(pivote_value, math.Fraction(1)) == 0) {
       // pivote found
-      continue;
     } else if (math.compare(pivote_value, math.Fraction(0)) == 0) {
       // attempt swaps, if possible create pivote
       for (let row = pivote[0] + 1; row < mat.size()[0]; ++row) {
@@ -80,7 +79,9 @@ export function gauss_elimination(mat: math.Matrix, reduced: boolean = true) {
     if (reduced) {
       start = 0;
     }
+    console.log('start', start);
     for (let row = start; row < mat.size()[0]; ++row) {
+      console.log(row, column);
       if (row == column) {
         continue;
       }
@@ -88,6 +89,7 @@ export function gauss_elimination(mat: math.Matrix, reduced: boolean = true) {
         math.fraction(-1),
         mat.get([row, column])
       );
+
       let pivote_row = math.row(mat, pivote[0]);
       let reduce_row = math.row(mat, row);
 
@@ -101,13 +103,13 @@ export function gauss_elimination(mat: math.Matrix, reduced: boolean = true) {
 }
 
 var math = require('mathjs');
-var fun: number[][] = [
-  [1, 1, -1, 7],
-  [1, -1, 2, 3],
-  [2, 1, 1, 9]
-];
+// var fun: number[][] = [
+//   [1, 1, -1, 7],
+//   [1, -1, 2, 3],
+//   [2, 1, 1, 9]
+// ];
 
-var fun_matrix: math.Matrix = math.matrix(fun);
-fun_matrix = gauss_elimination(fun_matrix, false);
-console.log('final: ');
-frac_mat_toString(fun_matrix);
+// var fun_matrix: math.Matrix = math.matrix(fun);
+// fun_matrix = gauss_elimination(fun_matrix, false);
+// console.log('final: ');
+// frac_mat_toString(fun_matrix);
