@@ -42,7 +42,7 @@
 ## Algorithms TODOs (Difficulty Level (1:5))
 
     Basic Arithmetic
-        Prime Factorization of a number (1)
+        Prime Factorization of a number (1
 
 
     Pre-Calculus
