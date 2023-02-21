@@ -25,7 +25,7 @@
     Landing
     Tools
         Design page
-        code algorithm(s)
+        code algorithm(s
         code frontend
 
 ## HOW TO RUN
