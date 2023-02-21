@@ -10,7 +10,7 @@
 
     Work Load
       Plan (10%)
-      Design (60%)
+      Design (55%)
           Input/Output
           Algorithm Steps
           Education Section
