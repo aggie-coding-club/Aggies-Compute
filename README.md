@@ -15,10 +15,10 @@ Join the [Discord](https://discord.gg/8eDhEfzh)!
 
 
 ## Important Deadlines
-
-Phase 1: Pre-AC       (Feb 22 - Mar 1)
-Phase 2:              (Mar 1 - Mar 15)
-Phase 3:              (Mar 15 - Mar 29)
-Phase 4:              (Mar 29 - Apr 12)
-Phase 5:              (Apr 12 - Apr 28)
-END                   (Apr 28)
+  
+  Phase 1: Pre-AC       (Feb 22 - Mar 1)
+  Phase 2:              (Mar 1 - Mar 15)
+  Phase 3:              (Mar 15 - Mar 29)
+  Phase 4:              (Mar 29 - Apr 12) 
+  Phase 5:              (Apr 12 - Apr 28)
+  END                   (Apr 28)
