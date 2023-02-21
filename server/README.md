@@ -13,7 +13,7 @@
     Need to Create Database Design
 
 ## HOW TO RUN
-
+    Change "Database URL": postgresql://[username]:[password]@localhost:5432/aggie-compute-db
     Run Postgres Server
         (local)
         sudo service postgresql start
