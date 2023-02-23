@@ -2,10 +2,10 @@ import 'mathjs';
 import { frac_mat_toString } from './helper_LinAlg';
 
 /**
- * Guass-Jordan Elimination
- * Guass Jordan Elimination Method is used to obtian either
+ * Guass Jordan Elimination Method is used turn a matrix into
  * a row echelon form(ref) or reduced row echelon form (rref) matrix
  *
+ * @remark
  * Algorithm:
  * 1. Determine Pivot Point
  *      pivote point: located at column = row
@@ -21,6 +21,11 @@ import { frac_mat_toString } from './helper_LinAlg';
  * 2. Using Pivote reduce all rows below to 0
  *      multiple pivote row by -1 * currnet row value and add row to curent row
  * 3. Ensure if any 0,0,0,0 column then flip to bottom
+ *
+ *
+ * @param mat - a matrix with element of Fraction Type
+ * @param reduced - true for RREF, false for rref
+ * @returns A matrix with elemetn of Fraction Type
  */
 var math = require('mathjs');
 
@@ -47,7 +52,7 @@ export function gauss_elimination(mat: math.Matrix, reduced: boolean = true) {
     }
 
     if (math.compare(pivote_value, math.Fraction(1)) == 0) {
-      // pivote found
+      // pivote found, do nothing
     } else if (math.compare(pivote_value, math.Fraction(0)) == 0) {
       // attempt swaps, if possible create pivote
       for (let row = pivote[0] + 1; row < mat.size()[0]; ++row) {
@@ -81,7 +86,7 @@ export function gauss_elimination(mat: math.Matrix, reduced: boolean = true) {
     if (reduced) {
       start = 0;
     }
-    console.log('start', start);
+
     for (let row = start; row < mat.size()[0]; ++row) {
       console.log(row, column);
       if (row == column) {

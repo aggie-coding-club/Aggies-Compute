@@ -3,7 +3,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { Routes, Route } from 'react-router-dom';
 
 // import Test from './components/Test';
-import Landing from './components/Landing';
+import Landing from './pages/Landing';
 const client = new ApolloClient({
   uri: 'http://localhost:4000',
   cache: new InMemoryCache()
