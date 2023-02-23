@@ -19,13 +19,16 @@
           Code
           Test (jest)
       Backend Connections (5%)
+          History Use
+          Favorite
+          Suggested Links
 
 ## Page Structure
 
     Landing
     Tools
         Design page
-        code algorithm(s
+        code algorithm
         code frontend
 
 ## HOW TO RUN
@@ -38,15 +41,19 @@
 
     tsc filename.tsx
     node filename.js
+    or
+    yarn test
 
 ## Algorithms TODOs (Difficulty Level (1:5))
 
-    Basic Arithmetic
-        Prime Factorization of a number (1
+    Basic Arithmetic/Algebra
+        Prime Factorization of a number (1)
 
 
     Pre-Calculus
         Graphing
+
+
 
     Calculus
         Derative (5)
@@ -73,12 +80,12 @@
         Matrix Inverse (2)
 
     Cryptography
-        Classical
+        Classical Methods
             Hill (2)
             Shift (1)
             Affine (1)
             ADFGVX (2)
-        Modern
+        Modern Methods
             Diffie-Hellman Key (3)
         Discrete Logarithm Problem
             Pohiligar Hollman (2)
