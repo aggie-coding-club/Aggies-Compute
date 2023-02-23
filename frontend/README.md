@@ -14,7 +14,7 @@
           Input/Output
           Algorithm Steps
           Education Section
-          Animations of problem being solved
+          Uniqueness (Animation/Coloring/Etc)
       Algorithms (30%)
           Code
           Test (jest)
@@ -35,7 +35,9 @@
         run 'yarn start' to start react app
 
 ## Performing Individual Test
-
+    
+    yarn test 
+    or
     tsc filename.tsx
     node filename.js
 
