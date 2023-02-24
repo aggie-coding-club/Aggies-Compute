@@ -35,8 +35,8 @@
         run 'yarn start' to start react app
 
 ## Performing Individual Test
-    
-    yarn test 
+
+    yarn test
     or
     tsc filename.tsx
     node filename.js
@@ -44,7 +44,7 @@
 ## Algorithms TODOs (Difficulty Level (1:5))
 
     Basic Arithmetic
-        Prime Factorization of a number (1)
+        ~Prime Factorization of a number (1)~
 
 
     Pre-Calculus
