@@ -53,6 +53,7 @@
     Calculus
         Derative (5)
         Indefinite Integral (5)
+        Definite Integral (5)
         Riemann Sum of Function/Table (1)
         Taylor/Maclaurin Series
         Wronskian
