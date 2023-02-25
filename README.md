@@ -9,7 +9,6 @@ If you have any questions, please contact us, your project managers: </br >
 Jason Le, jasonisazn@tamu.edu</br >
 Alana Ordonez, alordonez1@tamu.edu 
 
-
 ## Important Resources
 Join the [Discord](https://discord.gg/8eDhEfzh)!
 
@@ -24,6 +23,6 @@ Join the [Discord](https://discord.gg/8eDhEfzh)!
   
   Phase 4: TBD          (Apr 1 - Apr 15) 
   
-  Phase 5: TBD         (Apr 15 - Apr 28)
+  Phase 5: TBD          (Apr 15 - Apr 28)
   
   END                   (Apr 28)
