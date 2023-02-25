@@ -9,6 +9,7 @@ If you have any questions, please contact us, your project managers: </br >
 Jason Le, jasonisazn@tamu.edu</br >
 Alana Ordonez, alordonez1@tamu.edu 
 
+hello this is my edit
 
 ## Important Resources
 Join the [Discord](https://discord.gg/8eDhEfzh)!
