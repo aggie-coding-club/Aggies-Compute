@@ -52,10 +52,10 @@
 
     Calculus
         Derative (5)
-        indefinte integral(5)
+        Indefinte Integral(5)
         Riemann Sum of Function/Table (1)
-        Taylor/ Maclauring Series
-        Wronskain
+        Taylor/Maclaurin Series
+        Wronskian
 
 
     Number Theory
@@ -68,9 +68,9 @@
         Basic Matrix Operations (2)
         Row Reducing w/ Gauss Jordan (2)
         Matrix Determinant (2)
-        Eignen Value/Vector (3)
-        Ajoint Matrix (1)
-        Crammers Rule (1)
+        Eigen Value/Vector (3)
+        Adjoint Matrix (1)
+        Cramer's Rule (1)
         LU Decomposition (3)
         Matrix Inverse (2)
 
@@ -83,5 +83,5 @@
         Modern
             Diffie-Hellman Key (3)
         Discrete Logarithm Problem
-            Pohiligar Hollman (2)
+            Pohlig-Hellman (2)
             Baby step-Giant step (2)
