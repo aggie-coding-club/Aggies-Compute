@@ -4,7 +4,7 @@ import 'mathjs';
 
 var math = require('mathjs');
 export default function Landing() {
-  //// Testing Functino Portablity. Remove this.
+  //// Testing Function Portablity. Remove this.
   const basic1: number[][] = [
     [1, 1, -1, 7],
     [1, -1, 2, 3],
