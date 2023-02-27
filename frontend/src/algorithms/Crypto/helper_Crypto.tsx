@@ -1,11 +1,9 @@
-'use strict';
-
 /**
- * [Add Description]
+ * Creates a hashmap, with alphabet characters as keys and corresponding numbers as their values.
  *
  *
- * @param x
- * @returns
+ * @param x (The alphabet string)
+ * @returns (Map<string, string>)
  */
 
 export function char_map(x: string): Map<string, string> {
@@ -53,10 +51,10 @@ export function char_map(x: string): Map<string, string> {
 }
 
 /**
- * [Add Description]
+ * Creates a hashmap, with numbers as keys and corresponding alphabet characters as their values
  *
- * @param x
- * @returns
+ * @param x (The alphabet string)
+ * @returns (Map<string, string>)
  */
 export function inverse_char_map(x: string): Map<string, string> {
   let hashmap = char_map(x);
