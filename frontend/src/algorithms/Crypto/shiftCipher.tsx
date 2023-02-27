@@ -3,7 +3,7 @@ import {inverse_char_map} from './helper_Crypto';
 import {num_to_key} from './helper_Crypto';
 
 /**
- * Takes a string and encrypts it according to a specified shift
+ * Takes a string and "shifts" it according to a specified shift value and inputted alphabet
  *
  *
  * @param m (The string to encrypt)
@@ -11,7 +11,7 @@ import {num_to_key} from './helper_Crypto';
  * @param alpha (string alphabet)
  * @returns (string)
  */
-export function shiftCipher_Encrypt(m: string, shift: number, alpha: string): string
+export function shiftCipher(m: string, shift: number, alpha: string): string
 {
     // Checks if string is empty
     if (m.length === 0) {
@@ -66,6 +66,11 @@ export function shiftCipher_Encrypt(m: string, shift: number, alpha: string): st
         // Encrypts
         else{
             let sNum: string | undefined = let_to_num.get(letter);
+
+            if (sNum === undefined){
+                throw Error("Character in m is not found in the alphabet");
+            }
+
             let iNum: number = +(sNum ?? '');
             iNum = (iNum + s) % modulo;
             sNum = num_to_key(iNum, (sNum ?? '').length);
