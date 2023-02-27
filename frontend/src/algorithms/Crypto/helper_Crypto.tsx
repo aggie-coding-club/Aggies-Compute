@@ -63,3 +63,43 @@ export function inverse_char_map(x: string): Map<string, string> {
   hashmap.forEach((value, key) => invMap.set(value, key));
   return invMap;
 }
+
+
+/**
+ * Creates a corresponding string from a number depending on length
+ *
+ * @param num (The number to change to a string)
+ * @param len (Length of desired output string)
+ * @returns (string)
+ */
+export function num_to_key(num: number, len: number): string {
+
+  // Checks if they're whole numbers
+  if (Math.floor(num) !== num || Math.floor(len) !== len){
+    throw Error("Either num or len cannot be a decimal number");
+  }
+
+  // Checks if num is negative
+  if (num < 0){
+    throw Error("num cannot be negative");
+  }
+
+  // Checks if len <= 1
+  if (len <= 0){
+    throw Error("len cannot be less than one");
+  }
+
+  let s: string = num.toString();
+
+  // Checks if number has a larger length than len
+  if (s.length > len){
+    throw Error("number cannot have a larger length than len");
+  }
+
+  // Appends leading zeroes
+  while (s.length < len){
+    s = '0' + s;
+  }
+
+  return s;
+}
