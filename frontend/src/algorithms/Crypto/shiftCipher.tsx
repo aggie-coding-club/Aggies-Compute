@@ -15,7 +15,7 @@ export function shiftCipher(m: string, shift: number, alpha: string): string
 {
     // Checks if string is empty
     if (m.length === 0) {
-        throw Error('Cannot have an alphabet with length zero');
+        throw Error('Cannot have a message with length zero');
     }
 
     // Checks if shift is decimal
