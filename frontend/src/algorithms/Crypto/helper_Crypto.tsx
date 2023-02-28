@@ -6,6 +6,8 @@
  * @returns (Map<string, string>)
  */
 
+import { getJSDocDeprecatedTag } from "typescript";
+
 export function char_map(x: string): Map<string, string> {
   // Checks if string is empty
   if (x.length === 0) {
@@ -103,3 +105,34 @@ export function num_to_key(num: number, len: number): string {
 
   return s;
 }
+
+/**
+ * Calculates the greatest common denominator between two integers
+ *
+ * @param a (Some integer)
+ * @param b (Some integer)
+ * @returns (integer)
+ */
+export function GCD(a: number, b: number): number {
+  // Check that a and b are decimal
+  if (Math.floor(a) !== a || Math.floor(b) !== b){
+    throw Error("a and b have to both be integers");
+  }
+
+  // Check that a and b are positive
+  if (a <= 0 || b <= 0){
+    throw Error("a and b have to both be positive");
+  }
+
+  let r: number = a % b;
+
+  if (r === 0){
+    return b;
+  }
+
+  else{
+    return GCD(b, r);
+  }
+}
+
+
