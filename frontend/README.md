@@ -44,10 +44,8 @@
 ## Algorithms TODOs (Difficulty Level (1:5))
    
     Algebra
-        Order of Operation PEMDAS (2)
         Prime Factorization of a number (1)
         Synthetic Division Calculator of equation (3)
-        Add/Subtract/Multiply Equations (1)
         Long Divison of number (1)
         GCD of a given list of numbers (2)
         
@@ -57,7 +55,6 @@
 
     Calculus
         Derative (5)
-            apply specific rule
             solve general equation
             partial derative
             implicit derative 
@@ -81,7 +78,6 @@
             Matrix Row Operations
             Matrix Multiplcatoin Const
             and more
-        Row Reducing w/ Gauss Jordan (2)
         Matrix Determinant (2)
         Eigen Value/Vector (3)
         Adjoint Matrix (1)
