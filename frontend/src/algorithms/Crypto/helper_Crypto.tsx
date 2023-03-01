@@ -135,4 +135,26 @@ export function GCD(a: number, b: number): number {
   }
 }
 
+/**
+ * Calculates the modular inverse of a number
+ *
+ * @param a (Some integer)
+ * @param b (Some integer)
+ * @returns (integer)
+ */
+function inverseMod(a: number, modulo: number): number {
 
+  // Check if their GCD is 1
+  if (GCD(a, modulo) !== 1){
+    throw Error("gcd(a, modulo) must be equal to 1");
+  }
+
+  let c: number = 1;
+
+  // Checks if divisible by a
+  while (c % a !== 0){
+    c += modulo;
+  }
+
+  return c / a;
+}
