@@ -1,3 +1,32 @@
+    /** 
+     *  How to get function terms separated:
+     * 
+     *  REGEX EXPRESSION --> /([+-]*\s*\d*\w*\^*\d*)/g
+     *  
+     *  IDEAL CASE - NO SPACES:
+     *      input --> 5x^2+3x-7
+     *      regex --> 5x^2, +3x, -7
+     * 
+     *  IF SPACES INCLUDED:
+     *      input --> 5x^2 + 3x - 7
+     *      regex --> 5x^2, [space], + 3x, [space], - 7
+     * 
+     *  ^^ in case with spaces we can just ignore them by checking for them, but will have to alter string to 
+     *     remove space between sign and digit
+     * 
+     *  
+     *  Expression  |             Explanation
+     * _____________|____________________________________________________________
+     *       *      |   Matches zero or more of whatever preceeds it
+     *     [+-]     |   Matches either '+' or '-' 
+     *      \s      |   Matches any space character
+     *      \d      |   Matches any digit (0-9, used to capture coeffecient)
+     *      \w      |   Matches any word character (used to capture variable)
+     *      \^      |   Matches a '^' character (used to capture exponents)
+     *      \d      |   Matches any digit (used to capture magnitude of exponent)
+     *       g      |   "global" modifier, sets to not return until end of string
+     */
+
 export function add(functions:string[]):string{
 
     /** Algorithm
@@ -38,6 +67,8 @@ export function add(functions:string[]):string{
     *       (expected output)
     *           "8x^2 + 9x + 30"
     */          
+
+    const regex = "/([+-]*\s*\d*\w*\^*\d*)/g";
 
     return "Placeholder"
 
@@ -87,10 +118,14 @@ export function subtract(functions: string[]): string{
     *           "8x^2 - 5x - 28"
     */          
 
+    const regex = "/([+-]*\s*\d*\w*\^*\d*)/g";
+
     return "Placeholder";
 }
 
 export function multiply(){
     
+    const regex = "/([+-]*\s*\d*\w*\^*\d*)/g";
+
     return;
 }
