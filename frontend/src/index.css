@@ -559,6 +559,38 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.flex {
+  display: flex;
+}
+
+.h-\[30px\] {
+  height: 30px;
+}
+
+.h-auto {
+  height: auto;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.max-w-xs {
+  max-width: 20rem;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+.bg-\[27476e\] {
+  background-color: 27476e;
+}
+
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -571,6 +603,11 @@ video {
 .text-red-600 {
   --tw-text-opacity: 1;
   color: rgb(220 38 38 / var(--tw-text-opacity));
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .underline {
