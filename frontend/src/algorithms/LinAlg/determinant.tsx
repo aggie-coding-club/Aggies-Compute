@@ -1,6 +1,7 @@
 import 'mathjs';
 import { frac_mat_toString } from './helper_LinAlg';
 
+
 /**
  * Methods to find determinant
  *  For 2x2:
@@ -25,3 +26,18 @@ import { frac_mat_toString } from './helper_LinAlg';
  *         Create a new matrix from resultant values
  *      5. 
  */
+
+//const matrix = [[1, 2], [3, 4]];
+
+function det_2_by_2(a: number, b: number) {
+    return 0;
+  }
+
+function det_3_by_3(a: number, b: number) {
+    return 0;
+  }
+
+function cofactor(a: number, b: number){
+    return 0;
+}
+
