@@ -1,11 +1,3 @@
-/**
- * Creates a hashmap, with alphabet characters as keys and corresponding numbers as their values.
- *
- *
- * @param x (The alphabet string)
- * @returns (Map<string, string>)
- */
-
 import { getJSDocDeprecatedTag } from "typescript";
 
 export function char_map(x: string): Map<string, string> {
@@ -65,7 +57,6 @@ export function inverse_char_map(x: string): Map<string, string> {
   hashmap.forEach((value, key) => invMap.set(value, key));
   return invMap;
 }
-
 
 /**
  * Creates a corresponding string from a number depending on length
@@ -142,7 +133,7 @@ export function GCD(a: number, b: number): number {
  * @param b (Some integer)
  * @returns (integer)
  */
-function inverseMod(a: number, modulo: number): number {
+export function inverseMod(a: number, modulo: number): number {
 
   // Check if their GCD is 1
   if (GCD(a, modulo) !== 1){
