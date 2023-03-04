@@ -1,12 +1,12 @@
 import React from 'react';
 import { gauss_elimination } from '../algorithms/LinAlg/rref';
 import 'mathjs';
-
+import NavBar from '../components/Navbar';
 var math = require('mathjs');
 export default function Landing() {
   return (
-    <h1 className="text-3xl font-bold underline text-red-600">
-      Simple React Typescript Tailwind Sample
-    </h1>
+    <div className="">
+      <h1 className="underline text-red-600">landing page</h1>
+    </div>
   );
 }
