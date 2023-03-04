@@ -2,18 +2,41 @@ import React from 'react';
 import {  NavLink } from "react-router-dom";
 
 import "./styles.css";
+// console.log(logo);
 
 export default function Navbar() {
-  //// Testing Functino Portablity. Remove this.
   return (
     <div>
       <nav className = "navbar-container">
-        {/* <NavLink to="/landing" className ='home-button' ><a href ="Landing" className="logo"><img className= "ac-logo" src={logo}/></a></NavLink> */}
-        <NavLink to="/">Calculator</NavLink>
-        <NavLink to="/">ChatGPT</NavLink>
-        <NavLink to="/">PhotoMath</NavLink>
-        <NavLink to="/">Education</NavLink>
-        <NavLink to="/">Profile</NavLink>
+        <NavLink to="/Landing"
+          style={({ isActive }) => ({ color: isActive ? '#fff' : '#fff', textDecoration: 'none',})}
+        >
+          Home
+        </NavLink>
+
+        <NavLink to="/"
+          style={({ isActive }) => ({ color: isActive ? '#fff' : '#fff', textDecoration: 'none',})}
+        >
+          ChatGPT
+        </NavLink>
+
+        <NavLink to="/"
+          style={({ isActive }) => ({ color: isActive ? '#fff' : '#fff', textDecoration: 'none',})}
+        >
+          PhotoMath
+        </NavLink>
+
+        <NavLink to="/"
+          style={({ isActive }) => ({ color: isActive ? '#fff' : '#fff', textDecoration: 'none',})}
+        >
+          Education
+        </NavLink>
+
+        <NavLink to="/"
+          style={({ isActive }) => ({ color: isActive ? '#fff' : '#fff', textDecoration: 'none',})}
+        >
+          Profile
+        </NavLink>
       </nav>
     </div>
   );
