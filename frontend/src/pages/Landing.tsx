@@ -6,7 +6,7 @@ var math = require('mathjs');
 export default function Landing() {
   return (
     <div>
-      <p>Landing Page</p>
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
     </div>
   );
 }

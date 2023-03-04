@@ -2,22 +2,12 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 
-import './nav_styles.css';
+import '../styles.css';
 
 export default function Navbar() {
   return (
     <div>
-      <nav className="navbar-container">
-        <NavLink
-          to="/Landing"
-          style={({ isActive }) => ({
-            color: isActive ? '#fff' : '#fff',
-            textDecoration: 'none'
-          })}
-        >
-          Home
-        </NavLink>
-
+      <nav className="flex items-center justify-evenly h-[30px] w-full bg-[27476e]">
         <NavLink
           to="/"
           style={({ isActive }) => ({
@@ -25,38 +15,22 @@ export default function Navbar() {
             textDecoration: 'none'
           })}
         >
-          ChatGPT
+          <img
+            src={require('../images/ac-logo.png')}
+            className="h-auto max-w-xs"
+            alt="AC Logo"
+          />
         </NavLink>
 
-        <NavLink
-          to="/"
-          style={({ isActive }) => ({
-            color: isActive ? '#fff' : '#fff',
-            textDecoration: 'none'
-          })}
-        >
-          PhotoMath
+        <NavLink className="text-white" to="/ac_bot">
+          AC Bot
         </NavLink>
 
-        <NavLink
-          to="/"
-          style={({ isActive }) => ({
-            color: isActive ? '#fff' : '#fff',
-            textDecoration: 'none'
-          })}
-        >
-          Education
-        </NavLink>
+        <NavLink to="/photomathclone">PhotoMath</NavLink>
 
-        <NavLink
-          to="/"
-          style={({ isActive }) => ({
-            color: isActive ? '#fff' : '#fff',
-            textDecoration: 'none'
-          })}
-        >
-          Profile
-        </NavLink>
+        <NavLink to="/education">Education</NavLink>
+
+        <NavLink to="/profile">Profile</NavLink>
       </nav>
     </div>
   );

@@ -23,6 +23,7 @@ import AC_Bot from './pages/Features/AC_Bot';
 import Calculator from './pages/Features/Calculator';
 import PhotoMathClone from './pages/Features/PhotoMathClone';
 import Profile from './pages/Profile';
+import Education from './pages/Features/Education';
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000',
@@ -55,6 +56,7 @@ function App() {
         <Route path="/calculator" element={<Calculator />} />
         <Route path="/photomathclone" element={<PhotoMathClone />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/education" element={<Education />} />
       </Routes>
     </ApolloProvider>
   );
