@@ -123,7 +123,6 @@ export function subtract(functions: string[]): string{
     return "Placeholder";
 }
 
-<<<<<<< HEAD
 export function multiply(functions: string[]): string{
     /*  Algorithm
         1. Get strings from input
@@ -177,11 +176,9 @@ export function multiply(functions: string[]): string{
                 "432x^3 + 594x^2 + 297x + 54"
     */          
     return "Placeholder";
-=======
 export function multiply(){
     
     const regex = "/([+-]*\s*\d*\w*\^*\d*)/g";
 
     return;
->>>>>>> afe68bd25d29c3ae0464ccf2c75173b903a89f4e
 }
