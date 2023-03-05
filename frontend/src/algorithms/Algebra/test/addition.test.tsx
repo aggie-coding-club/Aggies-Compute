@@ -19,7 +19,7 @@ test('two-function-add: ', () => {
 })
 
 test('three-plus-function-add: ', () => {
-    const input1: string[] = ["3x^3+2x^2+8", "x^2+9x-3", "x+3"];
+    const input1: string[] = ["3x^3+2x^2+8", "x^2+9git fetch -x-3", "x+3"];
     const input2: string[] = ["2x^2+3", "x+1", "x^2-4x+4", "12x"];
 
     const correct_result1: string = "3x^3+3x^2+10x+8";
