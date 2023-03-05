@@ -1,6 +1,4 @@
-import {add} from '../add_sub_mult';
-import {subtract} from '../add_sub_mult';
-import {multiply} from '../add_sub_mult';
+import {add} from '../add';
 
 test('two-function-add: ', () => {
     const input1: string[] = ["2x+3", "8x^2+9x-1"];
