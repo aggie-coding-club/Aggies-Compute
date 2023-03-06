@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "tailwindcss": "^1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^5.0.1"
+  }
+}

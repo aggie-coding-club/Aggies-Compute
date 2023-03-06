@@ -43,8 +43,11 @@
 
 ## Algorithms TODOs (Difficulty Level (1:5))
 
-    Basic Arithmetic
+    Algebra
         Prime Factorization of a number (1)
+        Synthetic Division Calculator of equation (3)
+        Long Divison of number (1)
+        GCD of a given list of numbers (2)
 
 
     Pre-Calculus
@@ -52,6 +55,9 @@
 
     Calculus
         Derative (5)
+            solve general equation
+            partial derative
+            implicit derative
         Indefinite Integral (5)
         Definite Integral (5)
         Riemann Sum of Function/Table (1)
@@ -66,14 +72,21 @@
         Euclidean Algorithm (2)
 
     Lin Alg
-        Basic Matrix Operations (2)
-        Row Reducing w/ Gauss Jordan (2)
+        Basic Matrix Operations (5)  -> not difficult, but task is daunting
+            Matrix Multiplcation
+            Matrix Addition/Subtraction
+            Matrix Row Operations
+            Matrix Multiplcatoin Const
+            and more
         Matrix Determinant (2)
         Eigen Value/Vector (3)
         Adjoint Matrix (1)
         Cramer's Rule (1)
         LU Decomposition (3)
         Matrix Inverse (2)
+        Column space (1)
+        Matrix Diagonalization (1)
+
 
     Cryptography
         Classical
@@ -86,3 +99,5 @@
         Discrete Logarithm Problem
             Pohlig-Hellman (2)
             Baby step-Giant step (2)
+
+TEST
