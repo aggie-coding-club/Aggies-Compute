@@ -146,6 +146,36 @@ export function inverseMod(a: number, modulo: number): number {
   while (c % a !== 0){
     c += modulo;
   }
-
+  
   return c / a;
+}
+
+/**
+ * Returns the prime factors of a number, p
+ *
+ * @param p (a number)
+ * @returns (Array<bigint>)
+ */
+function primeFactors(p: bigint): Array<bigint> {
+
+  if (p < 2){
+    throw Error("p must be larger than 2")
+  }
+
+  let factors: Array<bigint> = [];
+  let div: bigint = BigInt(2);
+
+  while (p >= 2) {
+
+    if (p % div === BigInt(0)) {
+      factors.push(div);
+      p = p / div;
+    }
+
+    else{
+      div++;
+    }
+  }
+
+  return factors;
 }
