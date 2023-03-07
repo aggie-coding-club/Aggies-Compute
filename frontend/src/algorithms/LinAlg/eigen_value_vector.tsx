@@ -1,5 +1,6 @@
 import 'mathjs';
 var math = require('mathjs');
+const nerdamer = require('nerdamer/all.min');
 
 export function eigen_value_vector() {
   //   const parser = math.parser();
@@ -20,4 +21,7 @@ export function eigen_value_vector() {
     ')'
   );
   console.log(eqn5);
+
+  var sol = nerdamer.solve(eqn5, 'y');
+  console.log(sol.text());
 }
