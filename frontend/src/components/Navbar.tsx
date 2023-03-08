@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import DropDown from '../components/Dropdown';
 import '../styles.css';
@@ -7,9 +6,7 @@ import '../styles.css';
 export default function Navbar() {
   return (
     <nav className="flex items-center p-3 justify-between w-full h-50 bg-[#27476e]">
-      <NavLink
-        to="/"
-      >
+      <NavLink to="/">
         <img
           src={require('../images/ac-logo.png')}
           className="h-[35px] object-contain object-center pl-2"
@@ -41,10 +38,12 @@ export default function Navbar() {
         />
       </NavLink>
 
-      <NavLink
-        to="/"
-      >
-        <input type="text" placeholder="Search Aggies Compute" style={{borderRadius: '10px'}}></input>
+      <NavLink to="/">
+        <input
+          type="text"
+          placeholder="Search Aggies Compute"
+          style={{ borderRadius: '10px' }}
+        ></input>
       </NavLink>
 
       {/* <NavLink to="/profile">

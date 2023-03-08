@@ -1,80 +1,39 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Sidebar_Linalg from '../../components/Sidebar_LinAlg';
 
-var math = require('mathjs');
 export default function RREF_REF() {
   return (
-    <div className="flex mx-10 my-6 rounded">
-      <div className="flex flex-col h-screen bg-[#D4D4D4] shadow-xl w-50">
-        <div className="space-y-3">
-          <div className="flex items-center justify-center">
-            <h2 className="text-xl font-bold bg-[#AEECEF] flex items-center justify-center w-full p-3 mb-5">
-              Linear Algebra
-            </h2>
-          </div>
-
-          {/* Temp. Search Bar Need to implement functionality */}
-          <div className="relative mx-5">
-            <span className="absolute inset-y-0 left-0 flex items-center py-4">
-              <button
-                type="submit"
-                className="p-2 focus:outline-none focus:ring"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-6 h-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
-              </button>
-            </span>
-            <input
-              type="search"
-              className="w-full py-2 pl-10 text-sm rounded-md focus:outline-none"
-            />
-          </div>
-
-          {/* Temp. SubBar - Will implement using mapping function for more dynamic use */}
-          <div className="flex-1">
-            <ul className="pt-2 pb-4 space-y-1 text-sm px-5">
-              <li className="flex flex-col items-center justify-center">
-                <NavLink to="/" className="font-bold text-base">
-                  Matrix Inverse
-                </NavLink>
-                <hr className="w-[40%] h-0.5 rounded my-2 dark:bg-gray-700"></hr>
-              </li>
-
-              <li className="flex flex-col items-center justify-center">
-                <NavLink to="/" className="font-bold text-base">
-                  Euclidean Algorithm
-                </NavLink>
-                <hr className="w-[40%] h-0.5 rounded my-2 dark:bg-gray-700"></hr>
-              </li>
-
-              <li className="flex flex-col items-center justify-center">
-                <NavLink to="/" className="font-bold text-base">
-                  Matrix Operations
-                </NavLink>
-                <hr className="w-[40%] h-0.5 rounded my-2 dark:bg-gray-700"></hr>
-              </li>
-
-              <li className="flex flex-col items-center justify-center">
-                <NavLink to="/" className="w-[70%] font-bold text-base">
-                  <p className="break-words">Chinese Remainder Theorem</p>
-                </NavLink>
-                <hr className="w-[40%] h-0.5 rounded my-2 dark:bg-gray-700"></hr>
-              </li>
-            </ul>
-          </div>
+    <div className="flex">
+      <Sidebar_Linalg />
+      <div className="flex flex-col w-[60%] mt-20">
+        {/* Title */}
+        <div className="flex items-center justify-center">
+          <p className="text-xl font-bold">Reduced Row Echelon Form</p>
         </div>
+        {/* Description */}
+        <div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
+            quidem cumque commodi sit totam accusamus temporibus officia,
+            reiciendis dolorum tempore libero error porro voluptatum eius.
+            Reiciendis, impedit consectetur! Dolore animi impedit vero dolor!
+            Quaerat aliquam, consectetur unde, dolorem dolores repudiandae a qui
+            accusantium optio facere exercitationem fuga aut rem possimus odit
+            autem vel quos reprehenderit nam officia eaque doloremque. Ducimus
+            possimus molestiae quae reiciendis numquam inventore, aliquam, quasi
+            totam culpa similique, delectus modi sequi? Et odio at corporis, qui
+            animi optio voluptatibus vitae quia tenetur quis aspernatur iusto
+            alias! Deleniti accusantium optio dignissimos sit, excepturi ea
+            itaque nemo ut omnis.
+          </p>
+        </div>
+        {/* Inputs */}
+        {/* Solutions */}
+        {/* Steps */}
+      </div>
+      <div className="flex bg-[#DEDEDE] w-[20%] m-16 items-center justify-center">
+        <h1 className="text-xl font-bold"> Right Side</h1>
       </div>
     </div>
   );
