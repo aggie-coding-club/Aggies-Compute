@@ -1,22 +1,18 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-
+import DropDown from '../components/Dropdown';
 import '../styles.css';
 
 export default function Navbar() {
   return (
-    <nav className="flex items-center justify-center w-full h-50 bg-[#27476e]">
+    <nav className="flex items-center p-3 justify-between w-full h-50 bg-[#27476e]">
       <NavLink
         to="/"
-        // style={({ isActive }) => ({
-        //   color: isActive ? '#fff' : '#fff',
-        //   textDecoration: 'none'
-        // })}
       >
         <img
           src={require('../images/ac-logo.png')}
-          className="h-[30px] w-[30px] object-contain object-center"
+          className="h-[35px] object-contain object-center pl-2"
           alt="AC Logo"
         />
       </NavLink>
@@ -45,13 +41,26 @@ export default function Navbar() {
         />
       </NavLink>
 
-      <NavLink to="/profile">
+      <NavLink
+        to="/"
+      >
+        <input type="text" placeholder="Search Aggies Compute" style={{borderRadius: '10px'}}></input>
+      </NavLink>
+
+      {/* <NavLink to="/profile">
         <img
           src={require('../images/profile-icon.png')}
           className="h-[30px] w-[30px] object-contain object-center"
           alt="Temp Profile Icon"
         />
-      </NavLink>
+      </NavLink> */}
+      <DropDown>
+        <img
+          src={require('../images/profile-icon.png')}
+          className="h-[30px] w-[30px] object-contain object-center"
+          alt="Temp Profile Icon"
+        />
+      </DropDown>
     </nav>
   );
 }
