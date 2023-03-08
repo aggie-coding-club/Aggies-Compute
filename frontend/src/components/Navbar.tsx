@@ -7,11 +7,13 @@ import '../styles.css';
 export default function Navbar() {
   return (
     <nav className="flex items-center p-3 justify-between w-full h-50 bg-[#27476e]">
+    <nav className="flex items-center p-3 justify-between w-full h-50 bg-[#27476e]">
       <NavLink
         to="/"
       >
         <img
           src={require('../images/ac-logo.png')}
+          className="h-[35px] object-contain object-center pl-2"
           className="h-[35px] object-contain object-center pl-2"
           alt="AC Logo"
         />
@@ -39,6 +41,12 @@ export default function Navbar() {
           className="h-[30px] w-[30px] object-contain object-center"
           alt="Education Logo"
         />
+      </NavLink>
+
+      <NavLink
+        to="/"
+      >
+        <input type="text" placeholder="Search Aggies Compute" style={{borderRadius: '10px'}}></input>
       </NavLink>
 
       <NavLink
