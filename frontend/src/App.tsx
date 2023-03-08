@@ -2,8 +2,10 @@ import React from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { Routes, Route } from 'react-router-dom';
 
+
 import Navbar from './components/Navbar';
 import Landing from './pages/Landing';
+
 
 // Algebra Imports
 import AlgebraLanding from './pages/Algebra/AlgebraLanding';
