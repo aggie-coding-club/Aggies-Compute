@@ -17,7 +17,7 @@ import CryptoLanding from './pages/Crypto/CryptoLanding';
 // LinAlg Imports
 import LinAlgLanding from './pages/LinAlg/LinAlgLanding';
 import RREF_REF from './pages/LinAlg/RREF_REF';
-import inverse_matrix from './pages/LinAlg/InverseMatrix';
+import InverseMatrix from './pages/LinAlg/InverseMatrix';
 
 // Features Imports
 import AC_Bot from './pages/Features/AC_Bot';
@@ -25,7 +25,6 @@ import Calculator from './pages/Features/Calculator';
 import PhotoMathClone from './pages/Features/PhotoMathClone';
 import Profile from './pages/Profile';
 import Education from './pages/Features/Education';
-import InverseMatrix from './pages/LinAlg/InverseMatrix';
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000',

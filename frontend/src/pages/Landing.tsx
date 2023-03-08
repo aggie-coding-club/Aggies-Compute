@@ -1,7 +1,6 @@
 import React from 'react';
 import { gauss_elimination } from '../algorithms/LinAlg/rref';
 import 'mathjs';
-import NavBar from '../components/Navbar';
 var math = require('mathjs');
 export default function Landing() {
 
