@@ -1,13 +1,19 @@
 import React from 'react';
 import { gauss_elimination } from '../algorithms/LinAlg/rref';
+import { NavLink } from 'react-router-dom';
+
 import 'mathjs';
 import NavBar from '../components/Navbar';
 var math = require('mathjs');
 export default function Landing() {
-
   return (
     <div className="">
-      <h1 className="underline text-red-600">landing page</h1>
+      <ul className="flex flex-col">
+        <NavLink to="/algebra">Algebra Pages</NavLink>
+        <NavLink to="/calculus">Calculus Pages</NavLink>
+        <NavLink to="/crypto">Crypto Pages</NavLink>
+        <NavLink to="/linalg">Linear Algebra Pages</NavLink>
+      </ul>
     </div>
   );
 }
