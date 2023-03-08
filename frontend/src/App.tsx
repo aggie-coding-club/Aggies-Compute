@@ -7,6 +7,7 @@ import Landing from './pages/Landing';
 
 // Algebra Imports
 import AlgebraLanding from './pages/Algebra/AlgebraLanding';
+import Add_sub_mult from './pages/Algebra/Add_sub_mult';
 
 // Calculus Imports
 import CalculusLanding from './pages/Calculus/CalculusLanding';
@@ -40,6 +41,7 @@ function App() {
 
         {/* Algebra Routes */}
         <Route path="/algebra" element={<AlgebraLanding />} />
+        <Route path="/algebra/add-sub-mult" element={<Add_sub_mult />} />
 
         {/* Calculus Routes */}
         <Route path="/calculus" element={<CalculusLanding />} />
