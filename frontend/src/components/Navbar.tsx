@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-
+import DropDown from '../components/Dropdown';
 import '../styles.css';
 
 export default function Navbar() {
@@ -47,13 +47,20 @@ export default function Navbar() {
         <input type="text" placeholder="Search Aggies Compute" style={{borderRadius: '10px'}}></input>
       </NavLink>
 
-      <NavLink to="/profile">
+      {/* <NavLink to="/profile">
         <img
           src={require('../images/profile-icon.png')}
           className="h-[30px] w-[30px] object-contain object-center"
           alt="Temp Profile Icon"
         />
-      </NavLink>
+      </NavLink> */}
+      <DropDown>
+        <img
+          src={require('../images/profile-icon.png')}
+          className="h-[30px] w-[30px] object-contain object-center"
+          alt="Temp Profile Icon"
+        />
+      </DropDown>
     </nav>
   );
 }
