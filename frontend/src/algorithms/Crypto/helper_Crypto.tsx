@@ -246,7 +246,6 @@ export function isPrimRoot(a: bigint, p: bigint): boolean {
  * @param b an integer
  * @returns an array of great common denominator of a and b , coefficient of a (x), coefficient of b (y)
  */
-
 export function extended_euclidean_algorithm(a: number, b: number): number[] {
   // Check that a and b are decimal
   if (Math.floor(a) !== a || Math.floor(b) !== b) {
