@@ -156,7 +156,7 @@ export function inverseMod(a: number, modulo: number): number {
  * @param p (a number)
  * @returns (Array<bigint>)
  */
-function primeFactors(p: bigint): Array<bigint> {
+export function primeFactors(p: bigint): Array<bigint> {
 
   if (p < 2){
     throw Error("p must be larger than 2")
@@ -179,3 +179,23 @@ function primeFactors(p: bigint): Array<bigint> {
 
   return factors;
 }
+
+
+/**
+ * Returns true or false whether or not a number is prime
+ *
+ * @param p (a number)
+ * @returns (Array<bigint>)
+ */
+export function isPrime(p: bigint): boolean {
+  if (primeFactors(p).length === 1) {
+    return true;
+  }
+
+  else{
+    return false;
+  }
+}
+
+
+
