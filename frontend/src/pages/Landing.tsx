@@ -1,14 +1,34 @@
 import React from 'react';
-import { gauss_elimination } from '../algorithms/LinAlg/rref';
-import { eigen_value_vector } from '../algorithms/LinAlg/eigen_value_vector';
-import 'mathjs';
-import NavBar from '../components/Navbar';
-var math = require('mathjs');
+import { NavLink } from 'react-router-dom';
 export default function Landing() {
-  console.log(eigen_value_vector());
   return (
     <div className="">
-      <h1 className="underline text-red-600">landing page</h1>
+      <ul className="flex flex-col items-center justify-center m-[5%]">
+        <NavLink
+          to="/algebra"
+          className="bg-[#27476e] text-white p-[1%] my-[1%] rounded-md"
+        >
+          Algebra Pages
+        </NavLink>
+        <NavLink
+          to="/calculus"
+          className="bg-[#27476e] text-white p-[1%] my-[1%] rounded-md"
+        >
+          Calculus Pages
+        </NavLink>
+        <NavLink
+          to="/crypto"
+          className="bg-[#27476e] text-white p-[1%] my-[1%] rounded-md"
+        >
+          Crypto Pages
+        </NavLink>
+        <NavLink
+          to="/linalg"
+          className="bg-[#27476e] text-white p-[1%] my-[1%] rounded-md"
+        >
+          Linear Algebra Pages
+        </NavLink>
+      </ul>
     </div>
   );
 }
