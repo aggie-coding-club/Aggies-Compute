@@ -49,12 +49,15 @@ export default function Navbar() {
         <input type="text" placeholder="Search Aggies Compute" style={{borderRadius: '10px'}}></input>
       </NavLink>
 
+<<<<<<< HEAD
       <NavLink
         to="/"
       >
         <input type="text" placeholder="Search Aggies Compute" style={{borderRadius: '10px'}}></input>
       </NavLink>
 
+=======
+>>>>>>> a8e2fa73 (added profile dropdown)
       {/* <NavLink to="/profile">
         <img
           src={require('../images/profile-icon.png')}
