@@ -1,5 +1,4 @@
 import React from 'react';
-import { gauss_elimination } from '../algorithms/LinAlg/rref';
 import { NavLink } from 'react-router-dom';
 export default function Landing() {
   return (

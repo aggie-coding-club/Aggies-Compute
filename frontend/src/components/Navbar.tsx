@@ -10,6 +10,7 @@ export default function Navbar() {
         <img
           src={require('../images/ac-logo.png')}
           className="h-[35px] object-contain object-center pl-2"
+          className="h-[35px] object-contain object-center pl-2"
           alt="AC Logo"
         />
       </NavLink>
