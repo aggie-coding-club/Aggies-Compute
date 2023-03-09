@@ -1,4 +1,4 @@
-import { getJSDocDeprecatedTag } from "typescript";
+import { getJSDocDeprecatedTag } from 'typescript';
 
 export function char_map(x: string): Map<string, string> {
   // Checks if string is empty
@@ -66,31 +66,30 @@ export function inverse_char_map(x: string): Map<string, string> {
  * @returns (string)
  */
 export function num_to_key(num: number, len: number): string {
-
   // Checks if they're whole numbers
-  if (Math.floor(num) !== num || Math.floor(len) !== len){
-    throw Error("Either num or len cannot be a decimal number");
+  if (Math.floor(num) !== num || Math.floor(len) !== len) {
+    throw Error('Either num or len cannot be a decimal number');
   }
 
   // Checks if num is negative
-  if (num < 0){
-    throw Error("num cannot be negative");
+  if (num < 0) {
+    throw Error('num cannot be negative');
   }
 
   // Checks if len <= 1
-  if (len <= 0){
-    throw Error("len cannot be less than one");
+  if (len <= 0) {
+    throw Error('len cannot be less than one');
   }
 
   let s: string = num.toString();
 
   // Checks if number has a larger length than len
-  if (s.length > len){
-    throw Error("number cannot have a larger length than len");
+  if (s.length > len) {
+    throw Error('number cannot have a larger length than len');
   }
 
   // Appends leading zeroes
-  while (s.length < len){
+  while (s.length < len) {
     s = '0' + s;
   }
 
@@ -106,22 +105,20 @@ export function num_to_key(num: number, len: number): string {
  */
 export function GCD(a: number, b: number): number {
   // Check that a and b are decimal
-  if (Math.floor(a) !== a || Math.floor(b) !== b){
-    throw Error("a and b have to both be integers");
+  if (Math.floor(a) !== a || Math.floor(b) !== b) {
+    throw Error('a and b have to both be integers');
   }
 
   // Check that a and b are positive
-  if (a <= 0 || b <= 0){
-    throw Error("a and b have to both be positive");
+  if (a <= 0 || b <= 0) {
+    throw Error('a and b have to both be positive');
   }
 
   let r: number = a % b;
 
-  if (r === 0){
+  if (r === 0) {
     return b;
-  }
-
-  else{
+  } else {
     return GCD(b, r);
   }
 }
@@ -134,16 +131,15 @@ export function GCD(a: number, b: number): number {
  * @returns (integer)
  */
 export function inverseMod(a: number, modulo: number): number {
-
   // Check if their GCD is 1
-  if (GCD(a, modulo) !== 1){
-    throw Error("gcd(a, modulo) must be equal to 1");
+  if (GCD(a, modulo) !== 1) {
+    throw Error('gcd(a, modulo) must be equal to 1');
   }
 
   let c: number = 1;
 
   // Checks if divisible by a
-  while (c % a !== 0){
+  while (c % a !== 0) {
     c += modulo;
   }
   
@@ -198,9 +194,6 @@ export function isPrime(p: bigint): boolean {
 }
 
 
-
-
-
 /**
  * Returns true or false whether or not a number is a primitive root mod p
  *
@@ -238,10 +231,86 @@ export function isPrimRoot(a: bigint, p: bigint): boolean {
     }
   }
 
-  
-
-  
-
-
   return true;
+}
+ /*
+ * Euclidean Algorithm to calculate the greatest common denominator between two integers
+ * 1. Check if a and b are integers
+ * 2. Check if a and b are positive
+ * 3. Check if a % b = 0
+ * 4. Compute remainder and qoutient
+ * 5. recursively call function with b and r
+ *
+ * Given an equation in the form of ax + by = gcd(a, b)
+ * @param a an integer
+ * @param b an integer
+ * @returns an array of great common denominator of a and b , coefficient of a (x), coefficient of b (y)
+ */
+
+export function extended_euclidean_algorithm(a: number, b: number): number[] {
+  // Check that a and b are decimal
+  if (Math.floor(a) !== a || Math.floor(b) !== b) {
+    throw Error('inputs must be integers');
+  }
+
+  // Check that a and b are positive
+  if (a <= 0 || b <= 0) {
+    throw Error('inputs must be positive');
+  }
+
+  let r: number = a % b;
+  let q: number = (a - r) / b;
+
+  if (r === 0) {
+    return [b, 0, 1];
+  } else {
+    let arr: number[] = extended_euclidean_algorithm(b, r);
+    let gcd: number = arr[0];
+    let coeff_b: number = arr[1];
+    let coeff_a: number = arr[2];
+
+    return [gcd, coeff_a, coeff_b - q * coeff_a];
+  }
+}
+
+/**
+ * Sussesive Squaring Algorithm to calculate the modular exponentiation of a number
+ * Given an equation in the form of base^expo mod modulus
+ * @param base an integer
+ * @param expo an integer
+ * @param modulus an integer
+ * @returns the value of x^y mod m
+ */
+export function sussesive_squaring_mod(
+  base: number,
+  expo: number,
+  modulus: number
+): number {
+  if (
+    Math.floor(base) !== base ||
+    Math.floor(expo) !== expo ||
+    Math.floor(modulus) !== modulus
+  ) {
+    throw Error('inputs must be integers');
+  }
+
+  let power: number = 1;
+  let power_base: number = base;
+  let power_bases: number[][] = [[power, base]];
+
+  while (power < expo) {
+    power *= 2;
+    power_base = (power_base * power_base) % modulus;
+    power_bases.push([power_base, power]);
+  }
+
+  let result: number = 1;
+  let current_power: number = 0;
+  for (var i = power_bases.length - 1; i >= 0; i--) {
+    if (current_power + power_bases[i][1] <= expo) {
+      current_power += power_bases[i][1];
+      result = (result * power_bases[i][0]) % modulus;
+    }
+  }
+  return result;
 }
