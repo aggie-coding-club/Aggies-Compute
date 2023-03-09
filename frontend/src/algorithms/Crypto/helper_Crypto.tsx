@@ -185,7 +185,7 @@ export function primeFactors(p: bigint): Array<bigint> {
  * Returns true or false whether or not a number is prime
  *
  * @param p (a number)
- * @returns (Array<bigint>)
+ * @returns (boolean)
  */
 export function isPrime(p: bigint): boolean {
   if (primeFactors(p).length === 1) {
@@ -199,3 +199,49 @@ export function isPrime(p: bigint): boolean {
 
 
 
+
+
+/**
+ * Returns true or false whether or not a number is a primitive root mod p
+ *
+ * @param a (checked value for primitive root)
+ * @param p (modulus)
+ * @returns (boolean)
+ */
+export function isPrimRoot(a: bigint, p: bigint): boolean {
+
+  // Check p is a prime
+  if (!isPrime(p)){
+    throw Error("p has to be a prime")
+  }
+
+  // Check if a is positive
+  if (a < BigInt(2)){
+    throw Error("a has to be greater than or equal to 2")
+  }
+
+  // Creates hashmap for used bigints
+  let hashmap = new Map<bigint, bigint>();
+
+  // Brute force algo, stores values in hashmaps and checks for duplicates
+  for (let i: bigint = BigInt(0); i < p - BigInt(1); i++){
+
+    let num: bigint = BigInt(5);
+    // (a**i) % p;
+
+    if (hashmap.has(num)){
+      return false;
+    }
+
+    else{
+      hashmap.set(num, num);
+    }
+  }
+
+  
+
+  
+
+
+  return true;
+}
