@@ -1,7 +1,16 @@
 import React from 'react';
 import { gauss_elimination } from '../algorithms/LinAlg/rref';
+<<<<<<< HEAD
 import { NavLink } from 'react-router-dom';
 export default function Landing() {
+=======
+import { eigen_value_vector } from '../algorithms/LinAlg/eigen_value_vector';
+import 'mathjs';
+import NavBar from '../components/Navbar';
+var math = require('mathjs');
+export default function Landing() {
+  console.log(eigen_value_vector());
+>>>>>>> 009fffd8 (started eigen-value-vector, added algebrite dependency)
   return (
     <div className="">
       <ul className="flex flex-col items-center justify-center m-[5%]">
