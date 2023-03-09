@@ -64,17 +64,19 @@ export function affineCipher_Encrypt(m: string, a: number, b: number, alphabet: 
             result = result + " ";
         }
 
-        let sNum: string | undefined = let_to_num.get(letter);
+        else
+        {
+            let sNum: string | undefined = let_to_num.get(letter);
+            if (sNum === undefined){
+                throw Error("Character in m is not found in the alphabet");
+            }
 
-        if (sNum === undefined){
-            throw Error("Character in m is not found in the alphabet");
+            let iNum: number = +(sNum ?? '');
+            iNum = ((a * iNum) + b) % modulo;
+            sNum = num_to_key(iNum, (sNum ?? '').length);
+            let c: string | undefined = num_to_let.get(sNum);
+            result = result + c;
         }
-
-        let iNum: number = +(sNum ?? '');
-        iNum = ((a * iNum) + b) % modulo;
-        sNum = num_to_key(iNum, (sNum ?? '').length);
-        let c: string | undefined = num_to_let.get(sNum);
-        result = result + c;
 
     }
 
@@ -135,6 +137,7 @@ export function affineCipher_Decrypt(m: string, a: number, b: number, alphabet: 
         // Skips spaces
         if (letter === " "){
             result = result + " ";
+            continue;
         }
 
         let sNum: string | undefined = let_to_num.get(letter);
@@ -142,17 +145,19 @@ export function affineCipher_Decrypt(m: string, a: number, b: number, alphabet: 
         if (sNum === undefined){
             throw Error("Character in m is not found in the alphabet");
         }
-
-        let iNum: number = +(sNum ?? '');
-        iNum =  (inverseMod(a, modulo) * ((iNum - b) % modulo)) % modulo;
         
-        if (iNum < 0){
-            iNum = modulo - ((iNum*-1) % modulo);
-        }
+        else {
+            let iNum: number = +(sNum ?? '');
+            iNum =  (inverseMod(a, modulo) * ((iNum - b) % modulo)) % modulo;
+            
+            if (iNum < 0){
+                iNum = modulo - ((iNum*-1) % modulo);
+            }
 
-        sNum = num_to_key(iNum, (sNum ?? '').length);
-        let c: string | undefined = num_to_let.get(sNum);
-        result = result + c;
+            sNum = num_to_key(iNum, (sNum ?? '').length);
+            let c: string | undefined = num_to_let.get(sNum);
+            result = result + c;
+        }
 
     }
 
