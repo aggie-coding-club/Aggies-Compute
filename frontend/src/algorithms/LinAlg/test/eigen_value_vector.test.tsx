@@ -1,4 +1,4 @@
-import { eigen_value_vector } from '../eigen_value_vector';
+  import { eigen_value_vector } from '../eigen_value_vector';
 import 'mathjs';
 
 var math = require('mathjs');
