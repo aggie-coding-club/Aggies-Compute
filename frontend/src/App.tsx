@@ -10,6 +10,7 @@ import AlgebraLanding from './pages/Algebra/AlgebraLanding';
 
 // Calculus Imports
 import CalculusLanding from './pages/Calculus/CalculusLanding';
+import SimpleDerivative from './pages/Calculus/SimpleDerivative';
 
 // Crypto Imports
 import CryptoLanding from './pages/Crypto/CryptoLanding';
@@ -43,6 +44,7 @@ function App() {
 
         {/* Calculus Routes */}
         <Route path="/calculus" element={<CalculusLanding />} />
+        <Route path="/calculus/simple_derivative" element={<SimpleDerivative />} />
 
         {/* Crpyto Routes */}
         <Route path="/crypto" element={<CryptoLanding />} />
