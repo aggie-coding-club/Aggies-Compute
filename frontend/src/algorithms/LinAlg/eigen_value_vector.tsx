@@ -11,10 +11,7 @@ export function eigen_value_vector() {
   console.log(eqn2.toString());
   console.log(eqn3.toString());
   let mult = new String(' * ');
-  let eqn5 = ''.concat(
-    '(',
-    eqn2.toString(),
-    ')',
+  let eqn5 = ''.concat('(',eqn2.toString(),')',
     mult.toString(),
     '(',
     eqn3.toString(),
