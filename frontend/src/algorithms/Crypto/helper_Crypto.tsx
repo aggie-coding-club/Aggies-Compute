@@ -118,8 +118,24 @@ export function GCD(a: number, b: number): number {
 
   if (r === 0) {
     return b;
-  } else {
+  } 
+  else {
     return GCD(b, r);
+  }
+}
+export function GCDBigInt(a: bigint, b: bigint): bigint {
+  // Check that a and b are positive
+  if (a <= BigInt(0) || b <= BigInt(0)) {
+    throw Error('a and b have to both be positive');
+  }
+
+  let r: bigint = a % b;
+
+  if (r === BigInt(0)) {
+    return b;
+  } 
+  else {
+    return GCDBigInt(b, r);
   }
 }
 
@@ -159,7 +175,6 @@ export function inverseMod(a: number, modulo: number): number {
  * @param b an integer
  * @returns an array of great common denominator of a and b , coefficient of a (x), coefficient of b (y)
  */
-
 export function extended_euclidean_algorithm(a: number, b: number): number[] {
   // Check that a and b are decimal
   if (Math.floor(a) !== a || Math.floor(b) !== b) {
@@ -226,4 +241,88 @@ export function sussesive_squaring_mod(
     }
   }
   return result;
+}
+
+
+/**
+ * Prime factorization of number
+ * 
+ * @param p (bigint)
+ * @returns (array of prime factors)
+ */
+export function primeFactors(p: bigint): Array<bigint> {
+  if (p < 2) {
+    throw Error("p must be bigger than 2");
+  }
+
+  let factors: Array<bigint> = [];
+  let div: bigint = BigInt(2);
+
+  while (p >= 2) {
+    if (p % div === BigInt(0)) {
+      factors.push(div);
+      p = p / div;
+    } 
+    else {
+      div++;
+    }
+  }
+  return factors;
+}
+
+/**
+ * Checks if p is prime
+ * 
+ * @param p (bigint)
+ * @returns (boolean)
+ */
+export function isPrime(p: bigint): boolean {
+  if (primeFactors(p).length === 1) {
+    return true;
+  }
+
+  else {
+    return false;
+  }
+
+}
+
+/**
+ * Checks if input parameter "a", is a primitive root mod p
+ * @param a (tested primitive root)
+ * @param p (bigint)
+ * @returns (boolean)
+ */
+export function isPrimRoot(a: bigint, p: bigint): boolean {
+
+  // Check if p is prime
+  if (!isPrime(p)){
+    throw Error("p must be prime");
+  }
+
+  // Check a > 1
+  if (a < 2){
+    throw Error("a must be greater than 2");
+  }
+
+  // Check GCD = 1
+  if (GCDBigInt(a, p) !== BigInt(1)){
+    throw Error("GCD(a,p) must be 1")
+  }
+
+  // Generates elements mod p and returns false if number is repeated
+  let hashmap = new Map<bigint, bigint>();
+  for (let i: bigint = BigInt(0); i < p - BigInt(1); i++) {
+    let num: bigint = (a**i) % p;
+
+    if (hashmap.has(num)) {
+      return false;
+    }
+
+    else {
+      hashmap.set(num, num);
+    }
+  }
+
+  return true;
 }
