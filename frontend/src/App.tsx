@@ -3,7 +3,6 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { Routes, Route } from 'react-router-dom';
 
 // Components Imports
-import Navbar from './components/Navbar';
 import Landing from './pages/Landing';
 import AlgorithmsLanding from './pages/AlgorithmsLanding';
 
@@ -21,7 +20,7 @@ import LinAlgLanding from './pages/LinAlg/LinAlgLanding';
 import RREF_REF from './pages/LinAlg/RREF_REF';
 
 // Features Imports
-import AC_Bot from './pages/Features/AC_Bot';
+import ACBot from './pages/Features/ACBot';
 import Calculator from './pages/Features/Calculator';
 import PhotoMathClone from './pages/Features/PhotoMathClone';
 import Profile from './pages/Profile';
@@ -54,7 +53,7 @@ function App() {
         <Route path="/linalg/rref_ref" element={<RREF_REF />} />
 
         {/* Features */}
-        <Route path="/ac_bot" element={<AC_Bot />} />
+        <Route path="/acbot" element={<ACBot />} />
         <Route path="/calculator" element={<Calculator />} />
         <Route path="/photomathclone" element={<PhotoMathClone />} />
         <Route path="/profile" element={<Profile />} />

@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-export default function Sidebar_Linalg() {
+export default function SidebarLinalg() {
   // THIS IS A TEMPERARY SIDE BAR MUST REFRACTOR TO BE MORE DYNAMIC
   return (
     <div className="flex ml-20 mr-10 my-8 rounded">

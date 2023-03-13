@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
 import DropDown from '../components/Dropdown';
 import '../styles.css';
@@ -8,22 +8,13 @@ export default function Navbar({
 }: {
   isLanding: boolean;
 }): ReactElement {
-  var numLabel: number = 4;
-  const [isLabelHover, setLabelHover] = useState<boolean[]>([]);
-
-  useEffect(() => {
-    if (isLabelHover.length > 0) return;
-    for (let i = 0; i < numLabel; ++i) {
-      setLabelHover((prevLabelHover) => [...prevLabelHover, false]);
+  if (isLanding) {
+    var d = document.getElementById('nav-landing-page');
+    if (d != null) {
+      d.setAttribute('class', d.className.replace('hidden', 'visible'));
     }
-    if (isLanding) {
-      var d = document.getElementById('nav-landing-page');
-      if (d != null) {
-        d.setAttribute('class', d.className.replace('hidden', 'visible'));
-      }
-      console.log(d);
-    }
-  }, []);
+    console.log(d);
+  }
 
   function labelHovered(event: any, id: string) {
     var d = document.getElementById(id + '-hover-text');

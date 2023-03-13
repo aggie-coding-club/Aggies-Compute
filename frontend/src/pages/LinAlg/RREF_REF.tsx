@@ -1,11 +1,10 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import Sidebar_Linalg from '../../components/Sidebar_LinAlg';
+import SidebarLinalg from '../../components/SidebarLinAlg';
 
 export default function RREF_REF() {
   return (
     <div className="flex">
-      <Sidebar_Linalg />
+      <SidebarLinalg />
       <div className="flex flex-col w-[60%] mt-20">
         {/* Title */}
         <div className="flex items-center justify-center">
