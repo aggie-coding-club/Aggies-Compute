@@ -7,27 +7,48 @@ export default function Navbar() {
   var numLabel: number = 4;
   const [isLabelHover, setLabelHover] = useState<boolean[]>([]);
 
-  for (let i = 0; i < numLabel; ++i) {
-    setLabelHover((prevLabelHover) => [...prevLabelHover, false]);
-  }
-
+  useEffect(() => {
+    if (isLabelHover.length > 0) return;
+    for (let i = 0; i < numLabel; ++i) {
+      setLabelHover((prevLabelHover) => [...prevLabelHover, false]);
+    }
+  }, []);
   console.log(isLabelHover);
+
+  function labelHovered(event: any, id: string) {
+    var d = document.getElementById(id + '-hover-text');
+    if (d != null) {
+      d.setAttribute('class', d.className.replace('invisible', 'visible'));
+    }
+  }
+  function labelUnhovered(event: any, id: string) {
+    var d = document.getElementById(id + '-hover-text');
+    if (d != null) {
+      d.setAttribute('class', d.className.replace('visible', 'invisible'));
+    }
+  }
 
   return (
     <nav className="relative p-3 h-50 flex justify-between items-center bg-[#27476e]">
-      <NavLink to="/">
-        <img
-          src={require('../images/ac-logo.png')}
-          className="h-[35px] object-contain object-center pl-2"
-          alt="AC Logo"
-        />
-      </NavLink>
-
-      <ul className="absolute top-1/2 left-1/4 transform -translate-y-1/2 -translate-x-[90%] flex mx-auto flex items-center w-auto space-x-10">
+      {/* Left Conent */}
+      <ul className="flex mr-auto flex items-center w-auto space-x-10">
         <li>
-          <NavLink className="" to="/calculator">
+          <NavLink to="/">
+            <img
+              src={require('../images/ac-logo.png')}
+              className="h-[35px] object-contain object-center pl-2"
+              alt="AC Logo"
+            />
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink className="" to="/algorithms">
             <svg
               className="h-[40px] w-[40px] object-contain object-center hover:opacity-30"
+              id="algorithms"
+              onMouseOver={(event) => labelHovered(event, 'algorithms')}
+              onMouseOut={(event) => labelUnhovered(event, 'algorithms')}
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +60,10 @@ export default function Navbar() {
               {/* prettier-ignore */}
               <g id="SVGRepo_iconCarrier"> <path opacity="0.1" d="M5 7C5 5.11438 5 4.17157 5.58579 3.58579C6.17157 3 7.11438 3 9 3H12H15C16.8856 3 17.8284 3 18.4142 3.58579C19 4.17157 19 5.11438 19 7V12V17C19 18.8856 19 19.8284 18.4142 20.4142C17.8284 21 16.8856 21 15 21H12H9C7.11438 21 6.17157 21 5.58579 20.4142C5 19.8284 5 18.8856 5 17V12V7Z" fill="#FFF"/> <path d="M9 7H15" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M15 17V14" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M15 11H15.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M12 11H12.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M9 11H9.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M9 14H9.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M12 14H12.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M12 17H12.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M9 17H9.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M5 7C5 5.11438 5 4.17157 5.58579 3.58579C6.17157 3 7.11438 3 9 3H12H15C16.8856 3 17.8284 3 18.4142 3.58579C19 4.17157 19 5.11438 19 7V12V17C19 18.8856 19 19.8284 18.4142 20.4142C17.8284 21 16.8856 21 15 21H12H9C7.11438 21 6.17157 21 5.58579 20.4142C5 19.8284 5 18.8856 5 17V12V7Z" stroke="#FFF" stroke-width="2" stroke-linejoin="round"/></g>
             </svg>
-            <div className="absolute z-10 justify-center items-center text-sm text-black font-semibold bg-slate-500  py-2 px-4 rounded bg-opacity-50 translate-y-[3px] -translate-x-[30px]">
+            <div
+              className="invisible absolute z-10 justify-center items-center text-sm text-black font-semibold bg-slate-500  py-2 px-4 rounded bg-opacity-50 translate-y-[3px] -translate-x-[30px]"
+              id="algorithms-hover-text"
+            >
               Algorithms
             </div>
           </NavLink>
@@ -49,6 +73,9 @@ export default function Navbar() {
           <NavLink className="" to="/calculator">
             <svg
               className="h-[40px] w-[40px] object-contain object-center hover:opacity-30"
+              id="calculator"
+              onMouseOver={(event) => labelHovered(event, 'calculator')}
+              onMouseOut={(event) => labelUnhovered(event, 'calculator')}
               fill="#FFFFFF"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +91,10 @@ export default function Navbar() {
               </g>
             </svg>
 
-            <div className="absolute z-10 justify-center items-center text-sm text-black font-semibold bg-slate-500  py-2 px-4 rounded bg-opacity-50 translate-y-[3px] -translate-x-[30px]">
+            <div
+              className="invisible absolute z-10 justify-center items-center text-sm text-black font-semibold bg-slate-500  py-2 px-4 rounded bg-opacity-50 translate-y-[3px] -translate-x-[30px]"
+              id="calculator-hover-text"
+            >
               Calculator
             </div>
           </NavLink>
@@ -74,6 +104,9 @@ export default function Navbar() {
           <NavLink className="" to="/photomathclone">
             <svg
               className="h-[35px] w-[40px] object-contain object-center hover:opacity-30"
+              id="photomathclone"
+              onMouseOver={(event) => labelHovered(event, 'photomathclone')}
+              onMouseOut={(event) => labelUnhovered(event, 'photomathclone')}
               version="1.0"
               xmlns="http://www.w3.org/2000/svg"
               width="512.000000pt"
@@ -107,7 +140,10 @@ export default function Navbar() {
                 <path d="M1800 750 l0 -150 1060 0 1060 0 0 150 0 150 -1060 0 -1060 0 0 -150z" />
               </g>
             </svg>
-            <div className="absolute z-10 justify-center items-center text-sm text-black font-semibold bg-slate-500  py-2 px-4 rounded bg-opacity-50 translate-y-[3px] -translate-x-[30px]">
+            <div
+              className="invisible absolute z-10 justify-center items-center text-sm text-black font-semibold bg-slate-500  py-2 px-4 rounded bg-opacity-50 translate-y-[3px] -translate-x-[30px]"
+              id="photomathclone-hover-text"
+            >
               Math OCR
             </div>
           </NavLink>
@@ -117,6 +153,9 @@ export default function Navbar() {
           <NavLink className="" to="/ac_bot">
             <svg
               className="h-[40px] w-[40px] object-contain object-center hover:opacity-30"
+              id="acbot"
+              onMouseOver={(event) => labelHovered(event, 'acbot')}
+              onMouseOut={(event) => labelUnhovered(event, 'acbot')}
               version="1.0"
               xmlns="http://www.w3.org/2000/svg"
               width="512.000000pt"
@@ -173,13 +212,17 @@ export default function Navbar() {
               </g>
             </svg>
 
-            <div className="absolute z-10 justify-center items-center text-sm text-black font-semibold bg-slate-500  py-2 px-4 rounded bg-opacity-50 translate-y-[3px] -translate-x-[20px]">
+            <div
+              className="invisible absolute z-10 justify-center items-center text-sm text-black font-semibold bg-slate-500  py-2 px-4 rounded bg-opacity-50 translate-y-[3px] -translate-x-[20px]"
+              id="acbot-hover-text"
+            >
               Pratice
             </div>
           </NavLink>
         </li>
       </ul>
 
+      {/* Right Content*/}
       <ul className="absolute top-[100%] left-[100%] transform -translate-y-[120%] -translate-x-[100%] flex mx-auto flex items-center w-auto space-x-6">
         <li>
           <NavLink to="#">
