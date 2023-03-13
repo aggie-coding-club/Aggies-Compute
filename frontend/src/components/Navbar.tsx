@@ -11,10 +11,6 @@ export default function Navbar() {
     setLabelHover((prevLabelHover) => [...prevLabelHover, false]);
   }
 
-  
-
-
-
   console.log(isLabelHover);
 
   return (
