@@ -38,42 +38,57 @@ export default function Landing() {
           >
             <img
               className="rounded-lg h-full w-full object-cover"
-              src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmY5YzU0MjNiOWYyYmM4MWY5OGNkNGU4ZDVmZWRkNDJkZWNkNWEwZSZjdD1n/VbnUQpnihPSIgIXuZv/giphy.gif"
+              src="https://media.giphy.com/media/l2Je3qSgOVvFPdaNi/giphy.gif"
             ></img>
           </NavLink>
           <h1 className="flex items-center justify-center font-bold text-lg mt-5">
             Algebra
           </h1>
         </div>
+        <div className="flex flex-col">
+          <NavLink
+            to="/calculus"
+            className="bg-[#27476e] text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
+          >
+            <img
+              className="rounded-lg h-full w-full object-cover"
+              src="https://media.giphy.com/media/l2YWF00ZX8wOs0p0s/giphy.gif"
+            ></img>
+          </NavLink>
+          <h1 className="flex items-center justify-center font-bold text-lg mt-5">
+            Calculus
+          </h1>
+        </div>
 
-        <NavLink
-          to="/calculus"
-          className="bg-[#27476e] text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
-        >
-          <img
-            className="rounded-lg h-full w-full object-cover"
-            src="https://media.giphy.com/media/l2YWF00ZX8wOs0p0s/giphy.gif"
-          ></img>
-        </NavLink>
-        <NavLink
-          to="/crypto"
-          className="bg-[#27476e] text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
-        >
-          <img
-            className="rounded-lg h-full w-full object-cover"
-            src="https://media.giphy.com/media/xjTIBA4gjvXIQ/giphy.gif"
-          ></img>
-        </NavLink>
+        <div className="flex flex-col">
+          <NavLink
+            to="/crypto"
+            className="bg-[#27476e] text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
+          >
+            <img
+              className="rounded-lg h-full w-full object-cover"
+              src="https://media.giphy.com/media/5xtDarJ7d5HXTRULbSo/giphy.gif"
+            ></img>
+          </NavLink>
+          <h1 className="flex items-center justify-center font-bold text-lg mt-5">
+            Cryptography
+          </h1>
+        </div>
 
-        <NavLink
-          to="/linalg"
-          className="bg-[#27476e] text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
-        >
-          <img
-            className="rounded-lg h-full w-full object-cover"
-            src="https://media.giphy.com/media/OsMRCAQICXU8j8j7LI/giphy.gif"
-          ></img>
-        </NavLink>
+        <div className="flex flex-col">
+          <NavLink
+            to="/linalg"
+            className="bg-[#27476e] text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
+          >
+            <img
+              className="rounded-lg h-full w-full object-cover"
+              src="https://media.giphy.com/media/OsMRCAQICXU8j8j7LI/giphy.gif"
+            ></img>
+          </NavLink>
+          <h1 className="flex items-center justify-center font-bold text-lg mt-5">
+            Linear Algebra
+          </h1>
+        </div>
       </div>
 
       {/* <ul className="flex flex-col items-center justify-center m-[5%]">
