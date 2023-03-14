@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import Navbar from '../components/Navbar';
@@ -6,18 +6,18 @@ import Navbar from '../components/Navbar';
 export default function Landing() {
   return (
     <div className="bg-bg_grey">
-      <div className="sticky top-0 z-50">
-        <Navbar isLanding={false} />
+      <div className="">
+        <Navbar isLanding={true} />
       </div>
 
       {/* landing-page-header */}
-      <div className="flex flex-col w-full h-56 items-center w-full bg-gradient-to-b from-primary_blue-dark to-primary_blue-light-0 via-primary_blue animate-gradient-y ">
-        <h1 className="flex items-center w-full h-1/3 pt-6 justify-center text-6xl font-extrabold  text-primary_blue-light-2">
+      <div className="flex flex-col w-full h-80 items-center w-full bg-gradient-to-b from-primary_blue-dark to-primary_blue-light-0 via-primary_blue animate-gradient-y ">
+        <h1 className="flex items-center w-full h-1/3 pt-32 justify-center text-6xl font-extrabold  text-primary_blue-light-2">
           Aggie <span className="text-primary_blue-light-1">Compute</span>
         </h1>
 
         <h2 className="flex flex-col items-center w-full pt-6 h-2/3 justify-center text-xl font-medium text-white">
-          Empowering Students with Math:
+          Empowering Students with Math,
           <span>
             <span className="text-primary_blue-light-0 font-bold"> Free </span>
             and
@@ -29,12 +29,12 @@ export default function Landing() {
         </h2>
       </div>
 
-      <div className="p-12">
-        <div className="flex flex-col items-center justify-center pb-5">
+      <div className="m-12 pb-12">
+        {/* <div className="flex flex-col items-center justify-center pb-12">
           <h1 className="text-4xl font-bold">Subjects</h1>
-        </div>
+        </div> */}
         {/* later may need to dymaically determine row # */}
-        <div className="grid grid-cols-3 grid-rows-2 grid gap-14 mx-64">
+        <div className="grid grid-cols-3 grid-rows-2 grid gap-14 px-64 pb-12">
           <div className="flex flex-col">
             <NavLink
               to="/algebra"
@@ -141,21 +141,53 @@ export default function Landing() {
             </div>
           </div>
         </div>
+
+        <div className="flex flex-col items-center justify-center pt-36">
+          <h1 className="text-4xl font-bold pb-10">Features</h1>
+          <div className="grid grid-cols-4 grid-rows-2 grid gap-14 px-64 pb-12">
+            <NavLink
+              to="/linalg"
+              className="bg-primary-blue-dark text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
+            >
+              <img
+                className="rounded-lg h-full w-full object-cover"
+                src="https://media.giphy.com/media/eB5WYVSaOT0qUmHOWA/giphy.gif"
+                alt="placeholder animation"
+              ></img>
+            </NavLink>
+            <NavLink
+              to="/linalg"
+              className="bg-primary-blue-dark text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
+            >
+              <img
+                className="rounded-lg h-full w-full object-cover"
+                src="https://media.giphy.com/media/eB5WYVSaOT0qUmHOWA/giphy.gif"
+                alt="placeholder animation"
+              ></img>
+            </NavLink>
+            <NavLink
+              to="/linalg"
+              className="bg-primary-blue-dark text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
+            >
+              <img
+                className="rounded-lg h-full w-full object-cover"
+                src="https://media.giphy.com/media/eB5WYVSaOT0qUmHOWA/giphy.gif"
+                alt="placeholder animation"
+              ></img>
+            </NavLink>
+            <NavLink
+              to="/linalg"
+              className="bg-primary-blue-dark text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
+            >
+              <img
+                className="rounded-lg h-full w-full object-cover"
+                src="https://media.giphy.com/media/eB5WYVSaOT0qUmHOWA/giphy.gif"
+                alt="placeholder animation"
+              ></img>
+            </NavLink>
+          </div>
+        </div>
       </div>
-      {/* <ul className="flex flex-col items-center justify-center m-[5%]">
-        <NavLink to="/algebra" className="bg-primary-blue-dark text-white rounded-md">
-        Algebra Pages
-        </NavLink>
-        <NavLink to="/calculus" className="bg-primary-blue-dark text-white rounded-md">
-        Calculus Pages
-        </NavLink>
-        <NavLink to="/crypto" className="bg-primary-blue-dark text-white  rounded-md">
-          Crypto Pages
-        </NavLink>
-        <NavLink to="/linalg" className="bg-primary-blue-dark text-white  rounded-md">
-          Linear Algebra Pages
-        </NavLink>
-      </ul> */}
     </div>
   );
 }

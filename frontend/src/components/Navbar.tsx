@@ -29,13 +29,36 @@ export default function Navbar({
       d.setAttribute('class', d.className.replace('visible', 'invisible'));
     }
   }
+  window.onscroll = function () {
+    transparentNavBar();
+  };
+  // TODO: fix this, wasting resources
+  function transparentNavBar() {
+    if (!isLanding) return;
+    if (
+      document.body.scrollTop > 40 ||
+      document.documentElement.scrollTop > 40
+    ) {
+      document
+        .getElementById('navbar')
+        ?.setAttribute(
+          'class',
+          'fixed flex flex-col w-full bg-gradient-to-b from-primary_blue-dark to-primary_blue-light-0 via-primary_blue animate-gradient-y divide-y-2 divide-opacity-20 divide-gray-300'
+        );
+    } else {
+      document
+        .getElementById('navbar')
+        ?.setAttribute('class', 'absolute flex flex-col w-full bg-transparent');
+    }
+  }
 
   return (
     <div
       id="navbar"
-      className="bg-gradient-to-b from-primary_blue-dark to-primary_blue-light-0 via-primary_blue animate-gradient-y divide-y-2 divide-opacity-20 divide-gray-300"
+      className="flex flex-col w-full bg-gradient-to-b from-primary_blue-dark to-primary_blue-light-0 via-primary_blue animate-gradient-y divide-y-2 divide-opacity-20 divide-gray-300"
+      // className="fixed bg-transparent divide-y-2 divide-opacity-20 divide-gray-300"
     >
-      <nav className="relative p-4 h-50 flex justify-between items-center ">
+      <nav className="p-4 h-50 flex justify-between items-center ">
         {/* Left Conent */}
         <ul className="flex mr-auto flex items-center w-auto space-x-10">
           <li>
@@ -229,7 +252,7 @@ export default function Navbar({
         </ul>
 
         {/* Right Content*/}
-        <ul className="absolute top-[100%] left-[100%] transform -translate-y-[140%] -translate-x-[100%] flex mx-auto flex items-center w-auto space-x-6">
+        <ul className="flex  items-center w-auto space-x-6 ">
           <li>
             <NavLink to="#">
               <input
@@ -251,28 +274,6 @@ export default function Navbar({
           </li>
         </ul>
       </nav>
-
-      {/* Landing Page  */}
-      <div
-        id="nav-landing-page"
-        className="hidden flex flex-col w-full h-56 items-center w-full"
-      >
-        <h1 className="flex items-center w-full h-1/3 pt-6 justify-center text-6xl font-extrabold  text-[#44f2f2]">
-          Aggie <span className="text-primary_blue-light-1">Compute</span>
-        </h1>
-
-        <h2 className="flex flex-col items-center w-full pt-6 h-2/3 justify-center text-xl font-medium  text-white">
-          Empowering Students with Math:
-          <span>
-            <span className="text-primary_blue-light-0 font-bold"> Free </span>{' '}
-            and
-            <span className="text-primary_blue-light-0 font-bold mx-1">
-              Centralized
-            </span>
-            Resources
-          </span>
-        </h2>
-      </div>
     </div>
   );
 }
