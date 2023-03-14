@@ -33,9 +33,9 @@ export default function Navbar({
   return (
     <div
       id="navbar"
-      className="bg-gradient-to-b from-[#27476e] to-[#37C4C4]  via-[#006992] animate-gradient-y"
+      className="bg-gradient-to-b from-[#27476e] to-[#37C4C4] via-[#006992] animate-gradient-y divide-y-2 divide-opacity-20 divide-gray-300"
     >
-      <nav className="relative p-3 h-50 flex justify-between items-center">
+      <nav className="relative p-4 h-50 flex justify-between items-center ">
         {/* Left Conent */}
         <ul className="flex mr-auto flex items-center w-auto space-x-10">
           <li>
@@ -51,7 +51,7 @@ export default function Navbar({
           <li>
             <NavLink className="" to="/algorithms">
               <svg
-                className="h-[40px] w-[40px] object-contain object-center hover:opacity-30"
+                className="h-[35px] w-[40px] object-contain object-center hover:opacity-30"
                 id="algorithms"
                 onMouseOver={(event) => labelHovered(event, 'algorithms')}
                 onMouseOut={(event) => labelUnhovered(event, 'algorithms')}
@@ -78,7 +78,7 @@ export default function Navbar({
           <li>
             <NavLink className="" to="/calculator">
               <svg
-                className="h-[40px] w-[40px] object-contain object-center hover:opacity-30"
+                className="h-[35px] w-[40px] object-contain object-center hover:opacity-30"
                 id="calculator"
                 onMouseOver={(event) => labelHovered(event, 'calculator')}
                 onMouseOut={(event) => labelUnhovered(event, 'calculator')}
@@ -109,7 +109,7 @@ export default function Navbar({
           <li>
             <NavLink className="" to="/photomathclone">
               <svg
-                className="h-[35px] w-[40px] object-contain object-center hover:opacity-30"
+                className="h-[32px] w-[40px] object-contain object-center hover:opacity-30"
                 id="photomathclone"
                 onMouseOver={(event) => labelHovered(event, 'photomathclone')}
                 onMouseOut={(event) => labelUnhovered(event, 'photomathclone')}
@@ -158,7 +158,7 @@ export default function Navbar({
           <li>
             <NavLink className="" to="/ac_bot">
               <svg
-                className="h-[40px] w-[40px] object-contain object-center hover:opacity-30"
+                className="h-[35px] w-[40px] object-contain object-center hover:opacity-30"
                 id="acbot"
                 onMouseOver={(event) => labelHovered(event, 'acbot')}
                 onMouseOut={(event) => labelUnhovered(event, 'acbot')}
@@ -229,7 +229,7 @@ export default function Navbar({
         </ul>
 
         {/* Right Content*/}
-        <ul className="absolute top-[100%] left-[100%] transform -translate-y-[120%] -translate-x-[100%] flex mx-auto flex items-center w-auto space-x-6">
+        <ul className="absolute top-[100%] left-[100%] transform -translate-y-[140%] -translate-x-[100%] flex mx-auto flex items-center w-auto space-x-6">
           <li>
             <NavLink to="#">
               <input
@@ -251,15 +251,17 @@ export default function Navbar({
           </li>
         </ul>
       </nav>
+
+      {/* Landing Page  */}
       <div
         id="nav-landing-page"
         className="hidden flex flex-col w-full h-56 items-center w-full"
       >
-        <h1 className="flex items-center w-full h-2/3  justify-center text-6xl font-extrabold  text-[#44f2f2]">
+        <h1 className="flex items-center w-full h-1/3 pt-6 justify-center text-6xl font-extrabold  text-[#44f2f2]">
           Aggie <span className="text-[#00b3f8]">Compute</span>
         </h1>
 
-        <h2 className="flex flex-col items-center w-full pb-6 h-1/3 justify-center text-xl font-medium  text-white">
+        <h2 className="flex flex-col items-center w-full pt-6 h-2/3 justify-center text-xl font-medium  text-white">
           Empowering Students with Math:
           <span>
             <span className="text-[#37C4C4] font-bold"> Free </span> and
