@@ -20,14 +20,14 @@ let math = require('mathjs');
  *
  *
  * @param input - an expression of type string
- * @returns  nothing
+ * @returns  the final simplified value
  */
 export function pemdas(input: string) {
     let fixedInput = input.replace(/\s/g, "");
     fixedInput = fixImplicitMult(fixedInput);
     console.log(fixedInput);
     fixedInput = clearParenthesis(fixedInput);
-    emdas(fixedInput, fixedInput);
+    return(emdas(fixedInput, fixedInput));
 }
 
 
