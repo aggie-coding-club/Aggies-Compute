@@ -1,38 +1,80 @@
 import React from 'react';
-import 'mathjs';
-var math = require('mathjs');
+import { NavLink } from 'react-router-dom';
+import Sidebar_Linalg from '../../components/Sidebar_Linalg';
+
 export default function InverseMatrix() {
 
   return (
-    <div className="p-10">
-      <h1 className="text-3xl">Inverse Matrix Calculator</h1>
-      <br />
-
-      <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter your matrix</label>
-      <div className="grid grid-cols-3 gap-4">
-          <input type="number" id="input" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required/>
-          <input type="number" id="input" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required/>
-          <input type="number" id="input" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required/>
-          <input type="number" id="input" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required/>
-          <input type="number" id="input" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required/>
-          <input type="number" id="input" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required/>
-          <input type="number" id="input" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required/>
-          <input type="number" id="input" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required/>
-          <input type="number" id="input" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required/>
+    <div className="flex">
+      <Sidebar_Linalg />
+      <div className="flex flex-col w-[60%] mt-20">
+        {/* Title */}
+        <div className="flex items-center justify-center">
+          <p className="text-xl font-bold my-5">
+            Inverse Matrix
+          </p>
         </div>
-      <br />
+        {/* Description */}
+        <div>
+          <p className="text-lg font-bold my-5">
+            Description
+          </p>
+          <p>
+            Returns the inverse matrix from a given matrix
+          </p>
 
-       <p>Solution</p>
-       <div className="grid grid-cols-3 gap-4">
-        <div className="bg-[#] p=-10">1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-        <div>5</div>
-        <div>6</div>
-        <div>7</div>
-        <div>8</div>
-        <div>9</div>
+        </div>
+        {/* Inputs */}
+        <div>
+          <p className="text-lg font-bold my-5">
+            Inputs
+          </p>
+          <p>
+            Enter your matrix
+          </p>
+          <div className="grid grid-cols-3 gap-4 my-5">
+            <input type="number" id="input" className="bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" placeholder="0" title="Enter a number" required/>
+            <input type="number" id="input" className="bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" placeholder="0" title="Enter a number" required/>
+            <input type="number" id="input" className="bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" placeholder="0" title="Enter a number" required/>
+            <input type="number" id="input" className="bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" placeholder="0" title="Enter a number" required/>
+            <input type="number" id="input" className="bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" placeholder="0" title="Enter a number" required/>
+            <input type="number" id="input" className="bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" placeholder="0" title="Enter a number" required/>
+            <input type="number" id="input" className="bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" placeholder="0" title="Enter a number" required/>
+            <input type="number" id="input" className="bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" placeholder="0" title="Enter a number" required/>
+            <input type="number" id="input" className="bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" placeholder="0" title="Enter a number" required/>
+          </div>
+        </div>
+        {/* Solutions */}
+        <div>
+          <p className="text-lg font-bold my-5">
+            Solution
+          </p>
+          <div className="grid grid-cols-3 gap-4 my-5">
+            <div className="bg-gray-100 rounded-xl p-2.5 text-gray-900">1</div>
+            <div className="bg-gray-100 rounded-xl p-2.5 text-gray-900">2</div>
+            <div className="bg-gray-100 rounded-xl p-2.5 text-gray-900">3</div>
+            <div className="bg-gray-100 rounded-xl p-2.5 text-gray-900">4</div>
+            <div className="bg-gray-100 rounded-xl p-2.5 text-gray-900">5</div>
+            <div className="bg-gray-100 rounded-xl p-2.5 text-gray-900">6</div>
+            <div className="bg-gray-100 rounded-xl p-2.5 text-gray-900">7</div>
+            <div className="bg-gray-100 rounded-xl p-2.5 text-gray-900">8</div>
+            <div className="bg-gray-100 rounded-xl p-2.5 text-gray-900">9</div>
+          </div>
+        </div>
+        {/* Steps */}
+        <div>
+          <p className="text-lg font-bold my-5">
+            Steps
+          </p>
+          <p>
+            Use the formula
+          </p>
+        </div>
+      </div>
+      <div className="flex bg-[#DEDEDE] w-[20%] m-16 items-center justify-center">
+        <h1 className="text-xl font-bold">
+          Right Side
+        </h1>
       </div>
     </div>
   );
