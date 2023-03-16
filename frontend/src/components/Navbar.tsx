@@ -179,7 +179,7 @@ export default function Navbar({
           </li>
 
           <li>
-            <NavLink className="" to="/ac_bot">
+            <NavLink className="" to="/acbot">
               <svg
                 className="h-[35px] w-[40px] object-contain object-center hover:opacity-30"
                 id="acbot"
