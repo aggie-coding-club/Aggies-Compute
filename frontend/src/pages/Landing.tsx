@@ -29,7 +29,7 @@ export default function Landing() {
         </h2>
       </div>
 
-      <div className="m-12 pb-12">
+      <div className="flex flex-col items-center justify-center  m-12 pb-12">
         {/* later may need to dymaically determine row # */}
         <div className="grid grid-cols-3 grid-rows-2 grid gap-14 px-64 pb-12">
           <div className="flex flex-col">
@@ -139,8 +139,10 @@ export default function Landing() {
           </div>
         </div>
 
-        <div className="flex flex-col items-center h-screen justify-center pt-16">
-          <div className="grid grid-cols-3 w-[70%] h-[70%] bg-primary_blue-dark">
+        {/* Features */}
+
+        <div className="flex  justify-center items-center h-[650px] w-[80%]  bg-primary_blue bg-opacity-20">
+          <div className="grid grid-cols-3 w-[90%] h-[80%]">
             <NavLink
               to="#"
               className="relative flex items-center justify-center circle-item"

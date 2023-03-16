@@ -43,7 +43,7 @@ export default function Navbar({
         .getElementById('navbar')
         ?.setAttribute(
           'class',
-          'fixed flex flex-col w-full bg-gradient-to-b from-primary_blue-dark to-primary_blue-light-0 via-primary_blue animate-gradient-y divide-y-2 divide-opacity-20 divide-gray-300'
+          'fixed flex flex-col w-full bg-gradient-to-b from-primary_blue-dark to-primary_blue-light-0 via-primary_blue animate-gradient-y divide-y-2 divide-opacity-20 divide-gray-300 z-10'
         );
     } else {
       document
