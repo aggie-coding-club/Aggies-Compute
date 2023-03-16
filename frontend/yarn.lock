@@ -2776,6 +2776,13 @@ ajv@^8.0.0, ajv@^8.6.0, ajv@^8.8.0:
     require-from-string "^2.0.2"
     uri-js "^4.2.2"
 
+algebrite@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/algebrite/-/algebrite-1.4.0.tgz#548d938e4a8c31895b49636d6384439325dfc179"
+  integrity sha512-YPqD1baZOjuRnvR6xwyGYDJ9OvcqkPLLuxFAxnTGYVnKadzA5PyoMXm8mA1pYCE2xloMSgcZkTL1cXkK5C87cg==
+  dependencies:
+    big-integer "^1.6.32"
+
 ansi-escapes@^4.2.1, ansi-escapes@^4.3.1:
   version "4.3.2"
   resolved "https://registry.npmjs.org/ansi-escapes/-/ansi-escapes-4.3.2.tgz"
@@ -3162,6 +3169,11 @@ bfj@^7.0.2:
     check-types "^11.1.1"
     hoopy "^0.1.4"
     tryer "^1.0.1"
+
+big-integer@^1.6.32:
+  version "1.6.51"
+  resolved "https://registry.yarnpkg.com/big-integer/-/big-integer-1.6.51.tgz#0df92a5d9880560d3ff2d5fd20245c889d130686"
+  integrity sha512-GPEid2Y9QU1Exl1rpO9B2IPJGHPSupF5GnVIP0blYvNOMer2bTvSWs1jGOUg04hTmu67nmLsQ9TBo1puaotBHg==
 
 big.js@^5.2.2:
   version "5.2.2"
@@ -7143,6 +7155,11 @@ neo-async@^2.6.2:
   version "2.6.2"
   resolved "https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
+
+nerdamer@^1.1.13:
+  version "1.1.13"
+  resolved "https://registry.yarnpkg.com/nerdamer/-/nerdamer-1.1.13.tgz#221059ddd6232c34a459a0b00c5bb697c155d964"
+  integrity sha512-kQGQYd42eQpKDOnU8ZnRKF47c+gK6jVC46eUchrABsovtFruHvsjyjBO32jck8QnpZE5z5R8HQw72hQX9Oq2MQ==
 
 no-case@^3.0.4:
   version "3.0.4"
