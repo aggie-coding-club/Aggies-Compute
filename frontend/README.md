@@ -85,3 +85,4 @@
 
         Discrete Logarithm Problem
             Pohlig-Hellman (2)
+            Brute Force (1)
