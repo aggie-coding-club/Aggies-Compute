@@ -69,6 +69,7 @@
         All primitive roots modulo of a number (5)
         Calculate Legrendre (3)
         Chinese Remainder Theorem (3)
+        Mod Square Root of a number (2)
   
 
     Lin Alg
