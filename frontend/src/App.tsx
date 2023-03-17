@@ -29,6 +29,7 @@ import Calculator from './pages/Features/Calculator';
 import PhotoMathClone from './pages/Features/PhotoMathClone';
 import Profile from './pages/Profile';
 import Education from './pages/Features/Education';
+import AffineCipher from './pages/Crypto/affineCipher';
 
 // Personal
 import LoginPage from "./pages/Login"
@@ -61,6 +62,7 @@ function App() {
 
         {/* Crpyto Routes */}
         <Route path="/crypto" element={<CryptoLanding />} />
+        <Route path="/crypto/affinecipher" element={<AffineCipher />} />
 
         {/* Linear Algebra Routes */}
         <Route path="/linalg" element={<LinAlgLanding />} />
