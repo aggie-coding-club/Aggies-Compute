@@ -9,22 +9,4 @@ body {
   height: 100%;
   width: 100%;
   font-size: 16px;
-  /* color: white; */
-}
-
-/* .navbar-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 100%;
-  background-color: #27476e;
-  height: 40px;
-}
-   */
-
-
-.menu {
-  background-color: white;
-  border-color: #27476e;
-  
 }

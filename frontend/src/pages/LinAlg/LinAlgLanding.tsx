@@ -1,9 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Navbar from '../../components/Navbar';
 
 export default function LinAlgLanding() {
   return (
     <div>
+      <Navbar isLanding={false} />
       <ul className="flex flex-col items-center justify-center m-[5%]">
         <NavLink
           to="/linalg/rref_ref"

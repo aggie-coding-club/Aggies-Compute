@@ -144,7 +144,7 @@ export default function Landing() {
         <div className="flex  justify-center items-center h-[650px] w-[80%]  bg-primary_blue bg-opacity-20">
           <div className="grid grid-cols-3 w-[90%] h-[80%]">
             <NavLink
-              to="#"
+              to="/acbot"
               className="relative flex items-center justify-center circle-item"
             >
               <div className="absolute bg-white flex items-center justify-center h-[92%] m-[4%] mr-0 rounded-md">
@@ -169,7 +169,7 @@ export default function Landing() {
             </NavLink>
 
             <div className="grid grid-rows-5 gap-y-[2%] my-[2%]">
-              <NavLink to="#" className="row-span-1">
+              <NavLink to="/algorthims" className="row-span-1">
                 <div className=" bg-bg_grey flex items-center justify-center w-[96%] h-[100%] m-[4%] mr-0 rounded-md">
                   <h1 className="link link-underline link-underline-black text-2xl font-bold text-center">
                     Features
@@ -178,7 +178,7 @@ export default function Landing() {
               </NavLink>
 
               <NavLink
-                to="#"
+                to="/photomathclone"
                 className="row-span-4 relative flex items-center justify-center circle-item"
               >
                 <div className="absolute bg-white flex items-center justify-center h-[92%] m-[4%] mr-0 rounded-md">
@@ -195,7 +195,7 @@ export default function Landing() {
                         MATH OCR
                       </h3>
                       <p className="text-white py-[10px] px-[5px] mx-[40px] text-sm border-t-2 border-black border-opacity-25 italic circle-item">
-                        The Intelligent Learning Companion
+                        Optical Character Recognition and solver
                       </p>
                     </div>
                   </div>
@@ -205,7 +205,7 @@ export default function Landing() {
 
             <div className="grid grid-rows-2  gap-y-[2%] my-[2%]">
               <NavLink
-                to="#"
+                to="/calculator"
                 className="row-span-1 relative flex items-center justify-center circle-item mx-[4%] my-[4%] mb-0"
               >
                 <div className="absolute bg-white flex items-center justify-center  h-full  w-full rounded-md">
