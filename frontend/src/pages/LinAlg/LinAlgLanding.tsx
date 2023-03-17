@@ -11,6 +11,12 @@ export default function LinAlgLanding() {
         >
           RREF
         </NavLink>
+        <NavLink
+          to="/linalg/inverse_matrix"
+          className="bg-[#27476e] text-white p-[1%] my-[1%] rounded-md"
+        >
+          Inverse Matrix
+        </NavLink>
       </ul>
     </div>
   );
