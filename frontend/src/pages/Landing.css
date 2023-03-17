@@ -1,0 +1,37 @@
+	.link-underline {
+		border-bottom-width: 0;
+		background-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
+		background-size: 0 3px;
+		background-position: 0 100%;
+		background-repeat: no-repeat;
+		transition: background-size .5s ease-in-out;
+	}
+
+	.link-underline-black {
+		background-image: linear-gradient(transparent, transparent), linear-gradient(#006992,#006992)
+	}
+
+	.link-underline:hover {
+		background-size: 100% 3px;
+		background-position: 0 100%
+	}
+
+
+    .circle-info {
+        transition: all 0.7s ease-in-out;
+        transform: scale(0);
+    }
+  
+    .circle-info p { 
+        opacity: 0;
+        transition: all 1s ease-in-out 0.4s;
+    }
+
+    .circle-item:hover .circle-info {
+        transform: scale(1);
+        opacity: .9;
+    }
+
+    .circle-item:hover .circle-info p {
+        opacity: .9;
+    }
