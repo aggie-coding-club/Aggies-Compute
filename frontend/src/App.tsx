@@ -8,9 +8,11 @@ import AlgorithmsLanding from './pages/AlgorithmsLanding';
 
 // Algebra Imports
 import AlgebraLanding from './pages/Algebra/AlgebraLanding';
+import AddSubMult from './pages/Algebra/AddSubMult';
 
 // Calculus Imports
 import CalculusLanding from './pages/Calculus/CalculusLanding';
+import SimpleDerivative from './pages/Calculus/SimpleDerivative';
 
 // Crypto Imports
 import CryptoLanding from './pages/Crypto/CryptoLanding';
@@ -18,6 +20,7 @@ import CryptoLanding from './pages/Crypto/CryptoLanding';
 // LinAlg Imports
 import LinAlgLanding from './pages/LinAlg/LinAlgLanding';
 import RREF_REF from './pages/LinAlg/RREF_REF';
+import InverseMatrix from './pages/LinAlg/InverseMatrix';
 
 // Features Imports
 import ACBot from './pages/Features/ACBot';
@@ -42,9 +45,11 @@ function App() {
 
         {/* Algebra Routes */}
         <Route path="/algebra" element={<AlgebraLanding />} />
+        <Route path="/algebra/add_sub_mult" element={<AddSubMult />} />
 
         {/* Calculus Routes */}
         <Route path="/calculus" element={<CalculusLanding />} />
+        <Route path="/calculus/simple_derivative" element={<SimpleDerivative />} />
 
         {/* Crpyto Routes */}
         <Route path="/crypto" element={<CryptoLanding />} />
@@ -53,6 +58,7 @@ function App() {
         {/* Linear Algebra Routes */}
         <Route path="/linalg" element={<LinAlgLanding />} />
         <Route path="/linalg/rref_ref" element={<RREF_REF />} />
+        <Route path="/linalg/inverse_matrix" element={<InverseMatrix />} />
 
         {/* Features */}
         <Route path="/acbot" element={<ACBot />} />

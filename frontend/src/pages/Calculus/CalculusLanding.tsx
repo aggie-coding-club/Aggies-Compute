@@ -6,10 +6,10 @@ export default function CalculusLanding() {
     <div>
       <ul className="flex flex-col items-center justify-center m-[5%]">
         <NavLink
-          to="/calculus"
+          to="/calculus/simple_derivative"
           className="bg-[#27476e] text-white p-[1%] my-[1%] rounded-md"
         >
-          replace-this
+          simple derivative
         </NavLink>
       </ul>
     </div>
