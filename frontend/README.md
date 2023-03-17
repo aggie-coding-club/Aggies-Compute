@@ -44,7 +44,6 @@
 ## Algorithms TODOs (Difficulty Level (1:5))
 
     Algebra
-        Prime Factorization of a number (1)
         Synthetic Division Calculator of equation (3)
         Long Divison of number (1)
         GCD of a given list of numbers (2)
@@ -60,7 +59,6 @@
             implicit derative
         Indefinite Integral (5)
         Definite Integral (5)
-        Riemann Sum of Function/Table (1)
         Taylor/Maclaurin Series
         Wronskian
 
@@ -70,16 +68,11 @@
         Calculate Legrendre (3)
         Chinese Remainder Theorem (3)
         Mod Square Root of a number (2)
-  
+
 
     Lin Alg
-        Basic Matrix Operations (3)
-            Matrix Row Operations
-            and more
-        Adjoint Matrix (1)
         Cramer's Rule (1)
         LU Decomposition (3)
-        Matrix Inverse (2)
         Column space (1)
         Matrix Diagonalization (1)
 
@@ -89,7 +82,6 @@
             Hill (2)
             ADFGVX (2)
         Modern
-            
+
         Discrete Logarithm Problem
             Pohlig-Hellman (2)
-

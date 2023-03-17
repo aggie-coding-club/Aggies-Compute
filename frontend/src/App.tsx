@@ -48,7 +48,10 @@ function App() {
 
         {/* Calculus Routes */}
         <Route path="/calculus" element={<CalculusLanding />} />
-        <Route path="/calculus/simple_derivative" element={<SimpleDerivative />} />
+        <Route
+          path="/calculus/simple_derivative"
+          element={<SimpleDerivative />}
+        />
 
         {/* Crpyto Routes */}
         <Route path="/crypto" element={<CryptoLanding />} />
