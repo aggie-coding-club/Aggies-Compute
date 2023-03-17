@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-export default function add_sub_mult() {
+export default function AddSubMult() {
   return (
     <div>
       <p>Addition/Subtraction/Multiplication page</p>
