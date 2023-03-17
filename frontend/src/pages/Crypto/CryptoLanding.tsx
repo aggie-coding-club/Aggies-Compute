@@ -6,10 +6,10 @@ export default function CryptoLanding() {
     <div>
       <ul className="flex flex-col items-center justify-center m-[5%]">
         <NavLink
-          to="/algebra"
+          to="/crypto/affinecipher"
           className="bg-[#27476e] text-white p-[1%] my-[1%] rounded-md"
         >
-          replace-this
+          Affine Cipher
         </NavLink>
       </ul>
     </div>
