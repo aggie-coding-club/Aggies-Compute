@@ -220,9 +220,11 @@ export function sussesive_squaring_mod(
     throw Error('inputs must be integers');
   }
 
+  base = base % modulus;
+
   let power: number = 1;
   let power_base: number = base;
-  let power_bases: number[][] = [[power, base]];
+  let power_bases: number[][] = [[base, power]];
 
   while (power < expo) {
     power *= 2;
@@ -318,4 +320,32 @@ export function isPrimRoot(a: bigint, p: bigint): boolean {
   }
 
   return true;
+}
+
+/**
+ * Brute Force DLP. Purpose to easily check if DLP is solvable
+ * not fully inplemented, this is bad
+ */
+function force_DLP(base: number, target: number, modulo: number): number {
+  if (target < 1) {
+    return -1;
+  }
+
+  if (target % modulo == 1) {
+    return 0;
+  }
+  if (base % modulo == target % modulo) {
+    return 1;
+  }
+
+  var result: number = base;
+  for (let i: number = 2; i < 100; ++i) {
+    result *= base;
+    result = result % modulo;
+    // console.log(i);
+    if (result === target) {
+      return i;
+    }
+  }
+  return -1;
 }
