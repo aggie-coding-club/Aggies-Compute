@@ -29,8 +29,11 @@ import { frac_mat_toString } from './helper_LinAlg';
 
 //const matrix = [[1, 2], [3, 4]];
 
-function det_2_by_2(a: number, b: number) {
-    return 0;
+
+export function det_2_by_2(mat: math.Matrix) {
+    let det : number
+    det = mat[0][0]*mat[1][1]-mat[0][1]*mat[1][0]
+    return det;
   }
 
 function det_3_by_3(a: number, b: number) {
