@@ -1,10 +1,11 @@
 import React from 'react';
 import Navbar from '../../components/Navbar';
-export default function PhotoMathClone() {
+
+export default function ACBot() {
   return (
     <div>
       <Navbar isLanding={false} />
-      <p>PhotoMath Clone Page</p>
+      <p>Aggie Compute Bot</p>
     </div>
   );
 }

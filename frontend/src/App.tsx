@@ -2,14 +2,17 @@ import React from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { Routes, Route } from 'react-router-dom';
 
-import Navbar from './components/Navbar';
+// Components Imports
 import Landing from './pages/Landing';
+import AlgorithmsLanding from './pages/AlgorithmsLanding';
 
 // Algebra Imports
 import AlgebraLanding from './pages/Algebra/AlgebraLanding';
+import AddSubMult from './pages/Algebra/AddSubMult';
 
 // Calculus Imports
 import CalculusLanding from './pages/Calculus/CalculusLanding';
+import SimpleDerivative from './pages/Calculus/SimpleDerivative';
 
 // Crypto Imports
 import CryptoLanding from './pages/Crypto/CryptoLanding';
@@ -17,9 +20,10 @@ import CryptoLanding from './pages/Crypto/CryptoLanding';
 // LinAlg Imports
 import LinAlgLanding from './pages/LinAlg/LinAlgLanding';
 import RREF_REF from './pages/LinAlg/RREF_REF';
+import InverseMatrix from './pages/LinAlg/InverseMatrix';
 
 // Features Imports
-import AC_Bot from './pages/Features/AC_Bot';
+import ACBot from './pages/Features/ACBot';
 import Calculator from './pages/Features/Calculator';
 import PhotoMathClone from './pages/Features/PhotoMathClone';
 import Profile from './pages/Profile';
@@ -33,16 +37,21 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Navbar />
       <Routes>
         {/* Landing Page Route */}
         <Route path="/" element={<Landing />} />
+        <Route path="/algorithms" element={<AlgorithmsLanding />} />
 
         {/* Algebra Routes */}
         <Route path="/algebra" element={<AlgebraLanding />} />
+        <Route path="/algebra/add_sub_mult" element={<AddSubMult />} />
 
         {/* Calculus Routes */}
         <Route path="/calculus" element={<CalculusLanding />} />
+        <Route
+          path="/calculus/simple_derivative"
+          element={<SimpleDerivative />}
+        />
 
         {/* Crpyto Routes */}
         <Route path="/crypto" element={<CryptoLanding />} />
@@ -50,9 +59,10 @@ function App() {
         {/* Linear Algebra Routes */}
         <Route path="/linalg" element={<LinAlgLanding />} />
         <Route path="/linalg/rref_ref" element={<RREF_REF />} />
+        <Route path="/linalg/inverse_matrix" element={<InverseMatrix />} />
 
         {/* Features */}
-        <Route path="/ac_bot" element={<AC_Bot />} />
+        <Route path="/acbot" element={<ACBot />} />
         <Route path="/calculator" element={<Calculator />} />
         <Route path="/photomathclone" element={<PhotoMathClone />} />
         <Route path="/profile" element={<Profile />} />
