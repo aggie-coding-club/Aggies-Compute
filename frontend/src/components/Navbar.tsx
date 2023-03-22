@@ -246,7 +246,7 @@ export default function Navbar({
                 className="invisible absolute z-10 justify-center items-center text-sm text-slate-200 font-semibold bg-slate-500  py-2 px-4 rounded bg-opacity-50 translate-y-[3px] -translate-x-[20px]"
                 id="acbot-hover-text"
               >
-                Pratice
+                Practice
               </div>
             </NavLink>
           </li>
