@@ -44,10 +44,34 @@ function det_3_by_3(mat: math.Matrix) {
     return det;
   }
 
+function minor_matrix(matrix: math.Matrix, row: number, column: number){
+    const n = matrix.size()[0];
+
+    //unsure how to implement push with math.Matrix type
+    //for now set to any
+    let new_matrix : any;
+
+    for(let i = 0; i < n; i++){
+        if(i != row){
+            let new_row = [];
+            for(let j = 0; j < n; j++){
+                if(j != column){
+                    new_row.push(matrix.get([i,j]));
+                }
+            }
+            new_matrix.push(new_row);
+        }
+    }
+    return new_matrix;
+}
+//co-factor expanding along first row
 function cofactor(mat: math.Matrix){
-  //expand along first row
-  for (let i = 0; i < mat.size()[1]; ++i) {
-    replace_index.push(i);
-  }
+    let n = mat.size()[0];
+    //set i as the row to expand on
+    let i = 0;
+    //loop through each column
+    for(let j = 0; j < n; j++){
+        let minor = minor_matrix(mat, i, j);
+    }
 }
 
