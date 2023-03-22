@@ -53,7 +53,7 @@ function cofactor(mat: math.Matrix){
   let temp_num_zeroes;
 
   //loop through the columns to get the one with the max number of zeroes
-  for(let col = 0; col < mat[0].length; col ++){
+  for(let col = 0; col < mat[0].length; col ++) {
       
       temp_num_zeroes = 0;
       for(let row = 0; row < mat.length; row ++){
