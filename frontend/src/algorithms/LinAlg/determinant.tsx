@@ -45,47 +45,9 @@ function det_3_by_3(mat: math.Matrix) {
   }
 
 function cofactor(mat: math.Matrix){
-
-  let max_col_index = 0;
-  let max_row_index = 0;
-  let max_num_zeroes_col = 0;
-  let max_num_zeroes_row = 0;
-  let temp_num_zeroes;
-
-  //loop through the columns to get the one with the max number of zeroes
-  for(let col = 0; col < mat[0].length; col ++) {
-      
-      temp_num_zeroes = 0;
-      for(let row = 0; row < mat.length; row ++){
-        if(mat[row][col] == 0){
-          temp_num_zeroes++;
-        }
-      }
-
-      if(temp_num_zeroes > max_num_zeroes_col){
-        max_col_index = col;
-        max_num_zeroes_col = temp_num_zeroes;
-      }
+  //expand along first row
+  for (let i = 0; i < mat.size()[1]; ++i) {
+    replace_index.push(i);
   }
-
-  //loop through rows to get the one with the max number of zeroes
-  for(let i = 0; i < mat.length; i++){
-    temp_num_zeroes = 0;
-    for(let j = 0; j < mat[0].length; j++){
-      if(mat[i][j] == 0){
-        temp_num_zeroes++;
-      }
-    }
-    if(temp_num_zeroes > max_num_zeroes_row){
-      max_row_index = i;
-      max_num_zeroes_row = temp_num_zeroes;
-    } 
-  }
-
-
-
-
-
-    return 0;
 }
 
