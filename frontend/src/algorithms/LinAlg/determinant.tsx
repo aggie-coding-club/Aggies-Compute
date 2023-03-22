@@ -32,15 +32,15 @@ var math = require('mathjs');
 
 export function det_2_by_2(mat: math.Matrix) {
     let det : number;
-    det = mat[0][0]*mat[1][1]-mat[0][1]*mat[1][0];
+    det = mat.get([0, 0])*mat.get([1,1])-mat.get([0,1])*mat.get([1,0]);
     return det;
   }
 
 function det_3_by_3(mat: math.Matrix) {
     let det : number;
-    det = mat[0][0]*mat[1][1]*mat[2][2]+mat[0][1]*mat[1][2]*mat[2][0]
-        +mat[0][2]*mat[1][0]*mat[2][1]-mat[2][0]*mat[1][1]*mat[0][2]
-        -mat[2][1]*mat[1][2]*mat[0][0]-mat[2][2]*mat[1][0]*mat[0][1];
+    det = mat.get([0,0])*mat.get([1,1])*mat.get([2,2])+mat.get([0,1])*mat.get([1,2])*mat.get([2,0])
+        +mat.get([0,2])*mat.get([1,0])*mat.get([2,1])-mat.get([2,0])*mat.get([1,1])*mat.get([0,2])
+        -mat.get([2,1])*mat.get([1,2])*mat.get([0,0])-mat.get([2,2])*mat.get([1,0])*mat.get([0,1]);
     return det;
   }
 
