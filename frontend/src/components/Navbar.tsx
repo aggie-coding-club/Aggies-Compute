@@ -15,7 +15,11 @@ export default function Navbar({
         d.setAttribute('class', d.className.replace('hidden', 'visible'));
       }
     }
+    transparentNavBar();
   }, [isLanding]);
+  window.onscroll = function () {
+    transparentNavBar();
+  };
 
   function labelHovered(event: any, id: string) {
     var d = document.getElementById(id + '-hover-text');
@@ -29,13 +33,33 @@ export default function Navbar({
       d.setAttribute('class', d.className.replace('visible', 'invisible'));
     }
   }
+  // TODO: fix this, wasting resources
+  function transparentNavBar() {
+    if (!isLanding) return;
+    if (
+      document.body.scrollTop > 40 ||
+      document.documentElement.scrollTop > 40
+    ) {
+      document
+        .getElementById('navbar')
+        ?.setAttribute(
+          'class',
+          'fixed flex flex-col w-full bg-gradient-to-b from-primary_blue-dark to-primary_blue-light-0 via-primary_blue animate-gradient-y divide-y-2 divide-opacity-20 divide-gray-300 z-10'
+        );
+    } else {
+      document
+        .getElementById('navbar')
+        ?.setAttribute('class', 'absolute flex flex-col w-full bg-transparent');
+    }
+  }
 
   return (
     <div
       id="navbar"
-      className="bg-gradient-to-b from-[#27476e] to-[#37C4C4] via-[#006992] animate-gradient-y divide-y-2 divide-opacity-20 divide-gray-300"
+      className="flex flex-col w-full bg-gradient-to-b from-primary_blue-dark to-primary_blue-light-0 via-primary_blue animate-gradient-y divide-y-2 divide-opacity-20 divide-gray-300"
+      // className="fixed bg-transparent divide-y-2 divide-opacity-20 divide-gray-300"
     >
-      <nav className="relative p-4 h-50 flex justify-between items-center ">
+      <nav className="p-4 h-50 flex justify-between items-center ">
         {/* Left Conent */}
         <ul className="flex mr-auto flex items-center w-auto space-x-10">
           <li>
@@ -67,7 +91,7 @@ export default function Navbar({
                 <g id="SVGRepo_iconCarrier"> <path opacity="0.1" d="M5 7C5 5.11438 5 4.17157 5.58579 3.58579C6.17157 3 7.11438 3 9 3H12H15C16.8856 3 17.8284 3 18.4142 3.58579C19 4.17157 19 5.11438 19 7V12V17C19 18.8856 19 19.8284 18.4142 20.4142C17.8284 21 16.8856 21 15 21H12H9C7.11438 21 6.17157 21 5.58579 20.4142C5 19.8284 5 18.8856 5 17V12V7Z" fill="#FFF"/> <path d="M9 7H15" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M15 17V14" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M15 11H15.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M12 11H12.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M9 11H9.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M9 14H9.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M12 14H12.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M12 17H12.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M9 17H9.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M5 7C5 5.11438 5 4.17157 5.58579 3.58579C6.17157 3 7.11438 3 9 3H12H15C16.8856 3 17.8284 3 18.4142 3.58579C19 4.17157 19 5.11438 19 7V12V17C19 18.8856 19 19.8284 18.4142 20.4142C17.8284 21 16.8856 21 15 21H12H9C7.11438 21 6.17157 21 5.58579 20.4142C5 19.8284 5 18.8856 5 17V12V7Z" stroke="#FFF" stroke-width="2" stroke-linejoin="round"/></g>
               </svg>
               <div
-                className="invisible absolute z-10 justify-center items-center text-sm text-black font-semibold bg-slate-500  py-2 px-4 rounded bg-opacity-50 translate-y-[3px] -translate-x-[30px]"
+                className="invisible absolute z-10 justify-center items-center text-sm text-slate-200 font-semibold bg-slate-500  py-2 px-4 rounded bg-opacity-50 translate-y-[3px] -translate-x-[30px]"
                 id="algorithms-hover-text"
               >
                 Algorithms
@@ -98,7 +122,7 @@ export default function Navbar({
               </svg>
 
               <div
-                className="invisible absolute z-10 justify-center items-center text-sm text-black font-semibold bg-slate-500  py-2 px-4 rounded bg-opacity-50 translate-y-[3px] -translate-x-[30px]"
+                className="invisible absolute z-10 justify-center items-center text-sm text-slate-200 font-semibold bg-slate-500  py-2 px-4 rounded bg-opacity-50 translate-y-[3px] -translate-x-[30px]"
                 id="calculator-hover-text"
               >
                 Calculator
@@ -147,7 +171,7 @@ export default function Navbar({
                 </g>
               </svg>
               <div
-                className="invisible absolute z-10 justify-center items-center text-sm text-black font-semibold bg-slate-500  py-2 px-4 rounded bg-opacity-50 translate-y-[3px] -translate-x-[30px]"
+                className="invisible absolute z-10 justify-center items-center text-sm text-slate-200 font-semibold bg-slate-500  py-2 px-4 rounded bg-opacity-50 translate-y-[3px] -translate-x-[30px]"
                 id="photomathclone-hover-text"
               >
                 Math OCR
@@ -156,7 +180,7 @@ export default function Navbar({
           </li>
 
           <li>
-            <NavLink className="" to="/ac_bot">
+            <NavLink className="" to="/acbot">
               <svg
                 className="h-[35px] w-[40px] object-contain object-center hover:opacity-30"
                 id="acbot"
@@ -219,7 +243,7 @@ export default function Navbar({
               </svg>
 
               <div
-                className="invisible absolute z-10 justify-center items-center text-sm text-black font-semibold bg-slate-500  py-2 px-4 rounded bg-opacity-50 translate-y-[3px] -translate-x-[20px]"
+                className="invisible absolute z-10 justify-center items-center text-sm text-slate-200 font-semibold bg-slate-500  py-2 px-4 rounded bg-opacity-50 translate-y-[3px] -translate-x-[20px]"
                 id="acbot-hover-text"
               >
                 Pratice
@@ -229,7 +253,7 @@ export default function Navbar({
         </ul>
 
         {/* Right Content*/}
-        <ul className="absolute top-[100%] left-[100%] transform -translate-y-[140%] -translate-x-[100%] flex mx-auto flex items-center w-auto space-x-6">
+        <ul className="flex  items-center w-auto space-x-6 ">
           <li>
             <NavLink to="#">
               <input
@@ -251,25 +275,6 @@ export default function Navbar({
           </li>
         </ul>
       </nav>
-
-      {/* Landing Page  */}
-      <div
-        id="nav-landing-page"
-        className="hidden flex flex-col w-full h-56 items-center w-full"
-      >
-        <h1 className="flex items-center w-full h-1/3 pt-6 justify-center text-6xl font-extrabold  text-[#44f2f2]">
-          Aggie <span className="text-[#00b3f8]">Compute</span>
-        </h1>
-
-        <h2 className="flex flex-col items-center w-full pt-6 h-2/3 justify-center text-xl font-medium  text-white">
-          Empowering Students with Math:
-          <span>
-            <span className="text-[#37C4C4] font-bold"> Free </span> and
-            <span className="text-[#37C4C4] font-bold mx-1">Centralized</span>
-            Resources
-          </span>
-        </h2>
-      </div>
     </div>
   );
 }
