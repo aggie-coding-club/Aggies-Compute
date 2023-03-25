@@ -16,5 +16,5 @@ export function TaylorSeries(equation:string,point:number,order:number){ //Takes
     var test = resultFinal.replaceAll(" 0 + ",'');
     test = test.replaceAll("0 + ",'');
     test = test.replaceAll("+ 0",'');
-      return test; //Returns a somewhat simplified version of the power series
+      return test; //Returns a somewhat simplified version of the power series (Know how to rework the entire thing lmao)
   }
