@@ -1,14 +1,14 @@
-import React, {SetStateAction, useState} from 'react';
+import React, {useState} from 'react';
 import Navbar from '../../components/Navbar';
 import Sidebar_Linalg from '../../components/Sidebar_Linalg';
 import { Text } from "@nextui-org/react";
 
 export default function InverseMatrix() {
-  const [yourOwnVariable, setYourOwnVariable] = useState("");
+  const [expression, setExpression] = useState("");
   
-  const handleYourOwnVariableChange = (event: React.FormEvent<HTMLInputElement>) => {
+  const handleExpressionChange = (event: React.FormEvent<HTMLInputElement>) => {
     const target = event.target as HTMLInputElement;
-    setYourOwnVariable(target.value);
+    setExpression(target.value);
   };
 
   return (
@@ -21,7 +21,7 @@ export default function InverseMatrix() {
           {/* Title */}
           <div className="flex items-center justify-center rounded-xl">
             <Text h1 size={60} css={{ textGradient: "0deg, #F0F0F0, #27476E 50%" }} weight="bold">
-              Enter title here
+              PEMDAS
             </Text>
           </div>
 
@@ -31,7 +31,14 @@ export default function InverseMatrix() {
               Description
             </h1>
             <p>
-              Enter description here
+              PEMDAS is an acronym for a set of rules for order of operations. It stands for Parenthesis, Exponents, 
+              Multiplication/Division, and Addition/Subtraction. All expressions should be evaluated following the PEMDAS rules, starting with the 
+              lowest level parenthesis. Multiplication/Division and Addition/Subtraction is a little different, with both operations being evaluated
+              from left to right in the expression in the order they appear.
+            </p>
+            <br/>
+            <p>
+                To simplify and expression and show the steps, input the expression below and press the "Calculate" button.
             </p>
           </div>
 
@@ -41,9 +48,13 @@ export default function InverseMatrix() {
               Inputs
             </h1>
             <p>
-              Enter input name here
+              Enter expression below
             </p>
-            <input type="number" id="input" name="yourOwnVariable" min="1" className="w-full max-w-20 bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" placeholder="3" title="Enter a width" onChange={handleYourOwnVariableChange} required/>
+            <input type="text" id="input" name="expression" min="1" className="w-full max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" placeholder="5 + 1 / 2" title="Enter a expression" onChange={handleExpressionChange} required/>
+            <p>{expression}</p>
+            <div className="flex flex-row justify-center">
+                <input type="button" id="calculate" value="Calculate" className="text-white bg-gradient-to-b from-[#27476E] to-[#000000] rounded-xl focus:outline-none transform: transition duration-100 hover:hover:scale-105 motion-reduce:transform-none p-2 mt-5" onSubmit={useState}/>
+            </div>
           </div>
 
           {/* Solutions */}
