@@ -8,7 +8,6 @@ export default function CryptoLanding() {
       <Navbar isLanding={false} />
       <ul className="flex flex-col items-center justify-center m-[5%]">
         <NavLink
-          to="/crypto"
           to="/crypto/affinecipher"
           className="bg-[#27476e] text-white p-[1%] my-[1%] rounded-md"
         >
