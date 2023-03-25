@@ -44,6 +44,14 @@ export default function InverseMatrix() {
               Enter input name here
             </p>
             <input type="number" id="input" name="yourOwnVariable" min="1" className="w-full max-w-20 bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" placeholder="3" title="Enter a width" onChange={handleYourOwnVariableChange} required/>
+            
+            <div className="flex flex-row justify-center">
+              <button className="text-white bg-gradient-to-b from-[#27476E] to-[#000000] rounded-xl focus:outline-none transform: transition duration-100 hover:hover:scale-105 motion-reduce:transform-none p-2 mt-5" onSubmit={useState}>
+                <b>
+                  Calculate
+                </b>
+              </button>
+            </div>
           </div>
 
           {/* Solutions */}
