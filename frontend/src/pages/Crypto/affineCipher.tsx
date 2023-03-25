@@ -16,18 +16,14 @@ export default function AffineCipher() {
           {/* Description */}
           <div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
-              quidem cumque commodi sit totam accusamus temporibus officia,
-              reiciendis dolorum tempore libero error porro voluptatum eius.
-              Reiciendis, impedit consectetur! Dolore animi impedit vero dolor!
-              Quaerat aliquam, consectetur unde, dolorem dolores repudiandae a
-              qui accusantium optio facere exercitationem fuga aut rem possimus
-              odit autem vel quos reprehenderit nam officia eaque doloremque.
-              Ducimus possimus molestiae quae reiciendis numquam inventore,
-              aliquam, quasi totam culpa similique, delectus modi sequi? Et odio
-              at corporis, qui animi optio voluptatibus vitae quia tenetur quis
-              aspernatur iusto alias! Deleniti accusantium optio dignissimos
-              sit, excepturi ea itaque nemo ut omnis.
+              The Affine Cipher is a type of substituation shift cipher that relies on two encryption keys, "a" and "b", 
+              which belong in the set of positive integers and where "a" is coprime with the given alphabet's length. Encryption 
+              is done with the equation y = ax + b (mod p) where "x" is the plaintext letter value, y is the encrypted letter 
+              value, and "p" is the length of the given alphabet. If both encyrption keys are known,
+              they can also be used to decrypt a message and is done so with a rewritten form of the previous equation, 
+              x = (a^-1)(y - b)(mod p).                             
+              (Note the equations only encrypt/decrypt letters, and that messages with more than one 
+              alphabet character utilize the equations as much times as there are many characters in a message).
             </p>
           </div>
           {/* Inputs */}
