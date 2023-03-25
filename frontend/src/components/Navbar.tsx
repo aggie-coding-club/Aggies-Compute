@@ -15,7 +15,11 @@ export default function Navbar({
         d.setAttribute('class', d.className.replace('hidden', 'visible'));
       }
     }
+    transparentNavBar();
   }, [isLanding]);
+  window.onscroll = function () {
+    transparentNavBar();
+  };
 
   function labelHovered(event: any, id: string) {
     var d = document.getElementById(id + '-hover-text');
@@ -29,9 +33,6 @@ export default function Navbar({
       d.setAttribute('class', d.className.replace('visible', 'invisible'));
     }
   }
-  window.onscroll = function () {
-    transparentNavBar();
-  };
   // TODO: fix this, wasting resources
   function transparentNavBar() {
     if (!isLanding) return;
