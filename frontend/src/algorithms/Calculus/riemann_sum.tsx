@@ -1,9 +1,42 @@
-export function riemann_sum(fnc,typ:string,lwr:number,upr:number,subint:number) {
-  var deltax = (upr - lwr) / subint
+import 'nerdamer';
+var nerdamer = require('nerdamer');
+require('nerdamer/Calculus');
 
-  return deltax;
+export function riemann_sum(fnc:string,lwr:number,upr:number,subint:number,type:string) {
+  var deltax = (upr - lwr) / subint
+  var constdeltax = (upr - lwr) / subint
+  var sublist:number[] = [];
+  var con1 = lwr    
+  var con2 = deltax
+  if (type=="left"){
+    for (let i = 0; i < subint; i++) {
+      sublist.push(lwr + deltax);
+      deltax += constdeltax
+    }
+  }
+  if (type=="right"){
+    for (let i = 0; i < subint; i++) {
+      sublist.push(upr - deltax);
+      deltax += constdeltax
+    }
+  }
+  if (type=="midpoint"){
+    for (let i = 0; i < (subint); i++) {
+      sublist.push((con1 + con2)/2);
+      con1 = con2
+      con2 += deltax
+    }
+  }
+  var sum:number = 0;
+  for (let i = 0; i < (subint); i++) {
+      sublist[i]
+      
+    }
+  return sublist;
   
 }
+
+console.log(riemann_sum("x",0,2,4,"midpoint"));
 
 export function riemann_sum_table(xpoints:number[],ypoints:number[],type:string) {
   if (type == "left"){
@@ -23,7 +56,7 @@ export function riemann_sum_table(xpoints:number[],ypoints:number[],type:string)
   var sum:number = 0;
   for (var i = 0; i < xinterval.length;++i){
       sum += xinterval[i]*ypoints[i]
-  }
+      nerdamer(equation).sub('x',point).evaluate();
   return sum;
 }
 
