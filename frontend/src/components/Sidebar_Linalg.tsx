@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+// map function
 export default function Sidebar_Linalg() {
   // THIS IS A TEMPERARY SIDE BAR MUST REFRACTOR TO BE MORE DYNAMIC
   return (
