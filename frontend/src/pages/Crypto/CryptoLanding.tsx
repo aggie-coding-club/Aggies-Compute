@@ -126,6 +126,7 @@ export default function CryptoLanding() {
   return (
     <div className='bg-bg_grey overflow-x-auto h-screen'>
       <Navbar isLanding={false} />
+<<<<<<< HEAD
 
       <div className='flex flex-col justify-center items-center'>
 
@@ -166,6 +167,16 @@ export default function CryptoLanding() {
       <div className="w-full mt-64">
         <Footer />
       </div>
+=======
+      <ul className="flex flex-col items-center justify-center m-[5%]">
+        <NavLink
+          to="/crypto/affinecipher"
+          className="bg-[#27476e] text-white p-[1%] my-[1%] rounded-md"
+        >
+          Affine Cipher
+        </NavLink>
+      </ul>
+>>>>>>> 54c9d7b8 (fixed directory)
     </div>
   );
 }
