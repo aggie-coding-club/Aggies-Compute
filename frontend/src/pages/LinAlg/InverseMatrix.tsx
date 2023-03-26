@@ -4,25 +4,18 @@ import Sidebar_Linalg from '../../components/Sidebar_Linalg';
 import { Text } from "@nextui-org/react";
 
 export default function InverseMatrix() {
+  // Calculate button
+  const [count, setCount] = useState(0);
+  function increment() {
+    setCount(count + 1);
+  }
+
+  // Matrix row and columns
   const [matrixSize, setMatrixSize] = useState({ rows: 3, columns: 3 });
   const [matrix, setMatrix] = useState(() => {
     const initialMatrix = Array(matrixSize.rows).fill(0).map(() => Array(matrixSize.columns).fill(0));
     return initialMatrix;
   });
-
-  // const [matrixWidth, setMatrixWidth] = useState("");
-  // const [matrixHeight, setMatrixHeight] = useState("");
-  // const [matrix, setMatrix] = useState(Array.from({length: matrixWidth},()=> Array.from({length: matrixHeight}, () => null)));
-  
-  // const handleWidthChange = (event: React.FormEvent<HTMLInputElement>) => {
-  //   const target = event.target as HTMLInputElement;
-  //   setMatrixWidth(target.value);
-  // };
-
-  // const handleHeightChange = (event: React.FormEvent<HTMLInputElement>) => {
-  //   const target = event.target as HTMLInputElement;
-  //   setMatrixHeight(target.value);
-  // };
 
   function handleCellValueChange(event: React.ChangeEvent<HTMLInputElement>, row: number, column: number) {
     const newMatrix = matrix.map((rowArr, rowIndex) => {
@@ -68,133 +61,87 @@ export default function InverseMatrix() {
 
           {/* Description */}
           <div>
-            <h1 className="text-lg font-bold my-5">
+            <h1 className="text-lg text-gray-900 dark:text-gray-50 font-bold my-5">
               Description
             </h1>
-            <p>
+            <p className="text-gray-900 dark:text-gray-50">
               Returns the inverse matrix from a given matrix
             </p>
           </div>
 
           {/* Inputs */}
           <div className="bg-[#DCEFF0] p-5 mt-5">
-            <h1 className="text-lg font-bold my-5">
+            <h1 className="text-lg text-gray-900 dark:text-gray-50 font-bold my-5">
               Inputs
             </h1>
-            {/* <div className="flex space-x-5">
-              {<p>
-                Matrix size:
-              </p>
-              <input type="number" id="input" name="width" min="1" className="w-full max-w-20 bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" placeholder="3" title="Enter a width" onChange={handleWidthChange} required/> */}
-              {/* <Input type="number" rounded css={{ $$inputColor: "#ffffff" }} initialValue="3" title="Enter a width" shadow={false} required/> */}
-              {/* <p>
-                X
-              </p>
-              <input type="number" id="input" name="height" min="1" className="w-full max-w-20 bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" placeholder="3" title="Enter a length" onChange={handleHeightChange} required/>
-            </div> */}
-            {/* <p>
-              Size: {matrixWidth} X {matrixHeight} Elements: {parseInt(matrixWidth) * parseInt(matrixHeight)}
-            </p> */}
-            {/* < br/>
-            <p>
-              Enter your matrix
-            </p> */}
-            {/* <div className={"grid grid-rows-3 grid-cols-3 gap-4 my-5"}>
-              <input type="number" id="input" className="w-full max-w-20 bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" placeholder="0" title="Enter a number" required/>
-              <input type="number" id="input" className="w-full max-w-20 bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" placeholder="0" title="Enter a number" required/>
-              <input type="number" id="input" className="w-full max-w-20 bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" placeholder="0" title="Enter a number" required/>
-              <input type="number" id="input" className="w-full max-w-20 bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" placeholder="0" title="Enter a number" required/>
-              <input type="number" id="input" className="w-full max-w-20 bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" placeholder="0" title="Enter a number" required/>
-              <input type="number" id="input" className="w-full max-w-20 bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" placeholder="0" title="Enter a number" required/>
-              <input type="number" id="input" className="w-full max-w-20 bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" placeholder="0" title="Enter a number" required/>
-              <input type="number" id="input" className="w-full max-w-20 bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" placeholder="0" title="Enter a number" required/>
-              <input type="number" id="input" className="w-full max-w-20 bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" placeholder="0" title="Enter a number" required/>
-            </div> */}
-            <div>
-            <div className="">
-              
-              <input
-                type="number"
-                id="input"
-                title="Enter a width"
-                min={1}
-                className="w-auto bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none"
-                placeholder="1"
-                value={matrixSize.rows}
-                onChange={(event) => handleMatrixSizeChange(event, "rows")}
-                style={{ width: "40px", margin: "5px" }}
-                required
-              />
-              <input
-                type="number"
-                id="input"
-                title="Enter a height"
-                min={1}
-                className="w-auto bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none"
-                placeholder="1"
-                value={matrixSize.columns}
-                onChange={(event) => handleMatrixSizeChange(event, "columns")}
-                style={{ width: "40px", margin: "5px" }}
-                required
-              />
+            
+            <div className="flex flex-col">
+            <label className="text-md font-bold text-gray-900 dark:text-gray-50">Rows:</label>
+            <input type="number" id="input" name="rows" title="Enter the number of rows in your matrix" min="1" placeholder="3" className="max-w-xs bg-gray-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" value={matrixSize.rows} onChange={(event) => handleMatrixSizeChange(event, "rows")} required/>
+            
+            <label className="text-md font-bold text-gray-900 dark:text-gray-50 mt-5">Columns:</label>
+            <input type="number" id="input" name="columns" title="Enter the number of columns in your matrix" min="1" placeholder="3" className="max-w-xs bg-gray-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" value={matrixSize.columns} onChange={(event) => handleMatrixSizeChange(event, "columns")} required/>
             </div>
-            {matrix.map((row, rowIndex) => (
-              <div key={rowIndex} style={{ display: "flex", flexDirection: "row" }}>
-                {row.map((cell, columnIndex) => (
-                  <input
-                    type="number"
-                    id="input"
-                    title="Enter a number"
-                    key={`${rowIndex}-${columnIndex}`}
-                    className="w-full max-w-20 bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none"
-                    placeholder="0"
-                    value={cell}
-                    onChange={(event) => handleCellValueChange(event, rowIndex, columnIndex)}
-                    style={{ width: "40px", margin: "5px" }}
-                    required
-                  />
-                ))}
-              </div>
-            ))}
+
+            <div className="mt-5">
+              <label className="text-md font-bold text-gray-900 dark:text-gray-50">Enter your matrix:</label>
+              {matrix.map((row, rowIndex) => (
+                <div className="flex flex-wrap" key={rowIndex}>
+                  {row.map((cell, columnIndex) => (
+                    <input
+                      type="number"
+                      id="input"
+                      title="Enter a number"
+                      key={`${rowIndex}-${columnIndex}`}
+                      className="flex-1 min-w-0 bg-gray-100 rounded-xl p-2.5 m-2 text-gray-900 dark:text-gray-50 focus:bg-gray-50 focus:placeholder-gray-400 focus:outline-none transition duration-100 ease-in-out hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none"
+                      placeholder="0"
+                      value={cell}
+                      onChange={(event) => handleCellValueChange(event, rowIndex, columnIndex)}
+                      required
+                    />
+                  ))}
+                </div>
+              ))}
             </div>
+
             <div className="flex flex-row justify-center">
-              <button className="text-white bg-gradient-to-b from-[#27476E] to-[#000000] rounded-xl focus:outline-none transform: transition duration-100 hover:hover:scale-105 motion-reduce:transform-none p-2 mt-5" onSubmit={useState}>
-                <b>
-                  Calculate
-                </b>
+              <button type="submit" className="text-gray-50 dark:text-gray-900 font-bold rounded-xl focus:outline-none transform: transition duration-100 ease-in-out bg-[#27476E] hover:bg-primary_blue hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none p-2 mt-5">
+                Calculate
               </button>
             </div>
           </div>
+
           {/* Solutions */}
           <div className="bg-[#AEECEF]/60 p-5">
-            <h1 className="text-lg font-bold my-5">
+            <h1 className="text-lg text-gray-900 dark:text-gray-50 font-bold my-5">
               Solution
             </h1>
             <div className="grid grid-rows-3 grid-cols-3 gap-4 my-5">
-              <div>1</div>
-              <div>2</div>
-              <div>3</div>
-              <div>4</div>
-              <div>5</div>
-              <div>6</div>
-              <div>7</div>
-              <div>8</div>
-              <div>9</div>
+              <div className="text-gray-900 dark:text-gray-50">1</div>
+              <div className="text-gray-900 dark:text-gray-50">2</div>
+              <div className="text-gray-900 dark:text-gray-50">3</div>
+              <div className="text-gray-900 dark:text-gray-50">4</div>
+              <div className="text-gray-900 dark:text-gray-50">5</div>
+              <div className="text-gray-900 dark:text-gray-50">6</div>
+              <div className="text-gray-900 dark:text-gray-50">7</div>
+              <div className="text-gray-900 dark:text-gray-50">8</div>
+              <div className="text-gray-900 dark:text-gray-50">9</div>
             </div>
           </div>
 
           {/* Steps */}
           <div className="bg-[#AAEEEE]/80 p-5 mb-20">
-            <h1 className="text-lg font-bold my-5">
+            <h1 className="text-lg text-gray-900 dark:text-gray-50 font-bold my-5">
               Steps
             </h1>
-            <p>
+            <p className="text-gray-900 dark:text-gray-50">
               Use the formula
             </p>
           </div>
         </div>
+
         <div className="flex bg-[#DEDEDE] w-[20%] m-16 items-center justify-center">
-          <h1 className="text-xl font-bold">
+          <h1 className="text-xl text-gray-900 dark:text-gray-50 font-bold">
             Right Side
           </h1>
         </div>
