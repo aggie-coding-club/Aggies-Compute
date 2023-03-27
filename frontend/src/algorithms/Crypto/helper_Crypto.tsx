@@ -163,6 +163,29 @@ export function inverseMod(a: number, modulo: number): number {
 }
 
 /**
+ * Calculates the modular inverse of a number
+ *
+ * @param a (bigint)
+ * @param b (bigint)
+ * @returns (bigint)
+ */
+export function inverseModBigInt(a: bigint, modulo: bigint): bigint {
+  // Check if their GCD is 1
+  if (GCDBigInt(a, modulo) !== BigInt(1)) {
+    throw Error('gcd(a, modulo) must be equal to 1');
+  }
+
+  let c: bigint = BigInt(1);
+
+  // Checks if divisible by a
+  while (c % a !== BigInt(0)) {
+    c += modulo;
+  }
+
+  return c / a;
+}
+
+/**
  * Euclidean Algorithm to calculate the greatest common denominator between two integers
  * 1. Check if a and b are integers
  * 2. Check if a and b are positive
