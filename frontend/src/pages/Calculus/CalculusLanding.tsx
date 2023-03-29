@@ -13,6 +13,12 @@ export default function CalculusLanding() {
         >
           simple derivative
         </NavLink>
+        <NavLink
+        to="/calclulus/taylor-series"
+        className="bg-[#27476e] text-white p-[1%] my-[1%] rounded-md"
+        >
+          Taylor Series
+        </NavLink>
       </ul>
     </div>
   );
