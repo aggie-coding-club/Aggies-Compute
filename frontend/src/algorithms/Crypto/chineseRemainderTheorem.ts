@@ -56,3 +56,53 @@ export function CRT_helper(a1: bigint, a2: bigint, p1: bigint, p2: bigint): bigi
 
     return x;
 }
+
+
+/**
+ * Takes list of two or more modular equations and finds the common x value
+ * x = a_1 (mod p_1), x = a_2 (mod p_2),..., x = a_n (mod p_n)
+ *
+ * @param aList (array of bigints)
+ * @param pList (array of bigints)
+ * @returns (bigint)
+ */
+export function CRT(aList: Array<bigint>, pList: Array<bigint>): bigint {
+
+    // Check if that either array is empty
+    if (aList.length === 0 || pList.length === 0){
+        throw Error("Input arrays cannot be empty");
+    }
+
+    // Check if the lists are 2 or more in length
+    if (aList.length < 2 || pList.length < 2){
+        throw Error("Input arrays cannot be less than a length of 2");
+    }
+
+    // Check if the lists are 10 or less
+    if (aList.length > 10 || pList.length > 10){
+        throw Error("Input arrays cannot be less than a length of 2");
+    }
+
+    // Check if the lists are equal
+    if (aList.length !== pList.length){
+        throw Error("Input arrays must have equal lengths");
+    }
+
+    // Check if there are 2 things on the lists only
+    if (aList.length === 2){
+        return CRT_helper(aList[0], aList[1], pList[0], pList[1]);
+    }
+
+    // Check if there are more than 2 things on the lists
+    else{
+        let a1: bigint = CRT_helper(aList[0], aList[1], pList[0], pList[1]);
+        let p1: bigint = pList[0] * pList[1];
+        for (let i: number = 2; i < aList.length; i++){
+            let x: bigint = CRT_helper(a1, aList[i], p1, pList[i]);
+            a1 = x;
+            p1 = p1 * pList[i];
+        }
+
+        return a1;
+    }
+}
