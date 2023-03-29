@@ -24,5 +24,5 @@ export function TaylorSeries(equation:string,point:number,order:number){ //Takes
     var test = resultFinal.replaceAll(" 0 + ",'');
     test = test.replaceAll("0 + ",'');
     test = test.replaceAll("+ 0",'');
-      return test; //Reworked it lol
+      return test; //Reworked it lol L
   }
