@@ -19,7 +19,7 @@ export function CRT_helper(a1: bigint, a2: bigint, p1: bigint, p2: bigint): bigi
 
 
     // Check that gcd(p1,p2) = 1
-    if (GCDBigInt(p1, p2)){
+    if (GCDBigInt(p1, p2) !== BigInt(1)){
         throw Error("gcd(p1,p2) must be 1");
     }
 
