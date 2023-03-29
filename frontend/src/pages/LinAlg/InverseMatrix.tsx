@@ -10,39 +10,42 @@ export default function InverseMatrix() {
     setCount(count + 1);
   }
 
-  // Matrix row and columns
-  const [matrixSize, setMatrixSize] = useState({ rows: 3, columns: 3 });
-  const [matrix, setMatrix] = useState(() => {
-    const initialMatrix = Array(matrixSize.rows).fill(0).map(() => Array(matrixSize.columns).fill(0));
-    return initialMatrix;
-  });
+  const [rows, setRows] = useState<number>(2); // initial number of rows
+  const [cols, setCols] = useState<number>(2); // initial number of columns
+  const [matrix, setMatrix] = useState<string[][]>(
+    new Array(rows).fill(new Array(cols).fill(''))
+  ); // initial matrix state with empty strings
 
-  function handleCellValueChange(event: React.ChangeEvent<HTMLInputElement>, row: number, column: number) {
-    const newMatrix = matrix.map((rowArr, rowIndex) => {
-      if (rowIndex === row) {
-        return rowArr.map((cellValue, columnIndex) => {
-          if (columnIndex === column) {
-            return parseInt(event.target.value, 10) || 0;
-          }
-          return cellValue;
-        });
-      }
-      return rowArr;
-    });
-    setMatrix(newMatrix);
-  }
+  const handleRowChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newRows = parseInt(e.target.value);
+    setRows(newRows); // update rows state with input value
+    setMatrix((prevMatrix) =>
+      new Array(newRows)
+        .fill(null)
+        .map(() => new Array(cols).fill(''))
+    ); // update the matrix with new number of rows
+  };
 
-  function handleMatrixSizeChange(event: React.ChangeEvent<HTMLInputElement>, dimension: string) {
-    const newSize = parseInt(event.target.value, 10) || 0;
-    setMatrixSize((prevState) => ({ ...prevState, [dimension]: newSize }));
-  }
+  const handleColChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newCols = parseInt(e.target.value);
+    setCols(newCols); // update cols state with input value
+    setMatrix((prevMatrix) =>
+      prevMatrix.map((row) =>
+        row.length < newCols
+          ? [...row, ...new Array(newCols - row.length).fill('')]
+          : row.slice(0, newCols)
+      )
+    ); // update the matrix with new number of columns
+  };
 
-  const handleMatrixChange = (row: number, column: number, event: React.ChangeEvent<HTMLInputElement>) => {
-    let copy = [...matrix];
-    copy[row][column] = event.target.value;
-    setMatrix(copy);
-
-    console.log(matrix);
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    rowIndex: number,
+    colIndex: number
+  ) => {
+    const newMatrix = [...matrix];
+    newMatrix[rowIndex][colIndex] = e.target.value;
+    setMatrix(newMatrix); // update the state with new matrix values
   };
 
   return (
@@ -71,37 +74,43 @@ export default function InverseMatrix() {
 
           {/* Inputs */}
           <div className="bg-[#DCEFF0] p-5 mt-5">
+            
             <h1 className="text-lg text-gray-900 dark:text-gray-50 font-bold my-5">
               Inputs
             </h1>
             
-            <div className="flex flex-col">
-            <label className="text-md font-bold text-gray-900 dark:text-gray-50">Rows:</label>
-            <input type="number" id="input" name="rows" title="Enter the number of rows in your matrix" min="1" placeholder="3" className="max-w-xs bg-gray-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" value={matrixSize.rows} onChange={(event) => handleMatrixSizeChange(event, "rows")} required/>
-            
-            <label className="text-md font-bold text-gray-900 dark:text-gray-50 mt-5">Columns:</label>
-            <input type="number" id="input" name="columns" title="Enter the number of columns in your matrix" min="1" placeholder="3" className="max-w-xs bg-gray-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" value={matrixSize.columns} onChange={(event) => handleMatrixSizeChange(event, "columns")} required/>
+            <div className="flex flex-col items-center">
+              <div className="flex space-x-4 my-4">
+                <div>
+                  <label htmlFor="rows" className="text-md font-bold text-gray-900 dark:text-gray-50 mr-5">Rows:</label>
+                  <input id="rows" type="number" name="rows" title="Enter the number of rows in your matrix" min="1" max="10" placeholder="3" className="max-w-xs bg-gray-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" value={rows} onChange={handleRowChange} required/>
+                </div>
+                <div>
+                  <label htmlFor="cols" className="text-md font-bold text-gray-900 dark:text-gray-50 mt-5 mr-5">Columns:</label>
+                  <input id="cols" type="number" name="columns" title="Enter the number of columns in your matrix" min="1" max="10" placeholder="3" className="max-w-xs bg-gray-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" value={cols} onChange={handleColChange} required/>
+                </div>
+              </div>
             </div>
 
             <div className="mt-5">
               <label className="text-md font-bold text-gray-900 dark:text-gray-50">Enter your matrix:</label>
-              {matrix.map((row, rowIndex) => (
-                <div className="flex flex-wrap" key={rowIndex}>
-                  {row.map((cell, columnIndex) => (
+              <div className={`grid grid-cols-${cols} gap-4`}>
+                {matrix.map((row, rowIndex) =>
+                  row.map((col, colIndex) => (
                     <input
-                      type="number"
-                      id="input"
-                      title="Enter a number"
-                      key={`${rowIndex}-${columnIndex}`}
-                      className="flex-1 min-w-0 bg-gray-100 rounded-xl p-2.5 m-2 text-gray-900 dark:text-gray-50 focus:bg-gray-50 focus:placeholder-gray-400 focus:outline-none transition duration-100 ease-in-out hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none"
-                      placeholder="0"
-                      value={cell}
-                      onChange={(event) => handleCellValueChange(event, rowIndex, columnIndex)}
-                      required
+                    type="text"
+                    id="input"
+                    title="Enter a number"
+                    key={`${rowIndex}-${colIndex}`}
+                    placeholder="0"
+                    value={matrix[rowIndex][colIndex]}
+                    className="min-w-0 bg-gray-100 rounded-xl p-2.5 m-2 text-gray-900 dark:text-gray-50 focus:bg-gray-50 focus:placeholder-gray-400 focus:outline-none transition duration-100 ease-in-out hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none"
+                    onChange={(e) => handleInputChange(e, rowIndex, colIndex)}
+                    required
                     />
-                  ))}
-                </div>
-              ))}
+                  ))
+                )}
+              </div>
             </div>
 
             <div className="flex flex-row justify-center">

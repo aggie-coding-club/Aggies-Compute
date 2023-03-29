@@ -47,7 +47,7 @@ export default function InverseMatrix() {
               Inputs
             </h1>
 
-            <label className="text-md font-bold dark:text-gray-50">Enter input here</label>
+            <label className="text-md font-bold dark:text-gray-50 mr-5">Enter input here</label>
             <input type="text" id="input" name="yourOwnVariable" title="Enter an expression" placeholder="Enter a sample expression here" className="max-w-xs bg-gray-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" onChange={handleYourOwnVariableChange} required/>
             
             <div className="flex flex-row justify-center">
