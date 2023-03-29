@@ -169,7 +169,7 @@ export default function Landing() {
             </NavLink>
 
             <div className="grid grid-rows-5 gap-y-[2%] my-[2%]">
-              <NavLink to="/algorthims" className="row-span-1">
+              <NavLink to="/algorithms" className="row-span-1">
                 <div className=" bg-bg_grey flex items-center justify-center w-[96%] h-[100%] m-[4%] mr-0 rounded-md">
                   <h1 className="link link-underline link-underline-black text-2xl font-bold text-center">
                     Features
