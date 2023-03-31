@@ -58,7 +58,7 @@ function App() {
         <Route path="/linalg" element={<LinAlgLanding />} />
         <Route path="/linalg/rref_ref" element={<RREF_REF />} />
         <Route path="/linalg/inverse_matrix" element={<InverseMatrix />} />
-        <Route path="/linalg/matrix_operations" element={<MatrixOperation/>}/>
+        <Route path="/linalg/matrix_operations" element={<MatrixOperation />}/>
 
         {/* Features */}
         <Route path="/acbot" element={<ACBot />} />
