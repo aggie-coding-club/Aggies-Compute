@@ -1,10 +1,13 @@
-import { isPrime } from "mathjs";
+
 import { GCDBigInt, inverseMod, inverseModBigInt, isPrimeBigInt } from "./helper_Crypto";
 
 /**
- * Prime factorization of number
+ * RSA Encryption function
  * 
- * @param p (bigint)
+ * @param m (bigint)
+ * @param p (big prime int)
+ * @param q (big prime int)
+ * @param e (big prime int)
  * @returns (array of prime factors)
  */
 export function RSA_Encrypt(m: bigint, p: bigint, q: bigint, e: bigint): bigint {
