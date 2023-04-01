@@ -33,17 +33,49 @@ export default function DropDown(props: any) {
         />
       </Dropdown.Trigger>
       <Dropdown.Menu aria-label="Static Actions">
-        <Dropdown.Item key="Favorites">
+        <Dropdown.Item key="Profile">
           <NavLink
             to="/profile"
-            className="h-full w-full flex"
+            className="flex h-full w-full bg-white"
           >
-            profile
+            Profile
           </NavLink>
         </Dropdown.Item>
-        <Dropdown.Item key="Settings">Settings</Dropdown.Item>
-        <Dropdown.Item key="Sign In">
-          <Login />
+
+        <Dropdown.Item key="Account">
+          <NavLink
+            to="/profile"
+            className="flex h-full w-full"
+          >
+            Account
+          </NavLink>
+        </Dropdown.Item>
+
+        <Dropdown.Item key="Favorite">
+          <NavLink
+            to="/profile"
+            className="flex h-full w-full"
+          >
+            Favorite
+          </NavLink>
+        </Dropdown.Item>
+
+        <Dropdown.Item key="Setting">
+          <NavLink
+            to="/profile"
+            className="flex h-full w-full"
+          >
+            Settings
+          </NavLink>
+        </Dropdown.Item>
+
+        <Dropdown.Item key="Profile">
+          <NavLink
+            to="/profile"
+            className="flex h-full w-full"
+          >
+            Logout
+          </NavLink>
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
