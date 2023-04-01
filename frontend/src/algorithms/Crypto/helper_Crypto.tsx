@@ -299,7 +299,7 @@ export function primeFactors(p: bigint): Array<bigint> {
  * @param p (bigint)
  * @returns (boolean)
  */
-export function isPrime(p: bigint): boolean {
+export function isPrimeBigInt(p: bigint): boolean {
   if (primeFactors(p).length === 1) {
     return true;
   }
@@ -319,7 +319,7 @@ export function isPrime(p: bigint): boolean {
 export function isPrimRoot(a: bigint, p: bigint): boolean {
 
   // Check if p is prime
-  if (!isPrime(p)){
+  if (!isPrimeBigInt(p)){
     throw Error("p must be prime");
   }
 
