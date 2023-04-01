@@ -67,11 +67,20 @@ function minor_matrix(matrix: math.Matrix, row: number, column: number){
 //co-factor expanding along first row
 function cofactor(mat: math.Matrix){
     let n = mat.size()[0];
+    //sum
+    let sum = 0;
     //set i as the row to expand on
     let i = 0;
     //loop through each column
     for(let j = 0; j < n; j++){
         let minor = minor_matrix(mat, i, j);
+        if(minor.size()[0] == 2){
+            let det = det_2_by_2(minor);
+            sum+=det*mat.get([0,j]);
+        }
+        else{
+            cofactor(minor);
+        }
     }
 }
 
