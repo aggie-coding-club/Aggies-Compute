@@ -6,6 +6,14 @@ import './Landing.css';
 
 export default function Landing() {
   return (
+    // get variable from local storage from context wrappers
+    // check if logged in
+    // if logged in check:
+    // set profile picture 
+    // change profile picture button to drop down instead of redirect
+    // 
+
+
     <div className="bg-bg_grey overflow-x-auto">
       <div className="">
         <Navbar isLanding={true} />
