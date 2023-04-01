@@ -29,6 +29,9 @@ import PhotoMathClone from './pages/Features/PhotoMathClone';
 import Profile from './pages/Profile';
 import Education from './pages/Features/Education';
 
+// Personal
+import LoginPage from "./components/Login"
+
 // Test Pages
 import ConnectionTest from './pages/ConnectionTest';
 
@@ -70,6 +73,9 @@ function App() {
         <Route path="/photomathclone" element={<PhotoMathClone />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/education" element={<Education />} />
+
+        {/* Personal */}
+        <Route path="/login" element={<LoginPage />} />
 
         {/* Test Pages */}
         <Route path="/connectiontest" element={<ConnectionTest />} />

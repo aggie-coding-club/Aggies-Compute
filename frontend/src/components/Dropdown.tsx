@@ -6,7 +6,7 @@ import { gapi } from 'gapi-script';
 const clientId = "177264412292-61gchrb5v85ng2bop3om5k2kk1k0k97u.apps.googleusercontent.com"
 var DISCOVERY_DOCS = ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'];
 
-export default function DropDown(props:any) {
+export default function DropDown(props: any) {
   useEffect(() => {
     function start() {
       gapi.client.init({
@@ -21,14 +21,14 @@ export default function DropDown(props:any) {
   });
 
   return (
-      <Dropdown placement="bottom-right">
+    <Dropdown placement="bottom-right">
       <Dropdown.Trigger>
         <Avatar
           bordered
           size="lg"
           as="button"
-          color="secondary"
-          src="" referrerPolicy="no-referrer"
+          color="primary"
+          src={require("../images/profile_picture_default.jpg")} referrerPolicy="no-referrer"
         />
       </Dropdown.Trigger>
       <Dropdown.Menu aria-label="Static Actions">
