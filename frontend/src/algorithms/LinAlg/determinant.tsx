@@ -79,8 +79,9 @@ function cofactor(mat: math.Matrix){
             sum+=det*mat.get([0,j]);
         }
         else{
-            cofactor(minor);
+            sum += cofactor(minor);
         }
     }
+    return sum;
 }
 
