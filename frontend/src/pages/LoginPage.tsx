@@ -7,7 +7,6 @@ export default function Profile() {
         <div className='w-screen h-screen'>
             <div className="flex flex-col items-center justify-center">
                 <Login />
-
             </div>
         </div>
     );
