@@ -300,7 +300,7 @@ export function primeFactors(p: bigint): Array<bigint> {
  * @param p (bigint)
  * @returns (boolean)
  */
-export function isPrime(p: bigint): boolean {
+export function isPrimeBigInt(p: bigint): boolean {
   if (primeFactors(p).length === 1) {
     return true;
   } else {
@@ -316,8 +316,13 @@ export function isPrime(p: bigint): boolean {
  */
 export function isPrimRoot(a: bigint, p: bigint): boolean {
   // Check if p is prime
+<<<<<<< HEAD
   if (!isPrime(p)) {
     throw Error('p must be prime');
+=======
+  if (!isPrimeBigInt(p)){
+    throw Error("p must be prime");
+>>>>>>> c547d535 (Created RSA Encryption)
   }
 
   // Check a > 1
