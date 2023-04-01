@@ -1,7 +1,16 @@
-import React, { useEffect, ReactElement } from 'react';
+import React, { useEffect, useState, ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
 import DropDown from '../components/Dropdown';
 import '../styles.css';
+import { SearchBar } from "./SearchBar"
+import { Wrapper } from "./SearchBarContainer.styles"
+import Topics from "./data.json"
+
+interface Fields {
+  id: string;
+  name: string;
+}
+const defaultProps:Fields[] = [];
 
 export default function Navbar({
   isLanding
@@ -52,6 +61,17 @@ export default function Navbar({
         ?.setAttribute('class', 'absolute flex flex-col w-full bg-transparent');
     }
   }
+
+  // const [search, setSearch]: [string, (search:string) => void] = useState(" ");
+  // const [fields, setFields]: [Fields[], (posts: Fields[]) => void] = useState(defaultProps);
+  
+  // const handleChange = (e: {target: {value: string;}; }) => {
+  //   setSearch(e.target.value);
+  // };
+
+  // const filteredFields = fields.filter(fields =>
+  //   fields.name.toLowerCase().includes(search.toLowerCase())
+  // );
 
   return (
     <div
@@ -256,12 +276,18 @@ export default function Navbar({
         <ul className="flex  items-center w-auto space-x-6 ">
           <li>
             <NavLink to="#">
-              <input
-                className="pl-3 h-[30px] w-[200px] object-contain object-center"
-                type="text"
-                placeholder="Search Aggies Compute"
-                style={{ borderRadius: '10px' }}
-              ></input>
+              {/* <ul className="posts">
+                <input
+                  className="pl-3 h-[30px] w-[200px] object-contain object-center"
+                  type="text"
+                  placeholder="Search Aggies Compute"
+                  style={{ borderRadius: '10px' }}
+                ></input>
+
+              </ul> */}
+              <Wrapper>
+                <SearchBar data={Topics} />
+              </Wrapper>
             </NavLink>
           </li>
           <li>
