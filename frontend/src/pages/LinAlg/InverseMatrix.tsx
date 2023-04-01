@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Navbar from '../../components/Navbar';
-import Sidebar_Linalg from '../../components/Sidebar_Linalg';
+import SidebarLinalg from '../../components/SidebarLinAlg';
 import { Text } from "@nextui-org/react";
 import inverse_matrix from "../../algorithms/LinAlg/inverse_matrix";
 import 'mathjs';
@@ -55,7 +55,7 @@ export default function InverseMatrix() {
     <div className="">
       <Navbar isLanding={false} />
       <div className="flex">
-        <Sidebar_Linalg />
+        <SidebarLinalg />
         <div className="flex flex-col w-[60%] mt-20">
 
           {/* Title */}

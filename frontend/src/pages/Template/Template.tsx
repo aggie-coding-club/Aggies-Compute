@@ -1,7 +1,10 @@
 import React, {useState} from 'react';
 import Navbar from '../../components/Navbar';
-import Sidebar_Linalg from '../../components/Sidebar_Linalg';
+import SidebarLinalg from '../../components/SidebarLinAlg';
 import { Text } from "@nextui-org/react";
+// import [Your algorithm file name] from "../../algorithms/[Your algorithm type folder]/[Your algorithm file name";
+
+// Make sure to add your route to App.tsx
 
 export default function YourAlgorithmName() {
   // Calculate button
@@ -21,7 +24,7 @@ export default function YourAlgorithmName() {
     <div>
       <Navbar isLanding={false} />
       <div className="flex">
-        <Sidebar_Linalg />
+        <SidebarLinalg />
         <div className="flex flex-col w-[60%] mt-20">
 
           {/* Title */}
