@@ -3,7 +3,7 @@ import Navbar from '../../components/Navbar';
 import Sidebar_Linalg from '../../components/Sidebar_Linalg';
 import { Text } from "@nextui-org/react";
 
-export default function InverseMatrix() {
+export default function YourAlgorithmName() {
   // Calculate button
   const [count, setCount] = useState(0);
   function increment() {

@@ -2,6 +2,9 @@ import React, {useState} from 'react';
 import Navbar from '../../components/Navbar';
 import Sidebar_Linalg from '../../components/Sidebar_Linalg';
 import { Text } from "@nextui-org/react";
+import inverse_matrix from "../../algorithms/LinAlg/inverse_matrix";
+import 'mathjs';
+var math = require('mathjs');
 
 export default function InverseMatrix() {
   // Calculate button
@@ -10,8 +13,8 @@ export default function InverseMatrix() {
     setCount(count + 1);
   }
 
-  const [rows, setRows] = useState<number>(2); // initial number of rows
-  const [cols, setCols] = useState<number>(2); // initial number of columns
+  const [rows, setRows] = useState<number>(3); // initial number of rows
+  const [cols, setCols] = useState<number>(3); // initial number of columns
   const [matrix, setMatrix] = useState<string[][]>(
     new Array(rows).fill(new Array(cols).fill(''))
   ); // initial matrix state with empty strings
@@ -31,11 +34,9 @@ export default function InverseMatrix() {
     setCols(newCols); // update cols state with input value
     setMatrix((prevMatrix) =>
       prevMatrix.map((row) =>
-        row.length < newCols
-          ? [...row, ...new Array(newCols - row.length).fill('')]
-          : row.slice(0, newCols)
+        row.slice(0, newCols).concat(new Array(Math.max(newCols - row.length, 0)).fill(''))
       )
-    ); // update the matrix with new number of columns
+    );
   };
 
   const handleInputChange = (
@@ -47,6 +48,8 @@ export default function InverseMatrix() {
     newMatrix[rowIndex][colIndex] = e.target.value;
     setMatrix(newMatrix); // update the state with new matrix values
   };
+
+  const { steps, result } = inverse_matrix(math.matrix());
 
   return (
     <div className="">
@@ -94,19 +97,21 @@ export default function InverseMatrix() {
 
             <div className="mt-5">
               <label className="text-md font-bold text-gray-900 dark:text-gray-50">Enter your matrix:</label>
-              <div className={`grid grid-cols-${cols} gap-4`}>
+              <div className={`grid grid-cols-${cols} grid-rows-${rows} gap-4`}>
                 {matrix.map((row, rowIndex) =>
                   row.map((col, colIndex) => (
                     <input
-                    type="text"
-                    id="input"
-                    title="Enter a number"
-                    key={`${rowIndex}-${colIndex}`}
-                    placeholder="0"
-                    value={matrix[rowIndex][colIndex]}
-                    className="min-w-0 bg-gray-100 rounded-xl p-2.5 m-2 text-gray-900 dark:text-gray-50 focus:bg-gray-50 focus:placeholder-gray-400 focus:outline-none transition duration-100 ease-in-out hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none"
-                    onChange={(e) => handleInputChange(e, rowIndex, colIndex)}
-                    required
+                      type="text"
+                      id="input"
+                      title="Enter a number"
+                      key={`${rowIndex}-${colIndex}`}
+                      placeholder="0"
+                      value={matrix[rowIndex][colIndex]}
+                      className="min-w-0 max-w-xs bg-gray-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-gray-50 focus:placeholder-gray-400 focus:outline-none transition duration-100 ease-in-out hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none"
+                      onChange={(e) =>
+                        /^[+-]?\d*\.?\d*$/.test(e.target.value) &&
+                        handleInputChange(e, rowIndex, colIndex)
+                      }
                     />
                   ))
                 )}
@@ -125,17 +130,10 @@ export default function InverseMatrix() {
             <h1 className="text-lg text-gray-900 dark:text-gray-50 font-bold my-5">
               Solution
             </h1>
-            <div className="grid grid-rows-3 grid-cols-3 gap-4 my-5">
-              <div className="text-gray-900 dark:text-gray-50">1</div>
-              <div className="text-gray-900 dark:text-gray-50">2</div>
-              <div className="text-gray-900 dark:text-gray-50">3</div>
-              <div className="text-gray-900 dark:text-gray-50">4</div>
-              <div className="text-gray-900 dark:text-gray-50">5</div>
-              <div className="text-gray-900 dark:text-gray-50">6</div>
-              <div className="text-gray-900 dark:text-gray-50">7</div>
-              <div className="text-gray-900 dark:text-gray-50">8</div>
-              <div className="text-gray-900 dark:text-gray-50">9</div>
-            </div>
+
+            <p className="text-gray-900 dark:text-gray-50">
+              {/* {result} */}
+            </p>
           </div>
 
           {/* Steps */}
@@ -144,7 +142,7 @@ export default function InverseMatrix() {
               Steps
             </h1>
             <p className="text-gray-900 dark:text-gray-50">
-              Use the formula
+              {steps}
             </p>
           </div>
         </div>
