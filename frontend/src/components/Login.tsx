@@ -11,6 +11,8 @@ function Login() {
 
     const onSuccess = (res: any) => {
         console.log("Login successful! Current user: ", res.profileObj);
+        localStorage.setItem("userInfo", JSON.stringify(res.profileObj));
+        localStorage.setItem("loginBool", "true");
         goBack();
 
     }

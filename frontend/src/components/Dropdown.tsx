@@ -1,4 +1,5 @@
 import { Dropdown, Avatar } from "@nextui-org/react";
+import { NavLink } from 'react-router-dom';
 import Login from './Login';
 import { useEffect } from 'react';
 import { gapi } from 'gapi-script';
@@ -32,7 +33,14 @@ export default function DropDown(props: any) {
         />
       </Dropdown.Trigger>
       <Dropdown.Menu aria-label="Static Actions">
-        <Dropdown.Item key="Favorites">Favorites</Dropdown.Item>
+        <Dropdown.Item key="Favorites">
+          <NavLink
+            to="/profile"
+            className="h-full w-full flex"
+          >
+            profile
+          </NavLink>
+        </Dropdown.Item>
         <Dropdown.Item key="Settings">Settings</Dropdown.Item>
         <Dropdown.Item key="Sign In">
           <Login />
