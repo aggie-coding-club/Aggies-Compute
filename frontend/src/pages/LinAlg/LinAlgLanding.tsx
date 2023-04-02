@@ -19,6 +19,13 @@ export default function LinAlgLanding() {
         >
           Inverse Matrix
         </NavLink>
+        <NavLink
+          to="/linalg/determinant"
+          className="bg-[#27476e] text-white p-[1%] my-[1%] rounded-md"
+        >
+          Determinant
+        </NavLink>
+
       </ul>
     </div>
   );
