@@ -1,5 +1,5 @@
 import React, { useEffect, useState, ReactElement } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import DropDown from '../components/Dropdown';
 import '../styles.css';
 import { SearchBar } from "./SearchBar"
@@ -10,13 +10,15 @@ interface Fields {
   id: string;
   name: string;
 }
-const defaultProps:Fields[] = [];
+const defaultProps: Fields[] = [];
 
 export default function Navbar({
   isLanding
 }: {
   isLanding: boolean;
 }): ReactElement {
+
+
   useEffect(() => {
     if (isLanding) {
       var d = document.getElementById('nav-landing-page');
@@ -64,7 +66,7 @@ export default function Navbar({
 
   // const [search, setSearch]: [string, (search:string) => void] = useState(" ");
   // const [fields, setFields]: [Fields[], (posts: Fields[]) => void] = useState(defaultProps);
-  
+
   // const handleChange = (e: {target: {value: string;}; }) => {
   //   setSearch(e.target.value);
   // };
@@ -291,13 +293,8 @@ export default function Navbar({
             </NavLink>
           </li>
           <li>
-            <DropDown>
-              <img
-                src={require('../images/profile-icon.png')}
-                className="h-[30px] w-[30px] object-contain object-center"
-                alt="Temp Profile Icon"
-              />
-            </DropDown>
+            <DropDown
+            ></DropDown>
           </li>
         </ul>
       </nav>
