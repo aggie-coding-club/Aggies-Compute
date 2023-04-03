@@ -1,6 +1,6 @@
 import { Dropdown, Avatar } from "@nextui-org/react";
 import { NavLink, useNavigate } from 'react-router-dom';
-import Login from './Login';
+import Login from '../pages/Login';
 import { useEffect } from 'react';
 import { gapi } from 'gapi-script';
 

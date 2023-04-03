@@ -30,7 +30,8 @@ import Profile from './pages/Profile';
 import Education from './pages/Features/Education';
 
 // Personal
-import LoginPage from "./components/Login"
+import LoginPage from "./pages/Login"
+import Registration from "./pages/Registration"
 
 // Test Pages
 import ConnectionTest from './pages/ConnectionTest';
@@ -76,6 +77,7 @@ function App() {
 
         {/* Personal */}
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/registration" element={<Registration />} />
 
         {/* Test Pages */}
         <Route path="/connectiontest" element={<ConnectionTest />} />
