@@ -28,6 +28,7 @@ import Calculator from './pages/Features/Calculator';
 import PhotoMathClone from './pages/Features/PhotoMathClone';
 import Profile from './pages/Profile';
 import Education from './pages/Features/Education';
+import TaylorSeries from './pages/Calculus/TaylorSeries';
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000',
@@ -51,6 +52,10 @@ function App() {
         <Route
           path="/calculus/simple_derivative"
           element={<SimpleDerivative />}
+        />
+        <Route
+          path="/calculus/taylor-series"
+          element={<TaylorSeries />}
         />
 
         {/* Crpyto Routes */}
