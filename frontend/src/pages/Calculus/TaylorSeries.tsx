@@ -20,8 +20,38 @@ export default function TaylorSeries() {
             </p>
           </div>
           {/* Inputs */}
+          <p className='text-lg font-bold my-5'>Input</p>
+          <p>Input your equation here:</p>
+            <input
+                type="text"
+                id="input"
+                className="bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none"
+                placeholder=""
+                title="Enter the Equation"
+                required
+              />
+          <p>Input the point:</p>
+          <input
+                type="number"
+                id="input"
+                className="bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none"
+                placeholder=""
+                title="Enter the point"
+                required
+              />
+          <p>Input the number of terms desired:</p>
+          <input
+                type="number"
+                id="input"
+                className="bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none"
+                placeholder=""
+                title="Enter the point"
+                required
+              />
+          <button>
+            Calculate!
+          </button>
           <div>
-            <p className='text-lg font-bold my-5'>Input</p>
           </div>
           {/* Solutions */}
           <div>
