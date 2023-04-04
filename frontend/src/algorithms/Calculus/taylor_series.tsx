@@ -8,10 +8,10 @@ export function TaylorSeries(equation:string,point:number,order:number){ //Takes
     var count = 0;
     var i = 0
     while (count <= order-1){
-      let c1 = nerdamer('diff(' + equation + ',x,' + i + ')').sub('x',point).toString(); //Top part of Coefficient
-      let c2 = nerdamer('factorial(' + i + ')').toString(); // Bottom Part of Coefficient
-      let c3 = nerdamer('x - ' + point).pow(i).toString(); //Power
-      let coefficient = nerdamer("(" + c1 + "/" + c2 + ")" + "(" + c3 + ")").evaluate().toString(); //Definining Everything
+      let c1 = nerdamer('diff(' + equation + ',x,' + i + ')').sub('x',point).evaluate().text('decimals'); //Top part of Coefficient
+      let c2 = nerdamer('factorial(' + i + ')').evaluate().text('decimals'); // Bottom Part of Coefficient
+      let c3 = nerdamer('x - ' + point).pow(i).evaluate().text('decimals'); //Power
+      let coefficient = nerdamer("(" + c1 + "/" + c2 + ")" + "(" + c3 + ")").evaluate().text('decimals'); //Definining Everything
       i++;
       if (coefficient == '0'){
         continue;
@@ -21,8 +21,5 @@ export function TaylorSeries(equation:string,point:number,order:number){ //Takes
       }
   }
     resultFinal = nerdamer.convertToLaTeX(resultLocal);
-    var test = resultFinal.replaceAll(" 0 + ",'');
-    test = test.replaceAll("0 + ",'');
-    test = test.replaceAll("+ 0",'');
-      return test; //Returns a somewhat simplified version of the power series (Know how to rework the entire thing lmao)
+      return resultFinal; //Returns a somewhat simplified version of the power series (Know how to rework the entire thing lmao)
   }
