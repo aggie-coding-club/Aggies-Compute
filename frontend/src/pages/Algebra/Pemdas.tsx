@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Navbar from '../../components/Navbar';
-import Sidebar_Linalg from '../../components/Sidebar_Linalg';
+import SidebarLinAlg from '../../components/SidebarLinAlg';
 import { Text } from "@nextui-org/react";
 
 export default function InverseMatrix() {
@@ -15,7 +15,7 @@ export default function InverseMatrix() {
     <div className="">
       <Navbar isLanding={false} />
       <div className="flex">
-        <Sidebar_Linalg />
+        <SidebarLinAlg />
         <div className="flex flex-col w-[60%] mt-20">
 
           {/* Title */}
@@ -51,7 +51,6 @@ export default function InverseMatrix() {
               Enter expression below
             </p>
             <input type="text" id="input" name="expression" min="1" className="w-full max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" placeholder="5 + 1 / 2" title="Enter a expression" onChange={handleExpressionChange} required/>
-            <p>{expression}</p>
             <div className="flex flex-row justify-center">
                 <input type="button" id="calculate" value="Calculate" className="text-white bg-gradient-to-b from-[#27476E] to-[#000000] rounded-xl focus:outline-none transform: transition duration-100 hover:hover:scale-105 motion-reduce:transform-none p-2 mt-5" onSubmit={useState}/>
             </div>
