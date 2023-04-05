@@ -4,7 +4,7 @@ import SidebarLinAlg from '../../components/SidebarLinAlg';
 import pemdas from '../../algorithms/Algebra/pemdas';
 import { Text } from "@nextui-org/react";
 
-export default function InverseMatrix() {
+export default function Pemdas() {
   const [expression, setExpression] = useState("");
   const [solution, setSolution] = useState("");
   const [steps, setSteps] = useState([""]);
