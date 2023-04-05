@@ -1,15 +1,24 @@
 import React, {useState} from 'react';
 import Navbar from '../../components/Navbar';
 import SidebarLinAlg from '../../components/SidebarLinAlg';
+import pemdas from '../../algorithms/Algebra/pemdas';
 import { Text } from "@nextui-org/react";
 
 export default function InverseMatrix() {
   const [expression, setExpression] = useState("");
+  const [solution, setSolution] = useState("");
+  const [steps, setSteps] = useState([""]);
   
   const handleExpressionChange = (event: React.FormEvent<HTMLInputElement>) => {
     const target = event.target as HTMLInputElement;
     setExpression(target.value);
   };
+
+  const handleCalculateClick = () => {
+    const result = pemdas(expression)
+    setSolution(result[result.length - 1])
+    setSteps(result);
+  }
 
   return (
     <div className="">
@@ -52,7 +61,7 @@ export default function InverseMatrix() {
             </p>
             <input type="text" id="input" name="expression" min="1" className="w-full max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" placeholder="5 + 1 / 2" title="Enter a expression" onChange={handleExpressionChange} required/>
             <div className="flex flex-row justify-center">
-                <input type="button" id="calculate" value="Calculate" className="text-white bg-gradient-to-b from-[#27476E] to-[#000000] rounded-xl focus:outline-none transform: transition duration-100 hover:hover:scale-105 motion-reduce:transform-none p-2 mt-5" onSubmit={useState}/>
+                <input type="button" id="calculate" value="Calculate" className="text-white bg-gradient-to-b from-[#27476E] to-[#000000] rounded-xl focus:outline-none transform: transition duration-100 hover:hover:scale-105 motion-reduce:transform-none p-2 mt-5" onClick={handleCalculateClick}/>
             </div>
           </div>
 
@@ -62,7 +71,7 @@ export default function InverseMatrix() {
               Solution
             </h1>
             <p>
-              Enter solution here
+              {solution}
             </p>
           </div>
 
@@ -71,9 +80,11 @@ export default function InverseMatrix() {
             <h1 className="text-lg font-bold my-5">
               Steps
             </h1>
-            <p>
-              Enter steps here
-            </p>
+            <ul>
+              {steps.map((step, index) => (
+                <li>{step}</li>
+              ))}
+            </ul>
           </div>
         </div>
         <div className="flex bg-[#DEDEDE] w-[20%] m-16 items-center justify-center">
