@@ -42,7 +42,7 @@ export default function TaylorSeries() {
           {/* Description */}
           <div>
             <p>
-              The taylor / maclaurin series expansion is balling af lmao.
+              The Taylor Series is a way to express a given function at a point as an infinite summation of derivatives.
             </p>
           </div>
           {/* Inputs */}
@@ -77,7 +77,13 @@ export default function TaylorSeries() {
                 onChange={onOrderChange}
                 required
               />
-          <button type="button" id="submit" value="Submit" onClick={handleCalculate}>
+          <button
+           type="button" 
+           id="submit" 
+           value="Submit" 
+           onClick={handleCalculate}
+           className="color: white background-color: #555555 text-align: center"
+           >
             Calculate!
             {/*
             For the button to be a submit button, and onClick it needs to acticvate a function that takes input
@@ -89,7 +95,7 @@ export default function TaylorSeries() {
           {/* Solutions */}
           
           <div>
-            <p className='text-lg font-bold my-5'>{solution}</p>
+            <body className='text-lg font-bold my-5'>{solution}</body>
           </div>
           {/* Steps */}
           <div>
