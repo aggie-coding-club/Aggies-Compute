@@ -6,10 +6,12 @@ import { Text } from "@nextui-org/react";
 
 export default function Pemdas() {
   const [expression, setExpression] = useState("");
+  const [warning, setWarning] = useState("")
   const [solution, setSolution] = useState("");
   const [steps, setSteps] = useState([""]);
 
-  const allowedCharacters = "0123456789+-/*()^ "
+  const allowedCharacters = "0123456789+-/*()^ ";
+
   
   const handleExpressionChange = (event: React.FormEvent<HTMLInputElement>) => {
     const target = event.target as HTMLInputElement;
@@ -20,7 +22,31 @@ export default function Pemdas() {
     } else {
       target.value = expression;
     }
+
+    // TODO: Check for syntax errors in expression
+
+    if (!parenthesisCheck(target.value)) {
+      setWarning("Parenthesis not matched");
+    } else {
+      setWarning("");
+    }
+
   };
+
+  function parenthesisCheck(expression: string) {
+    const parenthesisStack = [];
+      for(let char of expression) {
+        if (char === "(") {
+          parenthesisStack.push("(");
+        } else if (char === ")") {
+          const check = parenthesisStack.pop();
+          if (check == undefined) {
+            return false;
+          }
+        }
+      }
+      return parenthesisStack.length === 0;
+  }
 
   const handleCalculateClick = () => {
     const result = pemdas(expression)
@@ -68,6 +94,7 @@ export default function Pemdas() {
               Enter expression below
             </p>
             <input type="text" id="input" name="expression" min="1" className="w-full max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" placeholder="5 + 1 / 2" title="Enter a expression" onChange={handleExpressionChange} required/>
+            <p>{warning}</p>
             <div className="flex flex-row justify-center">
                 <input type="button" id="calculate" value="Calculate" className="text-white bg-gradient-to-b from-[#27476E] to-[#000000] rounded-xl focus:outline-none transform: transition duration-100 hover:hover:scale-105 motion-reduce:transform-none p-2 mt-5" onClick={handleCalculateClick}/>
             </div>
