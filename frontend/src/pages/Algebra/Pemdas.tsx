@@ -8,10 +8,18 @@ export default function Pemdas() {
   const [expression, setExpression] = useState("");
   const [solution, setSolution] = useState("");
   const [steps, setSteps] = useState([""]);
+
+  const allowedCharacters = "0123456789+-/*()^ "
   
   const handleExpressionChange = (event: React.FormEvent<HTMLInputElement>) => {
     const target = event.target as HTMLInputElement;
-    setExpression(target.value);
+
+    const inputtedCharacter = target.value.slice(-1);
+    if(allowedCharacters.includes(inputtedCharacter)) {
+      setExpression(target.value);
+    } else {
+      target.value = expression;
+    }
   };
 
   const handleCalculateClick = () => {
@@ -63,6 +71,9 @@ export default function Pemdas() {
             <div className="flex flex-row justify-center">
                 <input type="button" id="calculate" value="Calculate" className="text-white bg-gradient-to-b from-[#27476E] to-[#000000] rounded-xl focus:outline-none transform: transition duration-100 hover:hover:scale-105 motion-reduce:transform-none p-2 mt-5" onClick={handleCalculateClick}/>
             </div>
+            <p>
+              {expression}
+            </p>
           </div>
 
           {/* Solutions */}
