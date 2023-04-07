@@ -10,7 +10,7 @@ export default function Pemdas() {
   const [solution, setSolution] = useState("");
   const [steps, setSteps] = useState([""]);
 
-  const allowedCharacters = "0123456789+-/*()^ ";
+  const allowedCharacters = "0123456789+-/*^() ";
 
   
   const handleExpressionChange = (event: React.FormEvent<HTMLInputElement>) => {
@@ -27,17 +27,11 @@ export default function Pemdas() {
 
     if (!parenthesisCheck(target.value)) {
       setWarning("Parenthesis not matched");
+    } else if (!operatorCheck(target.value)) {
+      setWarning("Improper operations")
     } else {
       setWarning("");
     }
-    
-    if (!operatorCheck(target.value)) {
-      setWarning("Improper operations")
-    } else {
-      setWarning("")
-    }
-
-
   };
 
   function parenthesisCheck(expression: string) {
@@ -58,14 +52,15 @@ export default function Pemdas() {
   function operatorCheck(expression: string) {
     if (expression.length === 0) { return true; }
     expression = expression.replace(/\s/g, "");
-    if (allowedCharacters.slice(10,-1).includes(expression.charAt(0))) { return false; }
+    if (allowedCharacters.slice(10,-3).includes(expression.charAt(0))) { return false; }
+    if (allowedCharacters.slice(10,-3).includes(expression.charAt(expression.length - 1))) { return false; }
     let i = expression.length - 1;
     while (i > 1) {
       const char2 = expression.charAt(i);
       const char1 = expression.charAt(i - 1);
-      if (allowedCharacters.slice(10,-1).includes(char1) && allowedCharacters.slice(10,-1).includes(char2)) {
+      if (allowedCharacters.slice(10,-3).includes(char1) && allowedCharacters.slice(10,-3).includes(char2)) {
         const char3 = expression.charAt(i - 2);
-        return char2 === '-' && !allowedCharacters.slice(10,-1).includes(char3);
+        return char2 === '-' && !allowedCharacters.slice(10,-3).includes(char3);
 
       }
       i--;
