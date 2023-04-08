@@ -12,12 +12,12 @@ export default function determinant() {
         <div className="flex flex-col w-[60%] mt-20">
           {/* Title */}
           <div className="flex items-center justify-center">
-            <p className="text-xl font-bold my-5">Inverse Matrix</p>
+            <p className="text-xl font-bold my-5">Determinant</p>
           </div>
           {/* Description */}
           <div>
             <p className="text-lg font-bold my-5">Description</p>
-            <p>Returns the inverse matrix from a given matrix</p>
+            <p>Returns the determinant from a given matrix</p>
           </div>
           {/* Inputs */}
           <div>
