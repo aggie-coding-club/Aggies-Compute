@@ -27,7 +27,7 @@
      *       g      |   "global" modifier, sets to not return until end of string
      */
 
-export function add(functions:string[]):string{
+export function add(func1:string, func2:string):string{
 
     /** Algorithm
     *   1. Get strings from input
@@ -68,6 +68,35 @@ export function add(functions:string[]):string{
     *           "8x^2 + 9x + 30"
     */          
 
+    function basicAdd(exp1:string, exp2:string): string[] | string[][] | string | number{
+        const regex = /[+-]/;
+        const letterRegex = /[a-zA-Z*^]+/;
+        if ((regex.test(exp1) || regex.test(exp2)) && (letterRegex.test(exp1) || letterRegex.test(exp2))) { // checks if either expression contains +/- and variables
+            const polynomialRegex = /([+-]*\s*\d*\w*\^*\d*)/g;
+            const terms1 = exp1.match(polynomialRegex);
+            const terms2 = exp2.match(polynomialRegex);
+            return [terms1, terms2] // placeholder, *********************************************FIX-ME*****************************
+        } else if (regex.test(exp1) || regex.test(exp2)) { // checks if either expression contains +/-
+            const ls1 = exp1.split(/(?=[-+\s])/); // regex to split string by +/-
+            const ls2 = exp2.split(/(?=[-+\s])/);
+            const combinedList = [ls1, ls2]
+            return listToString(combinedList) // [ [ '2', '+1' ], [ '2', '-3' ] ]
+        } else {
+            const sum = parseFloat(exp1) + parseFloat(exp2) // normal basic addition
+            return sum.toString()
+        }
+    }
+    
+    function listToString(combinedList:string[][]): string[][] | string | number { // flattens array and finalizes calculations
+        let flattenedArray = [].concat(...combinedList); // [ '2', '+1', '2', '-3' ]
+        let sum = 0;
+        for (let i = 0; i < flattenedArray.length; i++) {
+            sum += parseFloat(flattenedArray[i]);
+        }
+        return sum.toString();
+    }
+    console.log(basicAdd('2x^2+2x+4', '8x^2+10x+3'))
+    
     const regex = "/([+-]*\s*\d*\w*\^*\d*)/g";
 
     return "Placeholder"
