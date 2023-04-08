@@ -1,105 +1,146 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> ffada886 (stuff)
-import React, {useState} from 'react';
-import Navbar from '../../components/Navbar';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 import Sidebar_Linalg from '../../components/Sidebar_Linalg';
-import { Text } from "@nextui-org/react";
+import Navbar from '../../components/Navbar';
 
-export default function Determinant() {
-  // Calculate button
-  const [count, setCount] = useState(0);
-  function increment() {
-    setCount(count + 1);
-  }
-
-  // Your own input variable
-  const [yourOwnVariable, setYourOwnVariable] = useState("");
-  const handleYourOwnVariableChange = (event: React.FormEvent<HTMLInputElement>) => {
-    const target = event.target as HTMLInputElement;
-    setYourOwnVariable(target.value);
-  };
-
+export default function determinant() {
   return (
-    <div>
+    <div className="">
       <Navbar isLanding={false} />
       <div className="flex">
         <Sidebar_Linalg />
         <div className="flex flex-col w-[60%] mt-20">
-
           {/* Title */}
-          <div className="flex items-center justify-center rounded-xl">
-            <Text h1 size={60} css={{ textGradient: "0deg, #F0F0F0, #27476E 50%" }} weight="bold">
-<<<<<<< HEAD
-              Enter title here
-=======
-              Determinant
->>>>>>> ffada886 (stuff)
-            </Text>
+          <div className="flex items-center justify-center">
+            <p className="text-xl font-bold my-5">Inverse Matrix</p>
           </div>
-
           {/* Description */}
           <div>
-            <h1 className="text-lg dark:text-gray-50 font-bold my-5">
-<<<<<<< HEAD
-              Description
-=======
-              Returns the determinant of a matrix.
->>>>>>> ffada886 (stuff)
-            </h1>
-            <p>
-              Enter description here
-            </p>
+            <p className="text-lg font-bold my-5">Description</p>
+            <p>Returns the inverse matrix from a given matrix</p>
           </div>
-
           {/* Inputs */}
-          <div className="bg-[#DCEFF0] p-5 mt-5">
-            <h1 className="text-lg dark:text-gray-50 font-bold my-5">
-              Inputs
-            </h1>
-
-            <label className="text-md font-bold dark:text-gray-50 mr-5">Enter input here</label>
-            <input type="text" id="input" name="yourOwnVariable" title="Enter an expression" placeholder="Enter a sample expression here" className="max-w-xs bg-gray-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" onChange={handleYourOwnVariableChange} required/>
-            
-            <div className="flex flex-row justify-center">
-              <button type="submit" className="text-gray-50 dark:text-gray-900 font-bold rounded-xl focus:outline-none transform: transition duration-100 ease-in-out bg-[#27476E] hover:bg-primary_blue hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none p-2 mt-5" onSubmit={increment}>
-                Calculate
-              </button>
+          <div>
+            <p className="text-lg font-bold my-5">Inputs</p>
+            <p>Enter your matrix</p>
+            <div className="grid grid-cols-3 gap-4 my-5">
+              <input
+                type="number"
+                id="input"
+                className="bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none"
+                placeholder="0"
+                title="Enter a number"
+                required
+              />
+              <input
+                type="number"
+                id="input"
+                className="bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none"
+                placeholder="0"
+                title="Enter a number"
+                required
+              />
+              <input
+                type="number"
+                id="input"
+                className="bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none"
+                placeholder="0"
+                title="Enter a number"
+                required
+              />
+              <input
+                type="number"
+                id="input"
+                className="bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none"
+                placeholder="0"
+                title="Enter a number"
+                required
+              />
+              <input
+                type="number"
+                id="input"
+                className="bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none"
+                placeholder="0"
+                title="Enter a number"
+                required
+              />
+              <input
+                type="number"
+                id="input"
+                className="bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none"
+                placeholder="0"
+                title="Enter a number"
+                required
+              />
+              <input
+                type="number"
+                id="input"
+                className="bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none"
+                placeholder="0"
+                title="Enter a number"
+                required
+              />
+              <input
+                type="number"
+                id="input"
+                className="bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none"
+                placeholder="0"
+                title="Enter a number"
+                required
+              />
+              <input
+                type="number"
+                id="input"
+                className="bg-gray-100 rounded-xl p-2.5 text-black focus:bg-transparent focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none"
+                placeholder="0"
+                title="Enter a number"
+                required
+              />
             </div>
           </div>
-
           {/* Solutions */}
-          <div className="bg-[#AEECEF]/60 p-5">
-            <h1 className="text-lg dark:text-gray-50 font-bold my-5">
-              Solution
-            </h1>
-            <p className="dark:text-gray-50">
-              Enter solution here
-            </p>
+          <div>
+            <p className="text-lg font-bold my-5">Solution</p>
+            <div className="grid grid-cols-3 gap-4 my-5">
+              <div className="bg-gray-100 rounded-xl p-2.5 text-gray-900">
+                1
+              </div>
+              <div className="bg-gray-100 rounded-xl p-2.5 text-gray-900">
+                2
+              </div>
+              <div className="bg-gray-100 rounded-xl p-2.5 text-gray-900">
+                3
+              </div>
+              <div className="bg-gray-100 rounded-xl p-2.5 text-gray-900">
+                4
+              </div>
+              <div className="bg-gray-100 rounded-xl p-2.5 text-gray-900">
+                5
+              </div>
+              <div className="bg-gray-100 rounded-xl p-2.5 text-gray-900">
+                6
+              </div>
+              <div className="bg-gray-100 rounded-xl p-2.5 text-gray-900">
+                7
+              </div>
+              <div className="bg-gray-100 rounded-xl p-2.5 text-gray-900">
+                8
+              </div>
+              <div className="bg-gray-100 rounded-xl p-2.5 text-gray-900">
+                9
+              </div>
+            </div>
           </div>
-
           {/* Steps */}
-          <div className="bg-[#AAEEEE]/80 p-5 mb-20">
-            <h1 className="text-lg dark:text-gray-50 font-bold my-5">
-              Steps
-            </h1>
-            <p className="dark:text-gray-50">
-              Enter steps here
-            </p>
+          <div>
+            <p className="text-lg font-bold my-5">Steps</p>
+            <p>Use the formula</p>
           </div>
         </div>
-
         <div className="flex bg-[#DEDEDE] w-[20%] m-16 items-center justify-center">
-          <h1 className="text-xl dark:text-gray-50 font-bold">
-            Right Side
-          </h1>
+          <h1 className="text-xl font-bold">Right Side</h1>
         </div>
       </div>
     </div>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> ffada886 (stuff)
