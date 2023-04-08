@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> ffada886 (stuff)
 import React, {useState} from 'react';
 import Navbar from '../../components/Navbar';
 import Sidebar_Linalg from '../../components/Sidebar_Linalg';
