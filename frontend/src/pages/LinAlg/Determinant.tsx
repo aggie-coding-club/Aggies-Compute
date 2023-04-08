@@ -27,22 +27,14 @@ export default function Determinant() {
           {/* Title */}
           <div className="flex items-center justify-center rounded-xl">
             <Text h1 size={60} css={{ textGradient: "0deg, #F0F0F0, #27476E 50%" }} weight="bold">
-<<<<<<< HEAD
               Enter title here
-=======
-              Determinant
->>>>>>> ffada886 (stuff)
             </Text>
           </div>
 
           {/* Description */}
           <div>
             <h1 className="text-lg dark:text-gray-50 font-bold my-5">
-<<<<<<< HEAD
               Description
-=======
-              Returns the determinant of a matrix.
->>>>>>> ffada886 (stuff)
             </h1>
             <p>
               Enter description here
@@ -94,8 +86,4 @@ export default function Determinant() {
       </div>
     </div>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> ffada886 (stuff)
