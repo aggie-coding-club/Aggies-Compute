@@ -45,30 +45,45 @@ export default function Sidebar_Crypto() {
           {/* Temp. SubBar - Will implement using mapping function for more dynamic use */}
           <div className="flex-1">
             <ul className="pt-2 pb-4 space-y-1 text-sm px-5">
-              <li className="flex flex-col items-center justify-center">
+
+            <li className="flex flex-col items-center justify-center">
                 <NavLink to="/" className="font-bold text-base">
-                  Matrix Inverse
+                  Shift Cipher
                 </NavLink>
                 <hr className="w-[40%] h-0.5 rounded my-2 dark:bg-gray-700"></hr>
               </li>
 
               <li className="flex flex-col items-center justify-center">
                 <NavLink to="/" className="font-bold text-base">
-                  Euclidean Algorithm
+                  Affine Cipher
                 </NavLink>
                 <hr className="w-[40%] h-0.5 rounded my-2 dark:bg-gray-700"></hr>
               </li>
 
               <li className="flex flex-col items-center justify-center">
                 <NavLink to="/" className="font-bold text-base">
-                  Matrix Operations
+                  Baby Step Giant Step
                 </NavLink>
                 <hr className="w-[40%] h-0.5 rounded my-2 dark:bg-gray-700"></hr>
               </li>
 
               <li className="flex flex-col items-center justify-center">
-                <NavLink to="/" className="w-[70%] font-bold text-base">
-                  <p className="break-words">Chinese Remainder Theorem</p>
+                <NavLink to="/" className="font-bold text-base">
+                  Chinese Remainder Theorem
+                </NavLink>
+                <hr className="w-[40%] h-0.5 rounded my-2 dark:bg-gray-700"></hr>
+              </li>
+
+              <li className="flex flex-col items-center justify-center">
+                <NavLink to="/" className="font-bold text-base">
+                  Diffie Hellman Key Exchange
+                </NavLink>
+                <hr className="w-[40%] h-0.5 rounded my-2 dark:bg-gray-700"></hr>
+              </li>
+
+              <li className="flex flex-col items-center justify-center">
+                <NavLink to="/" className="font-bold text-base">
+                  RSA
                 </NavLink>
                 <hr className="w-[40%] h-0.5 rounded my-2 dark:bg-gray-700"></hr>
               </li>
