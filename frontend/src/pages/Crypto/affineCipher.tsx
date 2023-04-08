@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../../components/Navbar';
-import SidebarLinalg from '../../components/SidebarLinAlg';
+import SidebarLinalg from '../../components/SideBar_Crypto';
 
 export default function AffineCipher() {
   return (
