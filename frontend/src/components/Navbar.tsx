@@ -1,13 +1,24 @@
-import React, { useEffect, ReactElement } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useEffect, useState, ReactElement } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import DropDown from '../components/Dropdown';
 import '../styles.css';
+import { SearchBar } from "./SearchBar"
+import { Wrapper } from "./SearchBarContainer.styles"
+import Topics from "./data.json"
+
+interface Fields {
+  id: string;
+  name: string;
+}
+const defaultProps: Fields[] = [];
 
 export default function Navbar({
   isLanding
 }: {
   isLanding: boolean;
 }): ReactElement {
+
+
   useEffect(() => {
     if (isLanding) {
       var d = document.getElementById('nav-landing-page');
@@ -53,11 +64,22 @@ export default function Navbar({
     }
   }
 
+  // const [search, setSearch]: [string, (search:string) => void] = useState(" ");
+  // const [fields, setFields]: [Fields[], (posts: Fields[]) => void] = useState(defaultProps);
+
+  // const handleChange = (e: {target: {value: string;}; }) => {
+  //   setSearch(e.target.value);
+  // };
+
+  // const filteredFields = fields.filter(fields =>
+  //   fields.name.toLowerCase().includes(search.toLowerCase())
+  // );
+
   return (
     <div
       id="navbar"
       className="flex flex-col w-full bg-gradient-to-b from-primary_blue-dark to-primary_blue-light-0 via-primary_blue animate-gradient-y divide-y-2 divide-opacity-20 divide-gray-300"
-      // className="fixed bg-transparent divide-y-2 divide-opacity-20 divide-gray-300"
+    // className="fixed bg-transparent divide-y-2 divide-opacity-20 divide-gray-300"
     >
       <nav className="p-4 h-50 flex justify-between items-center ">
         {/* Left Conent */}
@@ -86,9 +108,9 @@ export default function Navbar({
               >
                 <g id="SVGRepo_bgCarrier" stroke-width="0" />
                 {/* prettier-ignore */}
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
                 {/* prettier-ignore */}
-                <g id="SVGRepo_iconCarrier"> <path opacity="0.1" d="M5 7C5 5.11438 5 4.17157 5.58579 3.58579C6.17157 3 7.11438 3 9 3H12H15C16.8856 3 17.8284 3 18.4142 3.58579C19 4.17157 19 5.11438 19 7V12V17C19 18.8856 19 19.8284 18.4142 20.4142C17.8284 21 16.8856 21 15 21H12H9C7.11438 21 6.17157 21 5.58579 20.4142C5 19.8284 5 18.8856 5 17V12V7Z" fill="#FFF"/> <path d="M9 7H15" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M15 17V14" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M15 11H15.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M12 11H12.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M9 11H9.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M9 14H9.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M12 14H12.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M12 17H12.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M9 17H9.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M5 7C5 5.11438 5 4.17157 5.58579 3.58579C6.17157 3 7.11438 3 9 3H12H15C16.8856 3 17.8284 3 18.4142 3.58579C19 4.17157 19 5.11438 19 7V12V17C19 18.8856 19 19.8284 18.4142 20.4142C17.8284 21 16.8856 21 15 21H12H9C7.11438 21 6.17157 21 5.58579 20.4142C5 19.8284 5 18.8856 5 17V12V7Z" stroke="#FFF" stroke-width="2" stroke-linejoin="round"/></g>
+                <g id="SVGRepo_iconCarrier"> <path opacity="0.1" d="M5 7C5 5.11438 5 4.17157 5.58579 3.58579C6.17157 3 7.11438 3 9 3H12H15C16.8856 3 17.8284 3 18.4142 3.58579C19 4.17157 19 5.11438 19 7V12V17C19 18.8856 19 19.8284 18.4142 20.4142C17.8284 21 16.8856 21 15 21H12H9C7.11438 21 6.17157 21 5.58579 20.4142C5 19.8284 5 18.8856 5 17V12V7Z" fill="#FFF" /> <path d="M9 7H15" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <path d="M15 17V14" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <path d="M15 11H15.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <path d="M12 11H12.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <path d="M9 11H9.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <path d="M9 14H9.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <path d="M12 14H12.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <path d="M12 17H12.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <path d="M9 17H9.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <path d="M5 7C5 5.11438 5 4.17157 5.58579 3.58579C6.17157 3 7.11438 3 9 3H12H15C16.8856 3 17.8284 3 18.4142 3.58579C19 4.17157 19 5.11438 19 7V12V17C19 18.8856 19 19.8284 18.4142 20.4142C17.8284 21 16.8856 21 15 21H12H9C7.11438 21 6.17157 21 5.58579 20.4142C5 19.8284 5 18.8856 5 17V12V7Z" stroke="#FFF" stroke-width="2" stroke-linejoin="round" /></g>
               </svg>
               <div
                 className="invisible absolute z-10 justify-center items-center text-sm text-slate-200 font-semibold bg-slate-500  py-2 px-4 rounded bg-opacity-50 translate-y-[3px] -translate-x-[30px]"
@@ -246,7 +268,7 @@ export default function Navbar({
                 className="invisible absolute z-10 justify-center items-center text-sm text-slate-200 font-semibold bg-slate-500  py-2 px-4 rounded bg-opacity-50 translate-y-[3px] -translate-x-[20px]"
                 id="acbot-hover-text"
               >
-                Pratice
+                Practice
               </div>
             </NavLink>
           </li>
@@ -256,22 +278,23 @@ export default function Navbar({
         <ul className="flex  items-center w-auto space-x-6 ">
           <li>
             <NavLink to="#">
-              <input
-                className="pl-3 h-[30px] w-[200px] object-contain object-center"
-                type="text"
-                placeholder="Search Aggies Compute"
-                style={{ borderRadius: '10px' }}
-              ></input>
+              {/* <ul className="posts">
+                <input
+                  className="pl-3 h-[30px] w-[200px] object-contain object-center"
+                  type="text"
+                  placeholder="Search Aggies Compute"
+                  style={{ borderRadius: '10px' }}
+                ></input>
+
+              </ul> */}
+              <Wrapper>
+                <SearchBar data={Topics} />
+              </Wrapper>
             </NavLink>
           </li>
           <li>
-            <DropDown>
-              <img
-                src={require('../images/profile-icon.png')}
-                className="h-[30px] w-[30px] object-contain object-center"
-                alt="Temp Profile Icon"
-              />
-            </DropDown>
+            <DropDown
+            ></DropDown>
           </li>
         </ul>
       </nav>

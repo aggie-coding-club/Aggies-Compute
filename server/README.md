@@ -13,6 +13,7 @@
     Need to Create Database Design
 
 ## HOW TO RUN
+
     Change "Database URL": postgresql://[username]:[password]@localhost:5432/aggie-compute-db
     Run Postgres Server
         (local)
@@ -21,3 +22,5 @@
         psql [database-name]
     Migrate Schemes
         npm(npx) prisma migrate dev
+    Run GraphQL
+        npm run dev

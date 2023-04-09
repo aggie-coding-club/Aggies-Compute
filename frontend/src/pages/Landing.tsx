@@ -1,9 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import Footer from '../components/FooterMain'
 import './Landing.css';
 
 export default function Landing() {
+  console.log(localStorage.getItem("userInfo"));
+  console.log(localStorage.getItem("loginBool"));
   return (
     <div className="bg-bg_grey overflow-x-auto">
       <div className="">
@@ -29,9 +32,9 @@ export default function Landing() {
         </h2>
       </div>
 
-      <div className="flex flex-col items-center justify-center  m-12 pb-12">
+      <div className="flex flex-col items-center justify-center mt-12">
         {/* later may need to dymaically determine row # */}
-        <div className="grid grid-cols-3 grid-rows-2 grid gap-14 px-64 pb-12">
+        <div className="grid grid-cols-3 grid-rows-2 grid gap-14 px-64 pb-12 mx-12">
           <div className="flex flex-col">
             <NavLink
               to="/algebra"
@@ -141,7 +144,7 @@ export default function Landing() {
 
         {/* Features */}
 
-        <div className="flex  justify-center items-center h-[650px] w-[80%]  bg-primary_blue bg-opacity-20">
+        <div className="flex justify-center items-center h-[650px] w-[80%] bg-primary_blue bg-opacity-20 mx-[10%]">
           <div className="grid grid-cols-3 w-[90%] h-[80%]">
             <NavLink
               to="/acbot"
@@ -169,7 +172,7 @@ export default function Landing() {
             </NavLink>
 
             <div className="grid grid-rows-5 gap-y-[2%] my-[2%]">
-              <NavLink to="/algorthims" className="row-span-1">
+              <NavLink to="/algorithms" className="row-span-1">
                 <div className=" bg-bg_grey flex items-center justify-center w-[96%] h-[100%] m-[4%] mr-0 rounded-md">
                   <h1 className="link link-underline link-underline-black text-2xl font-bold text-center">
                     Features
@@ -256,6 +259,13 @@ export default function Landing() {
             </div>
           </div>
         </div>
+
+        {/* Footer */}
+
+        <div className="w-full mt-64">
+          <Footer />
+        </div>
+
       </div>
     </div>
   );
