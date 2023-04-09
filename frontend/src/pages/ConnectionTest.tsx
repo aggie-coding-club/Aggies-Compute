@@ -14,7 +14,7 @@ interface User {
   name: string;
 }
 
-export default function connetviity_test() {
+export default function ConnectionTest() {
   console.log('Begin Test()');
   const { loading, error, data } = useQuery(USERS_QUERY);
   if (loading) return <p>Loading...</p>;
