@@ -42,12 +42,12 @@ export default function TaylorSeries() {
           {/* Description */}
           <div>
             <p>
-              The Taylor Series is a way to express a given function at a point as an infinite summation of derivatives.
+              The Taylor Series is a way to express a given function at a point as an infinite sum of terms, where each term represents a derivative of the function at the given point.
             </p>
           </div>
           {/* Inputs */}
           <p className='text-lg font-bold my-5'>Input</p>
-          <p>Input your equation here:</p>
+          <p>Input the function:</p>
             <input
                 type="text"
                 id="input"
@@ -57,7 +57,7 @@ export default function TaylorSeries() {
                 onChange={onEquationChange}
                 required
               />
-          <p>Input the point:</p>
+          <p>Input the desired point:</p>
           <input
                 type="number"
                 id="input"
@@ -67,7 +67,7 @@ export default function TaylorSeries() {
                 onChange={onPointChange}
                 required
               />
-          <p>Input the number of terms desired:</p>
+          <p>Input the order wanted:</p>
           <input
                 type="number"
                 id="input"
@@ -84,7 +84,7 @@ export default function TaylorSeries() {
            onClick={handleCalculate}
            className="color: white background-color: #555555 text-align: center"
            >
-            Calculate!
+            Calculate
             {/*
             For the button to be a submit button, and onClick it needs to acticvate a function that takes input
             From the three textboxes above and output both a solution and steps to the below two functions.
