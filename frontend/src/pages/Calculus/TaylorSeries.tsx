@@ -97,10 +97,6 @@ export default function TaylorSeries() {
           <div>
             <body className='text-lg font-bold my-5'>{solution}</body>
           </div>
-          {/* Steps */}
-          <div>
-            <p className='text-lg font-bold my-5'>Steps</p>
-          </div>
         </div>
         <div className="flex bg-[#DEDEDE] w-[20%] m-16 items-center justify-center">
           <h1 className="text-xl font-bold"> Right Side</h1>
