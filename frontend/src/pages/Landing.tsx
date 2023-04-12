@@ -33,7 +33,7 @@ export default function Landing() {
       </div>
 
       <div className="flex flex-col items-center justify-center mt-12">
-        {/* later may need to dymaically determine row # */}
+        {/* Algorithm Selection */}
         <div className="grid grid-cols-3 grid-rows-2 grid gap-14 px-64 pb-12 mx-12">
           <div className="flex flex-col">
             <NavLink
@@ -139,6 +139,19 @@ export default function Landing() {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
               </h1>
             </div>
+          </div>
+        </div>
+        <div>
+          <div className="relative w-2 h-2 bg-purple-200 rounded-full flex justify-center items-center text-center p-4 shadow-xl">
+            <div className="text-sm font-bold">1</div>
+          </div>
+
+          <div className="relative w-2 h-2 bg-purple-200 rounded-full flex justify-center items-center text-center p-4 shadow-xl">
+            <div className="text-sm font-bold">2</div>
+          </div>
+
+          <div className="relative w-2 h-2 bg-purple-200 rounded-full flex justify-center items-center text-center p-4 shadow-xl">
+            <div className="text-sm font-bold">3</div>
           </div>
         </div>
 
