@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import SidebarLinAlg from '../../components/SidebarLinAlg'
+import SidebarLinAlg from '../../components/SidebarLinAlg';
 import Navbar from '../../components/Navbar';
 
 export default function InverseMatrix() {
