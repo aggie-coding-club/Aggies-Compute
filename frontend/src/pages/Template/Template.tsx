@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import Navbar from '../../components/Navbar';
-import SidebarLinalg from '../../components/SidebarLinAlg';
+import React, {useState} from "react";
+import Navbar from "../../components/Navbar";
+import SidebarLinalg from "../../components/SidebarLinAlg";
 import { Text } from "@nextui-org/react";
 // import [Your algorithm file name] from "../../algorithms/[Your algorithm type folder]/[Your algorithm file name";
 
