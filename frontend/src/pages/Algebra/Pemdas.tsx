@@ -26,9 +26,9 @@ export default function Pemdas() {
     // TODO: Check for syntax errors in expression
 
     if (!parenthesisCheck(target.value)) {
-      setWarning("Parenthesis not matched");
+      setWarning("WARNING: Parenthesis not matched");
     } else if (!operatorCheck(target.value)) {
-      setWarning("Improper operations")
+      setWarning("WARNING: Improper operations")
     } else {
       setWarning("");
     }
@@ -108,27 +108,38 @@ export default function Pemdas() {
           {/* Inputs */}
           <div className="bg-[#DCEFF0] p-5 mt-5">
             <h1 className="text-lg font-bold my-5">
-              Inputs
+              Inputs:
             </h1>
             <p>
               Enter expression below
             </p>
-            <input type="text" id="input" name="expression" min="1" className="w-full max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" placeholder="5 + 1 / 2" title="Enter a expression" onChange={handleExpressionChange} required/>
-            <p>{warning}</p>
+            <input 
+              type="text" 
+              id="input" 
+              name="expression" 
+              min="1" 
+              className="w-full max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" 
+              placeholder="5 + 1 / 2" title="Enter a expression" 
+              onChange={handleExpressionChange} 
+              required/>
+            <p className='text-red-500 text-center py-5 font-bold'>{warning}</p>
             <div className="flex flex-row justify-center">
-                <input type="button" id="calculate" value="Calculate" disabled={!(warning.length === 0)} className="text-white bg-gradient-to-b from-[#27476E] to-[#000000] rounded-xl focus:outline-none transform: transition duration-100 hover:hover:scale-105 motion-reduce:transform-none p-2 mt-5" onClick={handleCalculateClick}/>
+                <input 
+                  type="button" 
+                  id="calculate" 
+                  value="Calculate" 
+                  disabled={!(warning.length === 0)} 
+                  className="text-white bg-gradient-to-b from-[#27476E] to-[#000000] rounded-xl disabled:opacity-25 focus:outline-none transform: transition duration-100 hover:hover:scale-105 motion-reduce:transform-none p-2" 
+                  onClick={handleCalculateClick}/>
             </div>
-            <p>
-              {expression}
-            </p>
           </div>
 
           {/* Solutions */}
           <div className="bg-[#AEECEF]/60 p-5">
             <h1 className="text-lg font-bold my-5">
-              Solution
+              Solution:
             </h1>
-            <p>
+            <p className='text-lg text-center font-bold'>
               {solution}
             </p>
           </div>
@@ -136,13 +147,13 @@ export default function Pemdas() {
           {/* Steps */}
           <div className="bg-[#AAEEEE]/80 p-5 mb-20">
             <h1 className="text-lg font-bold my-5">
-              Steps
+              Steps:
             </h1>
-            <ul>
+            <ol>
               {steps.map((step, index) => (
-                <li>{step}</li>
+                <li className='ml-10'>{step}</li>
               ))}
-            </ul>
+            </ol>
           </div>
         </div>
         <div className="flex bg-[#DEDEDE] w-[20%] m-16 items-center justify-center">
