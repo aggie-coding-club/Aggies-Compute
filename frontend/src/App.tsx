@@ -21,6 +21,7 @@ import CryptoLanding from './pages/Crypto/CryptoLanding';
 import LinAlgLanding from './pages/LinAlg/LinAlgLanding';
 import RREF_REF from './pages/LinAlg/RREF_REF';
 import InverseMatrix from './pages/LinAlg/InverseMatrix';
+import MatrixOperation from './pages/LinAlg/MatrixOperations';
 
 // Features Imports
 import ACBot from './pages/Features/ACBot';
@@ -28,6 +29,13 @@ import Calculator from './pages/Features/Calculator';
 import PhotoMathClone from './pages/Features/PhotoMathClone';
 import Profile from './pages/Profile';
 import Education from './pages/Features/Education';
+
+// Personal
+import LoginPage from "./pages/Login"
+import Registration from "./pages/Registration"
+
+// Test Pages
+import ConnectionTest from './pages/ConnectionTest';
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000',
@@ -48,10 +56,7 @@ function App() {
 
         {/* Calculus Routes */}
         <Route path="/calculus" element={<CalculusLanding />} />
-        <Route
-          path="/calculus/simple_derivative"
-          element={<SimpleDerivative />}
-        />
+        <Route path="/calculus/simple_derivative" element={<SimpleDerivative />} />
 
         {/* Crpyto Routes */}
         <Route path="/crypto" element={<CryptoLanding />} />
@@ -60,6 +65,7 @@ function App() {
         <Route path="/linalg" element={<LinAlgLanding />} />
         <Route path="/linalg/rref_ref" element={<RREF_REF />} />
         <Route path="/linalg/inverse_matrix" element={<InverseMatrix />} />
+        <Route path="/linalg/matrix_operations" element={<MatrixOperation/>}/>
 
         {/* Features */}
         <Route path="/acbot" element={<ACBot />} />
@@ -67,6 +73,13 @@ function App() {
         <Route path="/photomathclone" element={<PhotoMathClone />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/education" element={<Education />} />
+
+        {/* Personal */}
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/registration" element={<Registration />} />
+
+        {/* Test Pages */}
+        <Route path="/connectiontest" element={<ConnectionTest />} />
       </Routes>
     </ApolloProvider>
   );

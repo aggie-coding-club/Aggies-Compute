@@ -19,6 +19,12 @@ export default function LinAlgLanding() {
         >
           Inverse Matrix
         </NavLink>
+        <NavLink
+          to="/linalg/matrix_operations"
+          className="bg-[#27476e] text-white p-[1%] my-[1%] rounded-md"
+        >
+          Matrix Operations
+        </NavLink>
       </ul>
     </div>
   );
