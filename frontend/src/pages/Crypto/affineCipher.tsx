@@ -1,45 +1,3 @@
-// /*
-// import React from 'react';
-// import Navbar from '../../components/Navbar';
-// import SidebarLinalg from '../../components/SideBar_Crypto';
-
-// export default function AffineCipher() {
-//   return (
-//     <div className="">
-//       <Navbar isLanding={false} />
-//       <div className="flex">
-//         <SidebarLinalg />
-//         <div className="flex flex-col w-[60%] mt-20">
-//           {/* Title */}
-//           <div className="flex items-center justify-center">
-//             <p className="text-xl font-bold">Affine Cipher</p>
-//           </div>
-//           {/* Description */}
-//           <div>
-//             <p>
-//               The Affine Cipher is a type of substituation shift cipher that relies on two encryption keys, "a" and "b", 
-//               which belong in the set of positive integers and where "a" is coprime with the given alphabet's length. Encryption 
-//               is done with the equation y = ax + b (mod p) where "x" is the plaintext letter value, y is the encrypted letter 
-//               value, and "p" is the length of the given alphabet. If both encyrption keys are known,
-//               they can also be used to decrypt a message and is done so with a rewritten form of the previous equation, 
-//               x = (a^-1)(y - b)(mod p).                             
-//               (Note the equations only encrypt/decrypt letters, and that messages with more than one 
-//               alphabet character utilize the equations as much times as there are many characters in a message).
-//             </p>
-//           </div>
-//           {/* Inputs */}
-//           {/* Solutions */}
-//           {/* Steps */}
-//         </div>
-//         <div className="flex bg-[#DEDEDE] w-[20%] m-16 items-center justify-center">
-//           <h1 className="text-xl font-bold"> Right Side</h1>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-// */
-
 import React, {useState} from 'react';
 import Navbar from '../../components/Navbar';
 import SidebarLinalg from '../../components/SideBar_Crypto';
@@ -78,7 +36,7 @@ export default function AffineCipher() {
 
           {/* Description */}
           <div>
-            <h1 className="text-lg dark:text-gray-50 font-bold my-5">
+            <h1 className="text-lg dark:text-black-50 font-bold my-5">
               Description
             </h1>
             <p>
@@ -95,15 +53,15 @@ export default function AffineCipher() {
 
           {/* Inputs */}
           <div className="bg-[#DCEFF0] p-5 mt-5">
-            <h1 className="text-lg dark:text-gray-50 font-bold my-5">
+            <h1 className="text-lg dark:text-black-50 font-bold my-5">
               Inputs
             </h1>
 
-            <label className="text-md font-bold dark:text-gray-50 mr-5">Enter input here</label>
+            <label className="text-md font-bold dark:text-black-50 mr-5">Enter input here</label>
             <input type="text" id="input" name="yourOwnVariable" title="Enter an expression" placeholder="Enter a sample expression here" className="max-w-xs bg-gray-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" onChange={handleYourOwnVariableChange} required/>
             
             <div className="flex flex-row justify-center">
-              <button type="submit" className="text-gray-50 dark:text-gray-900 font-bold rounded-xl focus:outline-none transform: transition duration-100 ease-in-out bg-[#27476E] hover:bg-primary_blue hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none p-2 mt-5" onSubmit={increment}>
+              <button type="submit" className="text-white-50 dark:text-white-900 font-bold rounded-xl focus:outline-none transform: transition duration-100 ease-in-out bg-[#27476E] hover:bg-primary_blue hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none p-2 mt-5" onSubmit={increment}>
                 Calculate
               </button>
             </div>
@@ -111,20 +69,20 @@ export default function AffineCipher() {
 
           {/* Solutions */}
           <div className="bg-[#AEECEF]/60 p-5">
-            <h1 className="text-lg dark:text-gray-50 font-bold my-5">
+            <h1 className="text-lg dark:text-black-50 font-bold my-5">
               Solution
             </h1>
-            <p className="dark:text-gray-50">
+            <p className="dark:text-black-50">
               Enter solution here
             </p>
           </div>
 
           {/* Steps */}
           <div className="bg-[#AAEEEE]/80 p-5 mb-20">
-            <h1 className="text-lg dark:text-gray-50 font-bold my-5">
+            <h1 className="text-lg dark:text-black-50 font-bold my-5">
               Steps
             </h1>
-            <p className="dark:text-gray-50">
+            <p className="dark:text-white-50">
               Enter steps here
             </p>
           </div>
