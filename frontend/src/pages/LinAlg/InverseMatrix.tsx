@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Sidebar_Linalg from '../../components/SidebarLinAlg';
+import SidebarLinAlg from '../../components/SidebarLinAlg'
 import Navbar from '../../components/Navbar';
 
 export default function InverseMatrix() {
@@ -8,7 +8,7 @@ export default function InverseMatrix() {
     <div className="">
       <Navbar isLanding={false} />
       <div className="flex">
-        <Sidebar_Linalg />
+        <SidebarLinAlg />
         <div className="flex flex-col w-[60%] mt-20">
           {/* Title */}
           <div className="flex items-center justify-center">
