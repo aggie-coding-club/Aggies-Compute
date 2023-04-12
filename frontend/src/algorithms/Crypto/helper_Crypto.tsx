@@ -118,8 +118,7 @@ export function GCD(a: number, b: number): number {
 
   if (r === 0) {
     return b;
-  } 
-  else {
+  } else {
     return GCD(b, r);
   }
 }
@@ -133,8 +132,7 @@ export function GCDBigInt(a: bigint, b: bigint): bigint {
 
   if (r === BigInt(0)) {
     return b;
-  } 
-  else {
+  } else {
     return GCDBigInt(b, r);
   }
 }
@@ -222,12 +220,17 @@ export function sussesive_squaring_mod(
     throw Error('inputs must be integers');
   }
 
+  base = base % modulus;
+
   let power: number = 1;
   let power_base: number = base;
-  let power_bases: number[][] = [[power, base]];
+  let power_bases: number[][] = [[base, power]];
 
   while (power < expo) {
     power *= 2;
+    if (power > expo) {
+      break;
+    }
     power_base = (power_base * power_base) % modulus;
     power_bases.push([power_base, power]);
   }
@@ -243,16 +246,15 @@ export function sussesive_squaring_mod(
   return result;
 }
 
-
 /**
  * Prime factorization of number
- * 
+ *
  * @param p (bigint)
  * @returns (array of prime factors)
  */
 export function primeFactors(p: bigint): Array<bigint> {
   if (p < 2) {
-    throw Error("p must be bigger than 2");
+    throw Error('p must be bigger than 2');
   }
 
   let factors: Array<bigint> = [];
@@ -262,8 +264,7 @@ export function primeFactors(p: bigint): Array<bigint> {
     if (p % div === BigInt(0)) {
       factors.push(div);
       p = p / div;
-    } 
-    else {
+    } else {
       div++;
     }
   }
@@ -272,19 +273,16 @@ export function primeFactors(p: bigint): Array<bigint> {
 
 /**
  * Checks if p is prime
- * 
+ *
  * @param p (bigint)
  * @returns (boolean)
  */
 export function isPrime(p: bigint): boolean {
   if (primeFactors(p).length === 1) {
     return true;
-  }
-
-  else {
+  } else {
     return false;
   }
-
 }
 
 /**
@@ -294,35 +292,60 @@ export function isPrime(p: bigint): boolean {
  * @returns (boolean)
  */
 export function isPrimRoot(a: bigint, p: bigint): boolean {
-
   // Check if p is prime
-  if (!isPrime(p)){
-    throw Error("p must be prime");
+  if (!isPrime(p)) {
+    throw Error('p must be prime');
   }
 
   // Check a > 1
-  if (a < 2){
-    throw Error("a must be greater than 2");
+  if (a < 2) {
+    throw Error('a must be greater than 2');
   }
 
   // Check GCD = 1
-  if (GCDBigInt(a, p) !== BigInt(1)){
-    throw Error("GCD(a,p) must be 1")
+  if (GCDBigInt(a, p) !== BigInt(1)) {
+    throw Error('GCD(a,p) must be 1');
   }
 
   // Generates elements mod p and returns false if number is repeated
   let hashmap = new Map<bigint, bigint>();
   for (let i: bigint = BigInt(0); i < p - BigInt(1); i++) {
-    let num: bigint = (a**i) % p;
+    let num: bigint = a ** i % p;
 
     if (hashmap.has(num)) {
       return false;
-    }
-
-    else {
+    } else {
       hashmap.set(num, num);
     }
   }
 
   return true;
+}
+
+/**
+ * Brute Force DLP. Purpose to easily check if DLP is solvable
+ * not fully inplemented, this is bad
+ */
+function force_DLP(base: number, target: number, modulo: number): number {
+  if (target < 1) {
+    return -1;
+  }
+
+  if (target % modulo == 1) {
+    return 0;
+  }
+  if (base % modulo == target % modulo) {
+    return 1;
+  }
+
+  var result: number = base;
+  for (let i: number = 2; i < 100; ++i) {
+    result *= base;
+    result = result % modulo;
+    // console.log(i);
+    if (result === target) {
+      return i;
+    }
+  }
+  return -1;
 }
