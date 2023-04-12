@@ -30,6 +30,13 @@ import PhotoMathClone from './pages/Features/PhotoMathClone';
 import Profile from './pages/Profile';
 import Education from './pages/Features/Education';
 
+// Personal
+import LoginPage from "./pages/Login"
+import Registration from "./pages/Registration"
+
+// Test Pages
+import ConnectionTest from './pages/ConnectionTest';
+
 const client = new ApolloClient({
   uri: 'http://localhost:4000',
   cache: new InMemoryCache()
@@ -66,6 +73,13 @@ function App() {
         <Route path="/photomathclone" element={<PhotoMathClone />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/education" element={<Education />} />
+
+        {/* Personal */}
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/registration" element={<Registration />} />
+
+        {/* Test Pages */}
+        <Route path="/connectiontest" element={<ConnectionTest />} />
       </Routes>
     </ApolloProvider>
   );
