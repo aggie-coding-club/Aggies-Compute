@@ -34,124 +34,128 @@ export default function Landing() {
 
       <div className="flex flex-col items-center justify-center mt-12">
         {/* Algorithm Selection */}
-        <div className="grid grid-cols-3 grid-rows-2 grid gap-14 px-64 pb-12 mx-12">
-          <div className="flex flex-col">
-            <NavLink
-              to="/algebra"
-              className="bg-primary_blue-dark text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
-            >
-              <img
-                className="rounded-lg h-full w-full object-cover"
-                src="https://media.giphy.com/media/l2Je3qSgOVvFPdaNi/giphy.gif"
-                alt="algebra animation"
-              ></img>
-            </NavLink>
-            <div className="flex flex-col w-full items-center justify-center">
-              <h1 className="flex items-center w-full justify-center font-bold text-lg mt-5">
-                Algebra
-              </h1>
-              <h1 className="text-center italic	text-slate-400">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </h1>
+        <div className='px-64 pb-12 mx-12'>
+          <div className="grid grid-cols-3 grid-rows-2 grid gap-14">
+            <div className="flex flex-col">
+              <NavLink
+                to="/algebra"
+                className="bg-primary_blue-dark text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
+              >
+                <img
+                  className="rounded-lg h-full w-full object-cover"
+                  src="https://media.giphy.com/media/l2Je3qSgOVvFPdaNi/giphy.gif"
+                  alt="algebra animation"
+                ></img>
+              </NavLink>
+              <div className="flex flex-col w-full items-center justify-center">
+                <h1 className="flex items-center w-full justify-center font-bold text-lg mt-5">
+                  Algebra
+                </h1>
+                <h1 className="text-center italic	text-slate-400">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </h1>
+              </div>
+            </div>
+            <div className="flex flex-col">
+              <NavLink
+                to="/calculus"
+                className="bg-primary-blue-dark text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
+              >
+                <img
+                  className="rounded-lg h-full w-full object-cover"
+                  src="https://media.giphy.com/media/l2YWF00ZX8wOs0p0s/giphy.gif"
+                  alt="calculus animation"
+                ></img>
+              </NavLink>
+              <div className="flex flex-col w-full items-center justify-center">
+                <h1 className="flex items-center w-full justify-center font-bold text-lg mt-5">
+                  Calculus
+                </h1>
+                <h1 className="text-center italic text-slate-400">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </h1>
+              </div>
+            </div>
+
+            <div className="flex flex-col">
+              <NavLink
+                to="/crypto"
+                className="bg-primary-blue-dark text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
+              >
+                <img
+                  className="rounded-lg h-full w-full object-cover"
+                  src="https://media.giphy.com/media/5xtDarJ7d5HXTRULbSo/giphy.gif"
+                  alt="cryptography animation"
+                ></img>
+              </NavLink>
+              <div className="flex flex-col w-full items-center justify-center">
+                <h1 className="flex items-center w-full justify-center font-bold text-lg mt-5">
+                  Cryptography
+                </h1>
+                <h1 className="text-center italic	text-slate-400">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </h1>
+              </div>
+            </div>
+
+            <div className="flex flex-col">
+              <NavLink
+                to="/linalg"
+                className="bg-primary-blue-dark text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
+              >
+                <img
+                  className="rounded-lg h-full w-full object-cover"
+                  src="https://media.giphy.com/media/OsMRCAQICXU8j8j7LI/giphy.gif"
+                  alt="linear algebra animation"
+                ></img>
+              </NavLink>
+
+              <div className="flex flex-col w-full items-center justify-center">
+                <h1 className="flex items-center w-full justify-center font-bold text-lg mt-5">
+                  Linear Algebra
+                </h1>
+                <h1 className="text-center italic	text-slate-400">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </h1>
+              </div>
+            </div>
+
+            <div className="flex flex-col">
+              <NavLink
+                to="/linalg"
+                className="bg-primary-blue-dark text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
+              >
+                <img
+                  className="rounded-lg h-full w-full object-cover"
+                  src="https://media.giphy.com/media/eB5WYVSaOT0qUmHOWA/giphy.gif"
+                  alt="placeholder animation"
+                ></img>
+              </NavLink>
+
+              <div className="flex flex-col w-full items-center justify-center">
+                <h1 className="flex items-center w-full justify-center font-bold text-lg mt-5">
+                  ...
+                </h1>
+                <h1 className="text-center italic	text-slate-400">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </h1>
+              </div>
+
+            </div>
+            <div>
+
             </div>
           </div>
-          <div className="flex flex-col">
-            <NavLink
-              to="/calculus"
-              className="bg-primary-blue-dark text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
-            >
-              <img
-                className="rounded-lg h-full w-full object-cover"
-                src="https://media.giphy.com/media/l2YWF00ZX8wOs0p0s/giphy.gif"
-                alt="calculus animation"
-              ></img>
-            </NavLink>
-            <div className="flex flex-col w-full items-center justify-center">
-              <h1 className="flex items-center w-full justify-center font-bold text-lg mt-5">
-                Calculus
-              </h1>
-              <h1 className="text-center italic text-slate-400">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </h1>
-            </div>
-          </div>
+          <div className="flex flex-row justify-end pb-8 mt-5">
+            <button className="bg-black relative w-1 h-1 border border-2 border-black rounded-full flex justify-center items-center text-center p-2 mx-2">
+            </button>
 
-          <div className="flex flex-col">
-            <NavLink
-              to="/crypto"
-              className="bg-primary-blue-dark text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
-            >
-              <img
-                className="rounded-lg h-full w-full object-cover"
-                src="https://media.giphy.com/media/5xtDarJ7d5HXTRULbSo/giphy.gif"
-                alt="cryptography animation"
-              ></img>
-            </NavLink>
-            <div className="flex flex-col w-full items-center justify-center">
-              <h1 className="flex items-center w-full justify-center font-bold text-lg mt-5">
-                Cryptography
-              </h1>
-              <h1 className="text-center italic	text-slate-400">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </h1>
-            </div>
-          </div>
+            <button className="relative w-1 h-1 border border-2 border-black rounded-full flex justify-center items-center text-center p-2 mx-2">
+            </button>
 
-          <div className="flex flex-col">
-            <NavLink
-              to="/linalg"
-              className="bg-primary-blue-dark text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
-            >
-              <img
-                className="rounded-lg h-full w-full object-cover"
-                src="https://media.giphy.com/media/OsMRCAQICXU8j8j7LI/giphy.gif"
-                alt="linear algebra animation"
-              ></img>
-            </NavLink>
+            <button className="relative w-1 h-1 border border-2 border-black rounded-full flex justify-center items-center text-center p-2 mx-2">
 
-            <div className="flex flex-col w-full items-center justify-center">
-              <h1 className="flex items-center w-full justify-center font-bold text-lg mt-5">
-                Linear Algebra
-              </h1>
-              <h1 className="text-center italic	text-slate-400">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </h1>
-            </div>
-          </div>
-
-          <div className="flex flex-col">
-            <NavLink
-              to="/linalg"
-              className="bg-primary-blue-dark text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
-            >
-              <img
-                className="rounded-lg h-full w-full object-cover"
-                src="https://media.giphy.com/media/eB5WYVSaOT0qUmHOWA/giphy.gif"
-                alt="placeholder animation"
-              ></img>
-            </NavLink>
-
-            <div className="flex flex-col w-full items-center justify-center">
-              <h1 className="flex items-center w-full justify-center font-bold text-lg mt-5">
-                ...
-              </h1>
-              <h1 className="text-center italic	 text-slate-400">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </h1>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div className="relative w-2 h-2 bg-purple-200 rounded-full flex justify-center items-center text-center p-4 shadow-xl">
-            <div className="text-sm font-bold">1</div>
-          </div>
-
-          <div className="relative w-2 h-2 bg-purple-200 rounded-full flex justify-center items-center text-center p-4 shadow-xl">
-            <div className="text-sm font-bold">2</div>
-          </div>
-
-          <div className="relative w-2 h-2 bg-purple-200 rounded-full flex justify-center items-center text-center p-4 shadow-xl">
-            <div className="text-sm font-bold">3</div>
+            </button>
           </div>
         </div>
 
