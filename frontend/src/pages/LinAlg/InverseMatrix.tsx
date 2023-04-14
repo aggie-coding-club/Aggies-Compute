@@ -168,7 +168,7 @@ export default function InverseMatrix() {
 
             <p className="text-gray-900 dark:text-gray-50">
               {steps.slice(steps.length - rows).map((value, index) => (
-                <p key={index}>
+                <p className="text-[#27476E] dark:text-[#AEECEF] font-bold text-xl" key={index}>
                   {value}
                 </p>
               ))}
@@ -182,12 +182,20 @@ export default function InverseMatrix() {
             </h1>
             <p className="text-gray-900 dark:text-gray-50">
               {/* <ol> */}
-                {steps.map((value, index) => (
-                  <li key={index}>
+                {steps.slice(0, steps.length - rows).map((value, index) => (
+                  <li className="text-gray-900 dark:text-gray-50" key={index}>
                     {value}
                   </li>
                 ))}
               {/* </ol> */}
+              <br />
+              
+              {/* Solution */}
+              {steps.slice(steps.length - rows).map((value, index) => (
+                <p className="text-[#27476E] dark:text-[#AEECEF] font-bold text-xl" key={index}>
+                  {value}
+                </p>
+              ))}
             </p>
           </div>
         </div>
