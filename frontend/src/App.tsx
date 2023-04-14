@@ -55,6 +55,8 @@ function App() {
         {/* Crpyto Routes */}
         <Route path="/crypto" element={<CryptoLanding />} />
         <Route path="/crypto/affinecipher" element={<AffineCipher />} />
+        
+
 
         {/* Linear Algebra Routes */}
         <Route path="/linalg" element={<LinAlgLanding />} />

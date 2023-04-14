@@ -8,12 +8,27 @@ export default function CryptoLanding() {
       <Navbar isLanding={false} />
       <ul className="flex flex-col items-center justify-center m-[5%]">
         <NavLink
-          to="/crypto/affinecipher"
+          to="/crypto/affineCipher"
           className="bg-[#27476e] text-white p-[1%] my-[1%] rounded-md"
         >
           Affine Cipher
         </NavLink>
       </ul>
+      
+      <ul className="flex flex-col items-center justify-center m-[5%]">
+        <NavLink
+          to="/crypto/shiftCipher"
+          className="bg-[#27476e] text-white p-[1%] my-[1%] rounded-md"
+        >
+          Shift Cipher
+        </NavLink>
+      </ul>
+   
+      
+    
+
     </div>
+
+    
   );
 }
