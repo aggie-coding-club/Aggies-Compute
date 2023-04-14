@@ -29,8 +29,8 @@ export default function InverseMatrix() {
     setCount(count + 1);
   }
 
-  const [rows, setRows] = useState<number>(3); // initial number of rows
-  const [cols, setCols] = useState<number>(4); // initial number of columns
+  const [rows, setRows] = useState<number>(2); // initial number of rows
+  const [cols, setCols] = useState<number>(2); // initial number of columns
   // const [matrix, setMatrix] = useState<string[][]>(
   //   new Array(rows).fill(new Array(cols).fill(""))
   // ); // initial matrix state with empty strings
@@ -117,18 +117,18 @@ export default function InverseMatrix() {
               <div className="flex space-x-4 my-4">
                 <div>
                   <label htmlFor="rows" className="text-md font-bold text-gray-900 dark:text-gray-50 mr-5">Rows:</label>
-                  <input id="rows" type="number" name="rows" title="Enter the number of rows in your matrix" min="1" max="10" placeholder="3" className="max-w-xs bg-gray-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" value={rows} onChange={handleRowChange} required/>
+                  <input id="rows" type="number" name="rows" title="Enter the number of rows in your matrix" min="1" max="10" placeholder="2" className="max-w-xs bg-gray-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" value={rows} onChange={handleRowChange} required/>
                 </div>
                 <div>
                   <label htmlFor="cols" className="text-md font-bold text-gray-900 dark:text-gray-50 mt-5 mr-5">Columns:</label>
-                  <input id="cols" type="number" name="columns" title="Enter the number of columns in your matrix" min="1" max="10" placeholder="4" className="max-w-xs bg-gray-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" value={cols} onChange={handleColChange} required/>
+                  <input id="cols" type="number" name="columns" title="Enter the number of columns in your matrix" min="1" max="10" placeholder="2" className="max-w-xs bg-gray-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" value={cols} onChange={handleColChange} required/>
                 </div>
               </div>
             </div>
 
             <div>
               <label htmlFor="matrix" className="text-md font-bold text-gray-900 dark:text-gray-50 mr-5">Matrix</label>
-              <input id="matrx" type="text" name="matrix" title="Enter your matrix" placeholder="1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12" className="max-w-xs bg-gray-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" value={expression} onChange={handleExpressionChange} required/>
+              <input id="matrx" type="text" name="matrix" title="Enter your matrix" placeholder="1, 2, 3, 4" className="max-w-xs bg-gray-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" value={expression} onChange={handleExpressionChange} required/>
             </div>
             {/* <div className="mt-5">
               <label className="text-md font-bold text-gray-900 dark:text-gray-50">Enter your matrix:</label>
@@ -167,7 +167,11 @@ export default function InverseMatrix() {
             </h1>
 
             <p className="text-gray-900 dark:text-gray-50">
-              {steps[steps.length - 1]}
+              {steps.slice(steps.length - rows).map((value, index) => (
+                <p key={index}>
+                  {value}
+                </p>
+              ))}
             </p>
           </div>
 
@@ -177,13 +181,13 @@ export default function InverseMatrix() {
               Steps
             </h1>
             <p className="text-gray-900 dark:text-gray-50">
-              <ol>
-                {steps.map((key, index) => (
-                <li key={index}>
-                  {steps[index]}
-                </li>
+              {/* <ol> */}
+                {steps.map((value, index) => (
+                  <li key={index}>
+                    {value}
+                  </li>
                 ))}
-              </ol>
+              {/* </ol> */}
             </p>
           </div>
         </div>
