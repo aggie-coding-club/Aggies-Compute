@@ -170,13 +170,14 @@ export default function CryptoLanding() {
 =======
       <ul className="flex flex-col items-center justify-center m-[5%]">
         <NavLink
-          to="/crypto/affinecipher"
+          to="/crypto/affineCipher"
           className="bg-[#27476e] text-white p-[1%] my-[1%] rounded-md"
         >
           Affine Cipher
         </NavLink>
       </ul>
->>>>>>> 54c9d7b8 (fixed directory)
     </div>
+
+
   );
 }

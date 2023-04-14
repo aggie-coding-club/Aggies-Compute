@@ -6,7 +6,7 @@ import { Text } from "@nextui-org/react";
 
 // Make sure to add your route to App.tsx
 
-export default function AffineCipher() {
+export default function ShiftCipher() {
   // Calculate button
   const [count, setCount] = useState(0);
   function increment() {
