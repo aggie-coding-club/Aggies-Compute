@@ -18,6 +18,7 @@ import SimpleDerivative from './pages/Calculus/SimpleDerivative';
 import CryptoLanding from './pages/Crypto/CryptoLanding';
 import AffineCipher from './pages/Crypto/affineCipher';
 import ShiftCipher from './pages/Crypto/shiftCipher';
+import BabyStepGiantStep from './pages/Crypto/babyStepGiantStep';
 
 // LinAlg Imports
 import LinAlgLanding from './pages/LinAlg/LinAlgLanding';
@@ -58,6 +59,7 @@ function App() {
         <Route path="/crypto" element={<CryptoLanding />} />
         <Route path="/crypto/affinecipher" element={<AffineCipher />} />
         <Route path="/crypto/shiftcipher" element={<ShiftCipher />} />
+        <Route path="/crypto/babystepgiantstep" element={<BabyStepGiantStep />} />
         
         
 
