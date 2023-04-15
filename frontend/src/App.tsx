@@ -16,6 +16,8 @@ import SimpleDerivative from './pages/Calculus/SimpleDerivative';
 
 // Crypto Imports
 import CryptoLanding from './pages/Crypto/CryptoLanding';
+import AffineCipher from './pages/Crypto/affineCipher';
+import ShiftCipher from './pages/Crypto/shiftCipher';
 
 // LinAlg Imports
 import LinAlgLanding from './pages/LinAlg/LinAlgLanding';
@@ -29,7 +31,7 @@ import Calculator from './pages/Features/Calculator';
 import PhotoMathClone from './pages/Features/PhotoMathClone';
 import Profile from './pages/Profile';
 import Education from './pages/Features/Education';
-import AffineCipher from './pages/Crypto/affineCipher';
+
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000',
@@ -55,6 +57,8 @@ function App() {
         {/* Crpyto Routes */}
         <Route path="/crypto" element={<CryptoLanding />} />
         <Route path="/crypto/affinecipher" element={<AffineCipher />} />
+        <Route path="/crypto/shiftcipher" element={<ShiftCipher />} />
+        
         
 
 
