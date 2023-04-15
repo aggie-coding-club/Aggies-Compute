@@ -20,7 +20,7 @@ const lin_items = [
   >
     <div className="flex flex-col items-center justify-center h-48 mx-5">
       <img src={require("../../images/rref.jpg")}></img>
-      <p className='font-bold mt-8 text-white text-xl'>Simple Derivative</p>
+      <p className='font-bold mt-8 text-white text-xl'></p>
     </div>
   </NavLink>,
 
