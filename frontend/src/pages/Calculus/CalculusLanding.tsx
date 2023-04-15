@@ -19,7 +19,7 @@ const lin_items = [
     transform transition duration-500 scale-95 hover:scale-100 hover:bg-opacity-60"
   >
     <div className="flex flex-col items-center justify-center h-48 mx-5">
-      <img src={require("../../images/rref.jpg")}></img>
+      {/* <img src={require("../../images/rref.jpg")}></img> */}
       <p className='font-bold mt-8 text-white text-xl'>Simple Derivative</p>
     </div>
   </NavLink>,
@@ -31,7 +31,7 @@ transform transition duration-500 scale-95 hover:scale-100 hover:bg-opacity-60"
   >
     <div className="flex flex-col items-center justify-center h-48 mx-5">
       {/* <img src={require("../../images/inverse_matrix.jpg")}></img> */}
-      <p className='font-bold mt-8 text-white text-xl'>N/A</p>
+      <p className='font-bold mt-8 text-white text-xl'>Taylor Series</p>
     </div>
   </NavLink>,
 
