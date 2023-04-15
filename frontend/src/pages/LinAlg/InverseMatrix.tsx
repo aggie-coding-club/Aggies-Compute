@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
-import SidebarLinalg from '../../components/SidebarLinAlg';
+import SidebarLinAlg from '../../components/SidebarLinAlg';
 import { Text } from '@nextui-org/react';
 import inverse_matrix from '../../algorithms/LinAlg/inverse_matrix';
 import 'mathjs';
@@ -48,7 +49,7 @@ export default function InverseMatrix() {
     <div className="">
       <Navbar isLanding={false} />
       <div className="flex">
-        <SidebarLinalg />
+        <SidebarLinAlg />
         <div className="flex flex-col w-[60%] mt-20">
           {/* Title */}
           <div className="flex items-center justify-center rounded-xl">

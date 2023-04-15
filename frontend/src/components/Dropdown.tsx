@@ -47,7 +47,7 @@ export default function DropDown(props: any) {
 
 
   const setProfilePic = () => {
-    console.log("test", currentUser?.imageUrl)
+    // console.log("test", currentUser?.imageUrl)
     if (isLoggedin === "true") {
       if (currentUser?.imageUrl != undefined)
         return currentUser.imageUrl
