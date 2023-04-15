@@ -19,6 +19,7 @@ import CryptoLanding from './pages/Crypto/CryptoLanding';
 import AffineCipher from './pages/Crypto/affineCipher';
 import ShiftCipher from './pages/Crypto/shiftCipher';
 import BabyStepGiantStep from './pages/Crypto/babyStepGiantStep';
+import ChineseRemainderTheorem from './pages/Crypto/chineseRemainderTheorem';
 
 // LinAlg Imports
 import LinAlgLanding from './pages/LinAlg/LinAlgLanding';
@@ -68,6 +69,7 @@ function App() {
         <Route path="/crypto/affinecipher" element={<AffineCipher />} />
         <Route path="/crypto/shiftcipher" element={<ShiftCipher />} />
         <Route path="/crypto/babystepgiantstep" element={<BabyStepGiantStep />} />
+        <Route path="/crypto/chineseremaindertheorem" element={<ChineseRemainderTheorem />} />
         
         
 
