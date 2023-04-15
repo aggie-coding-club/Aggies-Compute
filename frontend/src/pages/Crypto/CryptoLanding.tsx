@@ -68,6 +68,17 @@ transform transition duration-500 scale-95 hover:scale-100 hover:bg-opacity-60"
       <p className='font-bold mt-8 text-white text-xl'>N/A</p>
     </div>
   </NavLink>,
+
+  <NavLink
+    to="/linalg//algebra/add_sub_mult"
+    className="flex flex-col justify-center items-center  bg-slate-800 bg-opacity-40 rounded-xl py-24 px-4 mx-4
+transform transition duration-500 scale-95 hover:scale-100 hover:bg-opacity-60"
+  >
+    <div className="flex flex-col items-center justify-center h-48 mx-5">
+      {/* <img src={require("../../images/inverse_matrix.jpg")}></img> */}
+      <p className='font-bold mt-8 text-white text-xl'>N/A</p>
+    </div>
+  </NavLink>,
 ];
 
 
@@ -118,7 +129,7 @@ export default function CryptoLanding() {
 
       <div className='flex flex-col justify-center items-center'>
 
-        <div className='mt-8 font-bold text-4xl'>Linear Algebra</div>
+        <div className='mt-8 font-bold text-4xl'>Cryptography</div>
       </div>
       <div className='flex flex-col justify-center items-center mt-8 mb-24 mx-48 pt-8  px-12  
         bg-gradient-to-r 
@@ -158,19 +169,3 @@ export default function CryptoLanding() {
     </div>
   );
 }
-
-// export default function CryptoLanding() {
-//   return (
-//     <div>
-//       <Navbar isLanding={false} />
-//       <ul className="flex flex-col items-center justify-center m-[5%]">
-//         <NavLink
-//           to="/crypto"
-//           className="bg-[#27476e] text-white p-[1%] my-[1%] rounded-md"
-//         >
-//           replace-this
-//         </NavLink>
-//       </ul>
-//     </div>
-//   );
-// }

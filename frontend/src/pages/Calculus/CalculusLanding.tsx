@@ -118,7 +118,7 @@ export default function CalculusLanding() {
 
       <div className='flex flex-col justify-center items-center'>
 
-        <div className='mt-8 font-bold text-4xl'>Linear Algebra</div>
+        <div className='mt-8 font-bold text-4xl'>Calculus</div>
       </div>
       <div className='flex flex-col justify-center items-center mt-8 mb-24 mx-48 pt-8  px-12  
         bg-gradient-to-r 
