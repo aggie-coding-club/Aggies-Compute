@@ -126,48 +126,6 @@ export default function CryptoLanding() {
   return (
     <div className='bg-bg_grey overflow-x-auto h-screen'>
       <Navbar isLanding={false} />
-<<<<<<< HEAD
-
-      <div className='flex flex-col justify-center items-center'>
-
-        <div className='mt-8 font-bold text-4xl'>Cryptography</div>
-      </div>
-      <div className='flex flex-col justify-center items-center mt-8 mb-24 mx-48 pt-8  px-12  
-        bg-gradient-to-r 
-        from-primary_blue
-        to-primary_blue
-        via-slate-500
-        animate-gradient-xy
-      
-      '>
-        <AliceCarousel
-          mouseTracking
-          disableDotsControls
-          disableButtonsControls
-          items={items}
-          activeIndex={activeIndex}
-          responsive={responsive}
-          onSlideChanged={syncActiveIndex}
-        />
-        <div className="flex flex-row b-refs-buttons m-2">
-
-          <button className="h-0 w-0 border-y-8 border-y-transparent border-r-[16px] border-r-white mx-2"
-            id='left-arrow'
-            onMouseOver={() => onArrowHover('left')}
-            onMouseOut={() => offArrowHover('left')}
-            onClick={slidePrev}></button>
-          <button className="h-0 w-0 border-y-8 border-y-transparent border-l-[16px] border-l-white mx-2 "
-            id='right-arrow'
-            onMouseOver={() => onArrowHover('right')}
-            onMouseOut={() => offArrowHover('right')}
-            onClick={slideNext}></button>
-        </div>
-
-      </div>
-      <div className="w-full mt-64">
-        <Footer />
-      </div>
-=======
       <ul className="flex flex-col items-center justify-center m-[5%]">
         <NavLink
           to="/crypto/affineCipher"
@@ -176,6 +134,19 @@ export default function CryptoLanding() {
           Affine Cipher
         </NavLink>
       </ul>
+
+      <ul className="flex flex-col items-center justify-center m-[5%]">
+        <NavLink
+          to="/crypto/shiftCipher"
+          className="bg-[#27476e] text-white p-[1%] my-[1%] rounded-md"
+        >
+          Shift Cipher
+        </NavLink>
+      </ul>
+
+
+
+
     </div>
 
 

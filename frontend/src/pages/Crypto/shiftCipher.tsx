@@ -30,7 +30,7 @@ export default function ShiftCipher() {
           {/* Title */}
           <div className="flex items-center justify-center rounded-xl">
             <Text h1 size={60} css={{ textGradient: "0deg, #F0F0F0, #27476E 50%" }} weight="bold">
-              Affine Cipher
+              Shift Cipher
             </Text>
           </div>
 
@@ -40,14 +40,8 @@ export default function ShiftCipher() {
               Description
             </h1>
             <p>
-            The Affine Cipher is a type of substituation shift cipher that relies on two encryption keys, "a" and "b", 
-            which belong in the set of positive integers and where "a" is coprime with the given alphabet's length. Encryption 
-            is done with the equation y = ax + b (mod p) where "x" is the plaintext letter value, y is the encrypted letter 
-            value, and "p" is the length of the given alphabet. If both encyrption keys are known,
-            they can also be used to decrypt a message and is done so with a rewritten form of the previous equation, 
-            x = (a^-1)(y - b)(mod p).                             
-            (Note the equations only encrypt/decrypt letters, and that messages with more than one 
-            alphabet character utilize the equations as much times as there are many characters in a message).
+            The Shift Cipher (also known as the Caesar Cipher) is a basic substitution cipher that substitutes a letter with a another 
+            positioned a certain distance value or "shift" within a given alphabet. 
             </p>
           </div>
 
@@ -60,23 +54,17 @@ export default function ShiftCipher() {
             <label className="text-md font-bold dark:text-black-50 mr-5">Ciphertext:</label>
             <input type="text" id="input" name="yourOwnVariable" title="Enter an expression" placeholder="Enter ciphertext" className="max-w-xs bg-black-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" onChange={handleYourOwnVariableChange} required/>
             <div className="h-3"> </div>
-            <label className="text-md font-bold dark:text-black-50 mr-5">a (integer): </label>
-            <input type="text" id="input" name="yourOwnVariable" title="Enter an expression" placeholder="Enter a" className="max-w-xs bg-black-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" onChange={handleYourOwnVariableChange} required/>
-            <div className="h-3"> </div>
-            <label className="text-md font-bold dark:text-black-50 mr-5">b (integer): </label>
-            <input type="text" id="input" name="yourOwnVariable" title="Enter an expression" placeholder="Enter b" className="max-w-xs bg-black-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" onChange={handleYourOwnVariableChange} required/>
+            <label className="text-md font-bold dark:text-black-50 mr-5">Shift (integer): </label>
+            <input type="text" id="input" name="yourOwnVariable" title="Enter an expression" placeholder="Enter shift" className="max-w-xs bg-black-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" onChange={handleYourOwnVariableChange} required/>
             <div className="h-3"> </div>
             <label className="text-md font-bold dark:text-black-50 mr-5">  alphabet: </label>
             <input type="text" id="input" name="yourOwnVariable" title="Enter an expression" placeholder="Enter alphabet" className="max-w-xs bg-black-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" onChange={handleYourOwnVariableChange} required/>
             
 
             <div className="flex flex-row justify-center">
-              <button type="submit" className="m-1.5 text-white-50 dark:text-white-900 font-bold rounded-xl focus:outline-none transform: transition duration-100 ease-in-out bg-[#27476E] hover:bg-primary_blue hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none p-2 mt-5" onSubmit={increment}>
-                Encrypt Message
-              </button>
               
               <button type="submit" className="m-1.5 text-white-50 dark:text-white-900 font-bold rounded-xl focus:outline-none transform: transition duration-100 ease-in-out bg-[#27476E] hover:bg-primary_blue hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none p-2 mt-5" onSubmit={increment}>
-                Decrypt Ciphertext
+                Shift Ciphertext
               </button>
             </div>
           </div>
