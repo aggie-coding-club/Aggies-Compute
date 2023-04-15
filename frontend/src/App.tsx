@@ -16,6 +16,12 @@ import SimpleDerivative from './pages/Calculus/SimpleDerivative';
 
 // Crypto Imports
 import CryptoLanding from './pages/Crypto/CryptoLanding';
+import AffineCipher from './pages/Crypto/affineCipher';
+import ShiftCipher from './pages/Crypto/shiftCipher';
+import BabyStepGiantStep from './pages/Crypto/babyStepGiantStep';
+import ChineseRemainderTheorem from './pages/Crypto/chineseRemainderTheorem';
+import DiffieHellman from './pages/Crypto/diffieHellman';
+import RSA from './pages/Crypto/RSA';
 
 // LinAlg Imports
 import LinAlgLanding from './pages/LinAlg/LinAlgLanding';
@@ -61,6 +67,15 @@ function App() {
 
         {/* Crpyto Routes */}
         <Route path="/crypto" element={<CryptoLanding />} />
+        <Route path="/crypto/affinecipher" element={<AffineCipher />} />
+        <Route path="/crypto/shiftcipher" element={<ShiftCipher />} />
+        <Route path="/crypto/babystepgiantstep" element={<BabyStepGiantStep />} />
+        <Route path="/crypto/chineseremaindertheorem" element={<ChineseRemainderTheorem />} />
+        <Route path="/crypto/diffiehellman" element={<DiffieHellman />} />
+        <Route path="/crypto/RSA" element={<RSA />} />
+        
+        
+
 
         {/* Linear Algebra Routes */}
         <Route path="/linalg" element={<LinAlgLanding />} />
