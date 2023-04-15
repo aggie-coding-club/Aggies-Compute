@@ -14,64 +14,76 @@ const responsive = {
 
 const lin_items = [
   <NavLink
-    to="/calculus/simple_derivative"
+    to="/crypto/affineCipher"
     className="flex flex-col justify-center items-center  bg-slate-800 bg-opacity-40 rounded-xl py-24 px-4 mx-4
     transform transition duration-500 scale-95 hover:scale-100 hover:bg-opacity-60"
   >
     <div className="flex flex-col items-center justify-center h-48 mx-5">
-      <img src={require("../../images/rref.jpg")}></img>
-      <p className='font-bold mt-8 text-white text-xl'>Simple Derivative</p>
+      {/* <img src={require("../../images/rref.jpg")}></img> */}
+      <p className='font-bold mt-8 text-white text-xl'>Affine Cipher</p>
     </div>
   </NavLink>,
 
   <NavLink
-    to="/linalg//algebra/add_sub_mult"
+    to="/crypto/shiftCipher"
     className="flex flex-col justify-center items-center  bg-slate-800 bg-opacity-40 rounded-xl py-24 px-4 mx-4
 transform transition duration-500 scale-95 hover:scale-100 hover:bg-opacity-60"
   >
     <div className="flex flex-col items-center justify-center h-48 mx-5">
       {/* <img src={require("../../images/inverse_matrix.jpg")}></img> */}
-      <p className='font-bold mt-8 text-white text-xl'>N/A</p>
+      <p className='font-bold mt-8 text-white text-xl'>Shift Cipher</p>
     </div>
   </NavLink>,
 
   <NavLink
-    to="/linalg/matrix_operations"
+    to="/crypto/babyStepGiantStep"
     className="flex flex-col justify-center items-center  bg-slate-800 bg-opacity-40 rounded-xl py-24 px-4 mx-4
 transform transition duration-500 scale-95 hover:scale-100 hover:bg-opacity-60"
   >
     <div className="flex flex-col items-center justify-center h-48 mx-5">
       {/* <img className="" src={require("../../images/matrix_op.jpg")}></img> */}
-      <p className='font-bold mt-8 text-white text-xl'>N/A</p>
+      <p className='font-bold mt-8 text-white text-xl'>Baby Step Giant Step</p>
     </div>
   </NavLink>,
 
 
   <NavLink
-    to="/linalg/rref_ref"
+    to="/crypto/chineseRemainderTheorem"
     className="flex flex-col justify-center items-center  bg-slate-800 bg-opacity-40 rounded-xl py-24 px-4 mx-4
 transform transition duration-500 scale-95 hover:scale-100 hover:bg-opacity-60"
   >
     <div className="flex flex-col items-center justify-center h-48 mx-5">
       {/* <img src={require("../../images/rref.jpg")}></img> */}
-      <p className='font-bold mt-8 text-white text-xl'>N/A</p>
+      <p className='font-bold mt-8 text-white text-xl'>Chinese Remainder Theorem</p>
     </div>
   </NavLink>,
 
   <NavLink
-    to="/linalg/rref_ref"
+    to="/crypto/diffieHellman"
     className="flex flex-col justify-center items-center  bg-slate-800 bg-opacity-40 rounded-xl py-24 px-4 mx-4
 transform transition duration-500 scale-95 hover:scale-100 hover:bg-opacity-60"
   >
     <div className="flex flex-col items-center justify-center h-48 mx-5">
       {/* <img src={require("../../images/rref.jpg")}></img> */}
-      <p className='font-bold mt-8 text-white text-xl'>N/A</p>
+      <p className='font-bold mt-8 text-white text-xl'>Diffie Hellman Key Exchange</p>
+
+    </div>
+  </NavLink>,
+  <NavLink
+    to="/crypto/rsa"
+    className="flex flex-col justify-center items-center  bg-slate-800 bg-opacity-40 rounded-xl py-24 px-4 mx-4
+transform transition duration-500 scale-95 hover:scale-100 hover:bg-opacity-60"
+  >
+    <div className="flex flex-col items-center justify-center h-48 mx-5">
+      {/* <img src={require("../../images/rref.jpg")}></img> */}
+      <p className='font-bold mt-8 text-white text-xl'>RSA</p>
+
     </div>
   </NavLink>,
 ];
 
 
-export default function CryptoLanding() {
+export default function CalculusLanding() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [items] = useState(lin_items);
 
@@ -79,7 +91,6 @@ export default function CryptoLanding() {
     if (activeIndex === 0) return;
     setActiveIndex(activeIndex - 1);
   }
-
   const slideNext = () => {
     if (activeIndex === items.length - 3) return;
     setActiveIndex(activeIndex + 1);
@@ -168,30 +179,12 @@ export default function CryptoLanding() {
           RSA
         </NavLink>
       </ul>
-
-      
    
       
-    
+
 
     </div>
 
     
   );
 }
-
-// export default function CryptoLanding() {
-//   return (
-//     <div>
-//       <Navbar isLanding={false} />
-//       <ul className="flex flex-col items-center justify-center m-[5%]">
-//         <NavLink
-//           to="/crypto"
-//           className="bg-[#27476e] text-white p-[1%] my-[1%] rounded-md"
-//         >
-//           replace-this
-//         </NavLink>
-//       </ul>
-//     </div>
-//   );
-// }

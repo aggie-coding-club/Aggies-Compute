@@ -36,6 +36,7 @@ import PhotoMathClone from './pages/Features/PhotoMathClone';
 import Profile from './pages/Profile';
 import Education from './pages/Features/Education';
 
+
 // Personal
 import LoginPage from "./pages/Login"
 import Registration from "./pages/Registration"
