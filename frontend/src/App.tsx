@@ -4,11 +4,11 @@ import { Routes, Route } from 'react-router-dom';
 
 // Components Imports
 import Landing from './pages/Landing';
-import AlgorithmsLanding from './pages/AlgorithmsLanding';
 
 // Algebra Imports
 import AlgebraLanding from './pages/Algebra/AlgebraLanding';
 import AddSubMult from './pages/Algebra/AddSubMult';
+import Pemdas from './pages/Algebra/Pemdas'
 
 // Calculus Imports
 import CalculusLanding from './pages/Calculus/CalculusLanding';
@@ -16,6 +16,12 @@ import SimpleDerivative from './pages/Calculus/SimpleDerivative';
 
 // Crypto Imports
 import CryptoLanding from './pages/Crypto/CryptoLanding';
+import AffineCipher from './pages/Crypto/affineCipher';
+import ShiftCipher from './pages/Crypto/shiftCipher';
+import BabyStepGiantStep from './pages/Crypto/babyStepGiantStep';
+import ChineseRemainderTheorem from './pages/Crypto/chineseRemainderTheorem';
+import DiffieHellman from './pages/Crypto/diffieHellman';
+import RSA from './pages/Crypto/RSA';
 
 // LinAlg Imports
 import LinAlgLanding from './pages/LinAlg/LinAlgLanding';
@@ -29,6 +35,7 @@ import Calculator from './pages/Features/Calculator';
 import PhotoMathClone from './pages/Features/PhotoMathClone';
 import Profile from './pages/Profile';
 import Education from './pages/Features/Education';
+
 
 // Personal
 import LoginPage from "./pages/Login"
@@ -48,11 +55,12 @@ function App() {
       <Routes>
         {/* Landing Page Route */}
         <Route path="/" element={<Landing />} />
-        <Route path="/algorithms" element={<AlgorithmsLanding />} />
+        {/* <Route path="/algorithms" element={<AlgorithmsLanding />} /> */}
 
         {/* Algebra Routes */}
         <Route path="/algebra" element={<AlgebraLanding />} />
         <Route path="/algebra/add_sub_mult" element={<AddSubMult />} />
+        <Route path="/algebra/pemdas" element={<Pemdas />} />
 
         {/* Calculus Routes */}
         <Route path="/calculus" element={<CalculusLanding />} />
@@ -60,6 +68,15 @@ function App() {
 
         {/* Crpyto Routes */}
         <Route path="/crypto" element={<CryptoLanding />} />
+        <Route path="/crypto/affinecipher" element={<AffineCipher />} />
+        <Route path="/crypto/shiftcipher" element={<ShiftCipher />} />
+        <Route path="/crypto/babystepgiantstep" element={<BabyStepGiantStep />} />
+        <Route path="/crypto/chineseremaindertheorem" element={<ChineseRemainderTheorem />} />
+        <Route path="/crypto/diffiehellman" element={<DiffieHellman />} />
+        <Route path="/crypto/RSA" element={<RSA />} />
+        
+        
+
 
         {/* Linear Algebra Routes */}
         <Route path="/linalg" element={<LinAlgLanding />} />

@@ -21,7 +21,7 @@ Join the [Discord](https://discord.gg/8eDhEfzh)!
   
   Phase 3: Frontend + Backend, Features        (Mar 18 - Apr 1)
   
-  Phase 4: TBD                                 (Apr 1 - Apr 14) 
+  Phase 4: Frontend + Enhancements    (Apr 1 - Apr 14) 
   
  ## Finial Dilverables
       Algorithms:
