@@ -144,8 +144,24 @@ export default function CryptoLanding() {
         </NavLink>
       </ul>
 
+<<<<<<< HEAD
 
 
+=======
+      <ul className="flex flex-col items-center justify-center">
+        <NavLink
+          to="/crypto/babyStepGiantStep"
+          className="bg-[#27476e] text-white p-[1%] my-[1%] rounded-md"
+        >
+          Baby Step Giant Step
+        </NavLink>
+      </ul>
+
+      
+   
+      
+    
+>>>>>>> 92d2d3ed (added babystepgiantstep page)
 
     </div>
 
