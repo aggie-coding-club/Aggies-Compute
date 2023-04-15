@@ -166,6 +166,15 @@ export default function CryptoLanding() {
         </NavLink>
       </ul>
 
+      <ul className="flex flex-col items-center justify-center">
+        <NavLink
+          to="/crypto/diffieHellman"
+          className="bg-[#27476e] text-white p-[1%] my-[1%] rounded-md"
+        >
+          Diffie Hellman Key Exchange
+        </NavLink>
+      </ul>
+
       
    
       
