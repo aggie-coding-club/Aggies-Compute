@@ -40,14 +40,7 @@ export default function AffineCipher() {
               Description
             </h1>
             <p>
-            The Affine Cipher is a type of substituation shift cipher that relies on two encryption keys, "a" and "b", 
-            which belong in the set of positive integers and where "a" is coprime with the given alphabet's length. Encryption 
-            is done with the equation y = ax + b (mod p) where "x" is the plaintext letter value, y is the encrypted letter 
-            value, and "p" is the length of the given alphabet. If both encyrption keys are known,
-            they can also be used to decrypt a message and is done so with a rewritten form of the previous equation, 
-            x = (a^-1)(y - b)(mod p).                             
-            (Note the equations only encrypt/decrypt letters, and that messages with more than one 
-            alphabet character utilize the equations as much times as there are many characters in a message).
+            The Affine Cipher is a type of substituation shift cipher that relies on two keys, "a" and "b" to encrypt/decrypt ciphertext
             </p>
           </div>
 

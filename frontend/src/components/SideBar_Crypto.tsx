@@ -47,42 +47,42 @@ export default function Sidebar_Crypto() {
             <ul className="pt-2 pb-4 space-y-1 text-sm px-5">
 
             <li className="flex flex-col items-center justify-center">
-                <NavLink to="/" className="font-bold text-base">
+                <NavLink to="../crypto/shiftCipher" className="font-bold text-base">
                   Shift Cipher
                 </NavLink>
                 <hr className="w-[40%] h-0.5 rounded my-2 dark:bg-gray-700"></hr>
               </li>
 
               <li className="flex flex-col items-center justify-center">
-                <NavLink to="/" className="font-bold text-base">
+                <NavLink to="../crypto/affineCipher" className="font-bold text-base">
                   Affine Cipher
                 </NavLink>
                 <hr className="w-[40%] h-0.5 rounded my-2 dark:bg-gray-700"></hr>
               </li>
 
               <li className="flex flex-col items-center justify-center">
-                <NavLink to="/" className="font-bold text-base">
+                <NavLink to="../crypto/babyStepGiantStep" className="font-bold text-base">
                   Baby Step Giant Step
                 </NavLink>
                 <hr className="w-[40%] h-0.5 rounded my-2 dark:bg-gray-700"></hr>
               </li>
 
               <li className="flex flex-col items-center justify-center">
-                <NavLink to="/" className="font-bold text-base">
+                <NavLink to="../crypto/chineseRemainderTheorem" className="font-bold text-base">
                   Chinese Remainder Theorem
                 </NavLink>
                 <hr className="w-[40%] h-0.5 rounded my-2 dark:bg-gray-700"></hr>
               </li>
 
               <li className="flex flex-col items-center justify-center">
-                <NavLink to="/" className="font-bold text-base">
+                <NavLink to="../crypto/diffiehellman" className="font-bold text-base">
                   Diffie Hellman Key Exchange
                 </NavLink>
                 <hr className="w-[40%] h-0.5 rounded my-2 dark:bg-gray-700"></hr>
               </li>
 
               <li className="flex flex-col items-center justify-center">
-                <NavLink to="/" className="font-bold text-base">
+                <NavLink to="../crypto/rsa" className="font-bold text-base">
                   RSA
                 </NavLink>
                 <hr className="w-[40%] h-0.5 rounded my-2 dark:bg-gray-700"></hr>
