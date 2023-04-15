@@ -50,7 +50,6 @@ function Login() {
                     <h1 className="flex items-center w-full  justify-center text-4xl font-extrabold  text-primary_blue-light-0 mt-24">
                         Sign In
                     </h1>
-
                 </div>
 
 

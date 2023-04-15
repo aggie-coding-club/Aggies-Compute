@@ -4,11 +4,11 @@ import { Routes, Route } from 'react-router-dom';
 
 // Components Imports
 import Landing from './pages/Landing';
-import AlgorithmsLanding from './pages/AlgorithmsLanding';
 
 // Algebra Imports
 import AlgebraLanding from './pages/Algebra/AlgebraLanding';
 import AddSubMult from './pages/Algebra/AddSubMult';
+import Pemdas from './pages/Algebra/Pemdas'
 
 // Calculus Imports
 import CalculusLanding from './pages/Calculus/CalculusLanding';
@@ -48,11 +48,12 @@ function App() {
       <Routes>
         {/* Landing Page Route */}
         <Route path="/" element={<Landing />} />
-        <Route path="/algorithms" element={<AlgorithmsLanding />} />
+        {/* <Route path="/algorithms" element={<AlgorithmsLanding />} /> */}
 
         {/* Algebra Routes */}
         <Route path="/algebra" element={<AlgebraLanding />} />
         <Route path="/algebra/add_sub_mult" element={<AddSubMult />} />
+        <Route path="/algebra/pemdas" element={<Pemdas />} />
 
         {/* Calculus Routes */}
         <Route path="/calculus" element={<CalculusLanding />} />
