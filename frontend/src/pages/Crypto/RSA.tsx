@@ -1,6 +1,8 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Navbar from '../../components/Navbar';
 import Sidebar_Crypto from '../../components/SideBar_Crypto';
+import Sidebar from '../../components/Sidebar';
+import info_ from '../../components/crypto_info.json';
 import { Text } from "@nextui-org/react";
 // import [Your algorithm file name] from "../../algorithms/[Your algorithm type folder]/[Your algorithm file name";
 
@@ -24,7 +26,7 @@ export default function RSA() {
     <div>
       <Navbar isLanding={false} />
       <div className="flex">
-        <Sidebar_Crypto/>
+        <Sidebar info={info_} />
         <div className="flex flex-col w-[60%] mt-20">
 
           {/* Title */}
@@ -40,7 +42,7 @@ export default function RSA() {
               Description
             </h1>
             <p>
-            Numerical representation of encryption and decryption of the RSA algorithm.
+              Numerical representation of encryption and decryption of the RSA algorithm.
             </p>
           </div>
 
@@ -51,23 +53,23 @@ export default function RSA() {
             </h1>
 
             <label className="text-md font-bold dark:text-black-50 mr-5">Ciphertext:</label>
-            <input type="text" id="input" name="yourOwnVariable" title="Enter an expression" placeholder="Enter ciphertext" className="max-w-xs bg-black-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" onChange={handleYourOwnVariableChange} required/>
+            <input type="text" id="input" name="yourOwnVariable" title="Enter an expression" placeholder="Enter ciphertext" className="max-w-xs bg-black-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" onChange={handleYourOwnVariableChange} required />
             <div className="h-3"> </div>
             <label className="text-md font-bold dark:text-black-50 mr-5">p (private key): </label>
-            <input type="text" id="input" name="yourOwnVariable" title="Enter an expression" placeholder="Enter p (integer)" className="max-w-xs bg-black-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" onChange={handleYourOwnVariableChange} required/>
+            <input type="text" id="input" name="yourOwnVariable" title="Enter an expression" placeholder="Enter p (integer)" className="max-w-xs bg-black-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" onChange={handleYourOwnVariableChange} required />
             <div className="h-3"> </div>
             <label className="text-md font-bold dark:text-black-50 mr-5">q (private key): </label>
-            <input type="text" id="input" name="yourOwnVariable" title="Enter an expression" placeholder="Enter q (integer)" className="max-w-xs bg-black-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" onChange={handleYourOwnVariableChange} required/>
+            <input type="text" id="input" name="yourOwnVariable" title="Enter an expression" placeholder="Enter q (integer)" className="max-w-xs bg-black-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" onChange={handleYourOwnVariableChange} required />
             <div className="h-3"> </div>
             <label className="text-md font-bold dark:text-black-50 mr-5">e (public key): </label>
-            <input type="text" id="input" name="yourOwnVariable" title="Enter an expression" placeholder="Enter e (integer)" className="max-w-xs bg-black-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" onChange={handleYourOwnVariableChange} required/>
-            
+            <input type="text" id="input" name="yourOwnVariable" title="Enter an expression" placeholder="Enter e (integer)" className="max-w-xs bg-black-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" onChange={handleYourOwnVariableChange} required />
+
 
             <div className="flex flex-row justify-center">
               <button type="submit" className="m-1.5 text-white-50 dark:text-white-900 font-bold rounded-xl focus:outline-none transform: transition duration-100 ease-in-out bg-[#27476E] hover:bg-primary_blue hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none p-2 mt-5" onSubmit={increment}>
                 Encrypt Ciphertext
               </button>
-              
+
               <button type="submit" className="m-1.5 text-white-50 dark:text-white-900 font-bold rounded-xl focus:outline-none transform: transition duration-100 ease-in-out bg-[#27476E] hover:bg-primary_blue hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none p-2 mt-5" onSubmit={increment}>
                 Decrypt Ciphertext
               </button>
