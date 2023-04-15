@@ -131,7 +131,7 @@ export default function inverse_matrix(rows: number, columns: number, matrixStr:
     matrix[row] = matrix[row].map(val => val * scalar);
     steps.push(`Multiply R${row + 1} by ${scalar}`);
   }
-  
+
   function addMultipleOfRow(row1: number, row2: number, scalar: number) {
     if (matrix[row1][row1] === 0) {
       // Find a row with a nonzero pivot element and swap with row1
