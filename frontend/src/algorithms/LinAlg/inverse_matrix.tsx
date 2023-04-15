@@ -9,42 +9,33 @@ var nerdamer = require('nerdamer');
  * @remark
  * Algorithm:
  *
- * @param rows - a number with element of Number type,
- * @param columns - a number with element of Number type
- * @param matrixStr - a matrix with element of String type
+ * @param size - a number of the size of the matrix with element of Number type,
+ * @param matrixStr - a matrix in a comma seperated list with element of String type
  *
  * @returns - a string
  */
 
 // Define a function that takes the number of rows, number of columns, and the matrix in string format as inputs
 export default function inverse_matrix(
-  rows: number,
-  columns: number,
+  size: number,
   matrixStr: string
 ): string[] {
-  // Check if the matrix is square
-  if (rows !== columns) {
-    return ['Only square matrices are invertible'];
-  }
-
   const elements = matrixStr.split(',').map(Number);
   const rowsArray: number[][] = [];
-  for (let i = 0; i < rows; i++) {
-    rowsArray.push(elements.slice(i * columns, (i + 1) * columns));
+  for (let i = 0; i < size; i++) {
+    rowsArray.push(elements.slice(i * size, (i + 1) * size));
   }
   const matrix = rowsArray.map((row) => {
-    if (row.length < columns) {
-      return [...row, ...Array(columns - row.length).fill(undefined)];
+    if (row.length < size) {
+      return [...row, ...Array(size - row.length).fill(undefined)];
     } else {
       return row;
     }
   });
 
   // Check if the correct number of rows and columns or number of elements were entered
-  if (rows * columns !== elements.length) {
-    return [
-      "The number of rows and columns don't match the number of elements."
-    ];
+  if (size * size !== elements.length) {
+    return ["The size of the matrix don't match the number of elements."];
   }
 
   const steps: string[] = [];
@@ -61,10 +52,10 @@ export default function inverse_matrix(
     if (matrix[row][row] === 0) {
       // Find a row with a nonzero pivot element and swap with the current row
       let newRow = row + 1;
-      while (newRow < rows && matrix[newRow][row] === 0) {
+      while (newRow < size && matrix[newRow][row] === 0) {
         newRow++;
       }
-      if (newRow === rows) {
+      if (newRow === size) {
         // No rows below the current row have a nonzero pivot element
         steps.push(`R${row + 1} is a zero row`);
         return;
@@ -79,10 +70,10 @@ export default function inverse_matrix(
     if (matrix[row1][row1] === 0) {
       // Find a row with a nonzero pivot element and swap with row1
       let newRow = row1 + 1;
-      while (newRow < rows && matrix[newRow][row1] === 0) {
+      while (newRow < size && matrix[newRow][row1] === 0) {
         newRow++;
       }
-      if (newRow === rows) {
+      if (newRow === size) {
         // No rows below row1 have a nonzero pivot element
         steps.push(`R${row1 + 1} is a zero row`);
         return;
@@ -96,10 +87,10 @@ export default function inverse_matrix(
   }
 
   // Perform Gaussian elimination
-  for (let col = 0; col < columns; col++) {
+  for (let col = 0; col < size; col++) {
     // Find the row with the maximum absolute value in the current column
     let maxRow = col;
-    for (let row = col + 1; row < rows; row++) {
+    for (let row = col + 1; row < size; row++) {
       if (Math.abs(matrix[row][col]) > Math.abs(matrix[maxRow][col])) {
         maxRow = row;
       }
@@ -115,7 +106,7 @@ export default function inverse_matrix(
     multiplyRow(col, 1 / pivot);
 
     // Eliminate the pivot element from other rows
-    for (let row = 0; row < rows; row++) {
+    for (let row = 0; row < size; row++) {
       if (row !== col) {
         const factor = -matrix[row][col];
         addMultipleOfRow(col, row, factor);
@@ -124,8 +115,8 @@ export default function inverse_matrix(
   }
 
   // Convert the resulting matrix to reduced row-echelon form (RREF)
-  for (let row = 0; row < rows; row++) {
-    for (let col = 0; col < columns; col++) {
+  for (let row = 0; row < size; row++) {
+    for (let col = 0; col < size; col++) {
       if (matrix[row][col] === 0) {
         matrix[row][col] = 0; // Set -0 to 0
       }
@@ -134,7 +125,7 @@ export default function inverse_matrix(
 
   // Convert the resulting matrix to a string array
   const inverseMatrix: string[] = [];
-  for (let row = 0; row < rows; row++) {
+  for (let row = 0; row < size; row++) {
     inverseMatrix.push(matrix[row].join(', '));
   }
 
