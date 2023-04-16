@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Navbar from '../../components/Navbar';
-import Sidebar_Crypto from '../../components/SideBar_Crypto';
 import Sidebar from '../../components/Sidebar';
-import info_ from '../../components/crypto_info.json';
+import info_ from '../../components/info_crypto.json';
 import { Text } from "@nextui-org/react";
+
 // import [Your algorithm file name] from "../../algorithms/[Your algorithm type folder]/[Your algorithm file name";
 
 // Make sure to add your route to App.tsx
