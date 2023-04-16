@@ -56,8 +56,11 @@ export default function inverse_matrix(
     }
   }
 
-  solution.push(inverse.map((row: string[]) => row.join(', ')).join('\n'));
-  console.log(inverse.map((row: string[]) => row.join(', ')).join('\n'));
+  const result = inverse.map((row: string[]) => row.join(', '));
+
+  for (let i = 0; i < result.length; i++) {
+    solution.push(result[i]);
+  }
 
   return solution;
 }
