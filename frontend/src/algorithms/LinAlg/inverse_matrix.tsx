@@ -20,6 +20,74 @@ export default function inverse_matrix(
   size: number,
   matrixStr: string
 ): string[] {
+  const matrixArr = matrixStr.split(',').map((val) => parseFloat(val));
+  const matrix2D = [];
+  for (let i = 0; i < matrixArr.length; i += size) {
+    matrix2D.push(matrixArr.slice(i, i + size));
+  }
+
+  const det = math.det(matrix2D);
+
+  if (det === 0) {
+    return ['Cannot calculate the inverse of a matrix with a determinant of 0'];
+  }
+
+  const inverse = math.inv(matrix2D);
+
+  let solution = ['Steps to solve the inverse:'];
+  solution.push(`1. Calculate the determinant of the matrix: ${det}`);
+
+  const adjointMatrix = math.transpose(math.inv(math.transpose(matrix2D)));
+
+  for (let i = 0; i < size; i++) {
+    for (let j = 0; j < size; j++) {
+      const element = adjointMatrix[i][j];
+      // const frac = nerdamer(element).toFraction();
+      solution.push(
+        `2. Calculate the adjoint of the matrix element (${i + 1}, ${j + 1}): ${
+          adjointMatrix[i][j]
+        }`
+      );
+      solution.push(`3. Divide the adjoint by the determinant: ${element}`);
+      inverse[i][j] = parseFloat(element);
+      solution.push(
+        `4. Replace the element in the inverse matrix with the result: ${inverse[i][j]}`
+      );
+    }
+  }
+
+  solution.push('Solution:');
+  solution.push(inverse.map((row: any) => row.join(', ')).join('\n'));
+
+  return solution;
+
+  /*
+  console.log(matrixStr);
+
+  const arr = matrixStr.split(',').map((str) => str.trim()); // Convert string to array
+  console.log(arr);
+
+  // Check if the size matches the number of elements were entered
+  if (size ** 2 !== arr.length || arr.some((element) => element === '')) {
+    return ["The size of the matrix don't match the number of elements."];
+  }
+
+  // Convert the string by add "[" and "]"
+  const result = [];
+  for (let i = 0; i < arr.length; i += size) {
+    result.push(`[${arr.slice(i, i + size).join(', ')}]`); // Push the parts into result array
+  }
+  const matrixConvertedString = result.join(', '); // Join the parts with comma and return as a string
+  console.log(matrixConvertedString);
+
+  // Use nerdamer to show steps
+  const nerdamerMatrix = nerdamer(`matrix(${matrixConvertedString})`);
+  const nerdamerInverse = nerdamer(`invert(${nerdamerMatrix})`);
+  return nerdamerInverse.symbol.history.map((step: string) => step.toString());
+  */
+
+  /*
+  // Convert the input comma separated list string into a matrix
   const elements = matrixStr.split(',').map(Number);
   const rowsArray: number[][] = [];
   for (let i = 0; i < size; i++) {
@@ -133,4 +201,5 @@ export default function inverse_matrix(
   inverseMatrix.unshift(...steps);
 
   return inverseMatrix;
+  */
 }
