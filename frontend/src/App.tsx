@@ -74,15 +74,12 @@ function App() {
         <Route path="/crypto/chineseremaindertheorem" element={<ChineseRemainderTheorem />} />
         <Route path="/crypto/diffiehellman" element={<DiffieHellman />} />
         <Route path="/crypto/RSA" element={<RSA />} />
-        
-        
-
 
         {/* Linear Algebra Routes */}
         <Route path="/linalg" element={<LinAlgLanding />} />
         <Route path="/linalg/rref_ref" element={<RREF_REF />} />
         <Route path="/linalg/inverse_matrix" element={<InverseMatrix />} />
-        <Route path="/linalg/matrix_operations" element={<MatrixOperation />}/>
+        <Route path="/linalg/matrix_operations" element={<MatrixOperation />} />
 
         {/* Features */}
         <Route path="/acbot" element={<ACBot />} />
