@@ -22,6 +22,12 @@ export default function YourAlgorithmName() {
     setYourOwnVariable(target.value);
   };
 
+  const [steps, setSteps] = useState<string[]>([]);
+  const handleCalculate = () => {
+    //const calculatedSteps = [your algorithm name]([your parameters]); // Call the [your algorithm name] function from another file with the input expression
+    // setSteps(calculatedSteps); // Update the steps state with the calculated steps
+  };
+
   return (
     <div>
       <Navbar isLanding={false} />
@@ -73,6 +79,7 @@ export default function YourAlgorithmName() {
                 type="submit"
                 className="text-gray-50 dark:text-gray-900 font-bold rounded-xl focus:outline-none transform: transition duration-100 ease-in-out bg-[#27476E] hover:bg-primary_blue hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none p-2 mt-5"
                 onSubmit={increment}
+                onClick={handleCalculate}
               >
                 Calculate
               </button>
