@@ -4,6 +4,7 @@ import SidebarAlg from '../../components/SidebarAlg';
 import { Text } from "@nextui-org/react";
 import add from "../../algorithms/Algebra/add";
 import subtract from "../../algorithms/Algebra/subtract";
+import multiply from "../../algorithms/Algebra/multiply";
 
 // Make sure to add your route to App.tsx
 
@@ -41,7 +42,7 @@ export default function AddSubMult() {
   };
 
   const handleMult = () => {
-    const calculateSteps = add(expression1, expression2);
+    const calculateSteps = multiply(expression1, expression2);
     setSteps(calculateSteps);
   };
   return (
