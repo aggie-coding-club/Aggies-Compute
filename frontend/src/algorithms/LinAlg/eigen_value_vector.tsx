@@ -10,9 +10,6 @@ export function eigen_value_vector(mat: string, mat_var: string) {
   var start: boolean = true;
   var count: number = 0;
   var row_count: number = 0;
-  // console.log(Number('x'))
-
-  // console.log(Number('0'))
   for (let i = 0; i < mat.length; ++i) {
     if (start === true) {
       format_matrix += "[";
