@@ -12,6 +12,7 @@ import Pemdas from './pages/Algebra/Pemdas'
 
 // Calculus Imports
 import CalculusLanding from './pages/Calculus/CalculusLanding';
+import TaylorSeries from './pages/Calculus/TaylorSeries';
 import SimpleDerivative from './pages/Calculus/SimpleDerivative';
 
 // Crypto Imports
@@ -65,6 +66,7 @@ function App() {
         {/* Calculus Routes */}
         <Route path="/calculus" element={<CalculusLanding />} />
         <Route path="/calculus/simple_derivative" element={<SimpleDerivative />} />
+        <Route path="/calculus/taylor-series" element={<TaylorSeries />} />
 
         {/* Crpyto Routes */}
         <Route path="/crypto" element={<CryptoLanding />} />

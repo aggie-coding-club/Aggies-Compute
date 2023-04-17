@@ -25,7 +25,7 @@ const lin_items = [
   </NavLink>,
 
   <NavLink
-    to="/linalg//algebra/add_sub_mult"
+    to="/calculus/calculus/taylor-series"
     className="flex flex-col justify-center items-center  bg-slate-800 bg-opacity-40 rounded-xl py-24 px-4 mx-4
 transform transition duration-500 scale-95 hover:scale-100 hover:bg-opacity-60"
   >
