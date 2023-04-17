@@ -28,6 +28,7 @@ import RSA from './pages/Crypto/RSA';
 import LinAlgLanding from './pages/LinAlg/LinAlgLanding';
 import RREF_REF from './pages/LinAlg/RREF_REF';
 import InverseMatrix from './pages/LinAlg/InverseMatrix';
+import Determinant from './pages/LinAlg/Determinant'
 import MatrixOperation from './pages/LinAlg/MatrixOperations';
 
 // Features Imports
@@ -81,6 +82,7 @@ function App() {
         <Route path="/linalg" element={<LinAlgLanding />} />
         <Route path="/linalg/rref_ref" element={<RREF_REF />} />
         <Route path="/linalg/inverse_matrix" element={<InverseMatrix />} />
+        <Route path="/linalg/determinant" element={<Determinant />} />
         <Route path="/linalg/matrix_operations" element={<MatrixOperation />} />
 
         {/* Features */}
