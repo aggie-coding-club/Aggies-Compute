@@ -88,7 +88,6 @@ export function gauss_elimination(mat: math.Matrix, reduced: boolean = true) {
     }
 
     for (let row = start; row < mat.size()[0]; ++row) {
-      console.log(row, column);
       if (row == column) {
         continue;
       }
