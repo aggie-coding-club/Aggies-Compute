@@ -1,9 +1,8 @@
-import 'mathjs';
-import {
-  extended_euclidean_algorithm,
-  sussesive_squaring_mod
-} from './helper_Crypto';
-var math = require('mathjs');
+
+import { inverseModBigInt } from './helper_Crypto';
+import { isPrimeBigInt } from './helper_Crypto';
+
+
 
 /**
  * Shank's Babystep-Giantstep Algorithm is used to solve the discrete logarithm problem
@@ -29,30 +28,103 @@ var math = require('mathjs');
  */
 
 export function babystep_giantstep(
-  base: number,
-  modulus: number,
-  target: number
-) {
-  if (!math.isPrime(modulus)) {
+  base: bigint,
+  modulus: bigint,
+  target: bigint
+): number {
+  if (!isPrimeBigInt(BigInt(modulus))) {
     throw Error('modulus must be prime');
   }
 
   // revist need to chec if base is primitive root of modulus
-  let N = math.ceil(math.sqrt(modulus));
-  let base_inverse = extended_euclidean_algorithm(base, modulus)[1];
-  let base_inverse_N = sussesive_squaring_mod(base_inverse, N, modulus);
+  let N: bigint = BigInt(Math.floor(Math.sqrt(Number(modulus))) + 1);
 
   let baby_step = new Map();
   let giant_step = new Map();
-  for (let i = 0; i <= N; i++) {
-    baby_step.set(sussesive_squaring_mod(base, i, modulus), i);
+  for (let i = BigInt(0); i <= N; i++) {
+    baby_step.set((base**i) % modulus, i);
+    giant_step.set((target * (inverseModBigInt(base, modulus)**(i*N))) % modulus, i);
   }
-  for (let j = 0; j <= N; j++) {
-    giant_step.set(sussesive_squaring_mod(base_inverse_N, j, modulus), j);
-  }
+
+  
   for (let key of giant_step.keys()) {
     if (baby_step.has(key)) {
       return baby_step.get(key) + giant_step.get(key) * N;
     }
   }
+
+  return -1;
+}
+
+export function getN(modulus: bigint){
+  return (Math.floor(Math.sqrt(Number(modulus))) + 1).toString();
+}
+
+export function babyList(base: bigint,modulus: bigint, target: bigint) {
+  // revist need to chec if base is primitive root of modulus
+  let N: bigint = BigInt(Math.floor(Math.sqrt(Number(modulus))) + 1);
+
+  let baby_step = new Map();
+  let result = "";
+  for (let i = BigInt(0); i <= N; i++) {
+    result += ((base**i) % modulus) + " ";
+  }
+
+  return result;
+}
+
+export function giantList(base: bigint,modulus: bigint, target: bigint) {
+  // revist need to chec if base is primitive root of modulus
+  let N: bigint = BigInt(Math.floor(Math.sqrt(Number(modulus))) + 1);
+
+  let giant_step = new Map();
+  let result ="";
+  for (let i = BigInt(0); i <= N; i++) {
+    result += ((target * (inverseModBigInt(base, modulus)**(i*N))) % modulus) + " ";
+  }
+
+  return result;
+}
+
+export function matchingNumber(base: bigint,modulus: bigint, target: bigint): string {
+
+  // revist need to chec if base is primitive root of modulus
+  let N: bigint = BigInt(Math.floor(Math.sqrt(Number(modulus))) + 1);
+
+  let baby_step = new Map();
+  let giant_step = new Map();
+  for (let i = BigInt(0); i <= N; i++) {
+    baby_step.set((base**i) % modulus, i);
+    giant_step.set((target * (inverseModBigInt(base, modulus)**(i*N))) % modulus, i);
+  }
+
+  
+  for (let key of giant_step.keys()) {
+    if (baby_step.has(key)) {
+      return ("(Matching number: " + key + "), (Baby Step Index: " + baby_step.get(key) + "), (Giant Step Index: " + giant_step.get(key) + ")");
+    }
+  }
+
+  return "";
+}
+
+export function bgComparison(base: bigint, modulus: bigint, target: bigint): string {
+  // revist need to chec if base is primitive root of modulus
+  let N: bigint = BigInt(Math.floor(Math.sqrt(Number(modulus))) + 1);
+
+  let baby_step = new Map();
+  let giant_step = new Map();
+  for (let i = BigInt(0); i <= N; i++) {
+    baby_step.set((base**i) % modulus, i);
+    giant_step.set((target * (inverseModBigInt(base, modulus)**(i*N))) % modulus, i);
+  }
+
+  
+  for (let key of giant_step.keys()) {
+    if (baby_step.has(key)) {
+      return ("#(Baby Step Index) + (N * #(Giant Step Index)) => " + baby_step.get(key) + " + (" + N + " * " + giant_step.get(key) + ") = " + (baby_step.get(key) + giant_step.get(key) * N));
+    }
+  }
+
+  return "";
 }

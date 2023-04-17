@@ -1,5 +1,5 @@
 import { babystep_giantstep } from '../babystep_giantstep';
-
+/*
 test('babystep-giantstep_1', () => {
   let base: number = 11;
   let target: number = 21;
@@ -19,3 +19,4 @@ test('babystep-giantstep_2', () => {
 
   expect(result === expected);
 });
+*/

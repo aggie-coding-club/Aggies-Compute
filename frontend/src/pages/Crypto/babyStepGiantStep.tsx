@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Navbar from '../../components/Navbar';
 import Sidebar_Crypto from '../../components/SideBar_Crypto';
 import { Text } from "@nextui-org/react";
-import { babystep_giantstep } from '../../algorithms/Crypto/babystep_giantstep';
+import { babyList, babystep_giantstep, bgComparison, getN, giantList, matchingNumber } from '../../algorithms/Crypto/babystep_giantstep';
 
 // import [Your algorithm file name] from "../../algorithms/[Your algorithm type folder]/[Your algorithm file name";
 
@@ -15,9 +15,14 @@ export default function BabyStepGiantStep() {
   const [target, setTarget] = useState("");
   const [modulus, setModulus] = useState("");
 
-  const [warning, setWarning] = useState("")
   const [solution, setSolution] = useState("");
-  const [steps, setSteps] = useState([""]);
+  const [step1, setStep1] = useState("");
+  const [step2, setStep2] = useState("");
+  const [step3, setStep3] = useState("");
+  const [step4, setStep4] = useState("");
+  const [step5, setStep5] = useState("");
+  const [step6, setStep6] = useState("");
+
 
   const handleBaseChange = (event: React.FormEvent<HTMLInputElement>) => {
     const t= event.target as HTMLInputElement;
@@ -50,10 +55,15 @@ export default function BabyStepGiantStep() {
   };
 
   const handleCalculateClick = () => {
-    const result = base;
-    setSolution(result);
+    setSolution(babystep_giantstep(BigInt(base), BigInt(modulus), BigInt(target)).toString());
+    setStep1("N = " + getN(BigInt(modulus)));
+    setStep2("Baby Step: " + babyList(BigInt(base), BigInt(modulus), BigInt(target)))
+    setStep3("Giant Step: " + giantList(BigInt(base), BigInt(modulus), BigInt(target)))
+    setStep4(matchingNumber(BigInt(base), BigInt(modulus), BigInt(target)))
+    setStep5(bgComparison(BigInt(base), BigInt(modulus), BigInt(target)))
   }
 
+  
 
 
   return (
@@ -153,9 +163,11 @@ export default function BabyStepGiantStep() {
             <h1 className="text-lg dark:text-black-50 font-bold my-5">
               Steps
             </h1>
-            <p className="dark:text-white-50">
-              Enter steps here
-            </p>
+            <p className="dark:text-white-50">{step1}</p>
+            <p className="dark:text-white-50">{step2}</p>
+            <p className="dark:text-white-50">{step3}</p>
+            <p className="dark:text-white-50">{step4}</p>
+            <p className="dark:text-white-50">{step5}</p>
           </div>
         </div>
 
