@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> ffada886 (stuff)
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Navbar from '../../components/Navbar';
 import Sidebar_Linalg from '../../components/Sidebar_Linalg';
 import { Text } from "@nextui-org/react";
@@ -31,22 +27,14 @@ export default function Determinant() {
           {/* Title */}
           <div className="flex items-center justify-center rounded-xl">
             <Text h1 size={60} css={{ textGradient: "0deg, #F0F0F0, #27476E 50%" }} weight="bold">
-<<<<<<< HEAD
-              Enter title here
-=======
               Determinant
->>>>>>> ffada886 (stuff)
             </Text>
           </div>
 
           {/* Description */}
           <div>
             <h1 className="text-lg dark:text-gray-50 font-bold my-5">
-<<<<<<< HEAD
-              Description
-=======
               Returns the determinant of a matrix.
->>>>>>> ffada886 (stuff)
             </h1>
             <p>
               Enter description here
@@ -60,8 +48,8 @@ export default function Determinant() {
             </h1>
 
             <label className="text-md font-bold dark:text-gray-50 mr-5">Enter input here</label>
-            <input type="text" id="input" name="yourOwnVariable" title="Enter an expression" placeholder="Enter a sample expression here" className="max-w-xs bg-gray-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" onChange={handleYourOwnVariableChange} required/>
-            
+            <input type="text" id="input" name="yourOwnVariable" title="Enter an expression" placeholder="Enter a sample expression here" className="max-w-xs bg-gray-100 rounded-xl p-2.5 text-gray-900 dark:text-gray-50 focus:bg-bg-gray-50 focus:placeholder-gray-400 focus:outline-none transform: transition duration-100 hover:bg-gray-50 hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none" onChange={handleYourOwnVariableChange} required />
+
             <div className="flex flex-row justify-center">
               <button type="submit" className="text-gray-50 dark:text-gray-900 font-bold rounded-xl focus:outline-none transform: transition duration-100 ease-in-out bg-[#27476E] hover:bg-primary_blue hover:scale-105 focus:ring-4 ring-primary_blue-light ring-opacity-20 motion-reduce:transform-none p-2 mt-5" onSubmit={increment}>
                 Calculate
@@ -98,8 +86,4 @@ export default function Determinant() {
       </div>
     </div>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> ffada886 (stuff)
