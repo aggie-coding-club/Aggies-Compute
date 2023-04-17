@@ -1,9 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import Footer from '../components/FooterMain'
 import './Landing.css';
 
 export default function Landing() {
+  const [pager, setPager] = useState(0);
+  console.log(pager);
+
+  const changePage = (event: any, page: number) => {
+    if (pager === page) {
+      return
+    }
+
+    let currentPagerButton = document.getElementById('pager-button-' + pager);
+    if (currentPagerButton != null) {
+      currentPagerButton.setAttribute('class', currentPagerButton.className.replace('bg-black', 'bg-white'))
+    }
+
+    let currentPanel = document.getElementById('panel-' + pager);
+    if (currentPanel != null) {
+      currentPanel.setAttribute('class', currentPanel.className.replace('visible', 'hidden'))
+    }
+
+
+    setPager(page);
+
+    let pagerButton = document.getElementById('pager-button-' + page);
+    if (pagerButton != null) {
+      pagerButton.setAttribute('class', pagerButton.className.replace('bg-white', 'bg-black'))
+    }
+
+    let panel = document.getElementById('panel-' + page);
+    if (panel != null) {
+      panel.setAttribute('class', panel.className.replace('hidden', 'visible'))
+    }
+
+
+  }
+
   return (
     <div className="bg-bg_grey overflow-x-auto">
       <div className="">
@@ -29,119 +64,254 @@ export default function Landing() {
         </h2>
       </div>
 
-      <div className="flex flex-col items-center justify-center  m-12 pb-12">
-        {/* later may need to dymaically determine row # */}
-        <div className="grid grid-cols-3 grid-rows-2 grid gap-14 px-64 pb-12">
-          <div className="flex flex-col">
-            <NavLink
-              to="/algebra"
-              className="bg-primary_blue-dark text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
-            >
-              <img
-                className="rounded-lg h-full w-full object-cover"
-                src="https://media.giphy.com/media/l2Je3qSgOVvFPdaNi/giphy.gif"
-                alt="algebra animation"
-              ></img>
-            </NavLink>
-            <div className="flex flex-col w-full items-center justify-center">
-              <h1 className="flex items-center w-full justify-center font-bold text-lg mt-5">
-                Algebra
-              </h1>
-              <h1 className="text-center italic	text-slate-400">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </h1>
+      <div className="flex flex-col items-center justify-center mt-12">
+        <div className='mt-8 mb-6 font-bold text-4xl'>Math Resources </div>
+        {/* Algorithm Selection - panel-0*/}
+        <div className='visible px-[22%] pb-6'
+          id='panel-0'>
+          <div className="grid grid-cols-3 grid-rows-1 grid gap-14 ">
+            <div className="flex flex-col">
+              <NavLink
+                to="/algebra"
+                className="bg-primary_blue-dark text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
+              >
+                <img
+                  className="rounded-lg h-full w-full object-cover"
+                  src="https://media.giphy.com/media/l2Je3qSgOVvFPdaNi/giphy.gif"
+                  alt="algebra animation"
+                ></img>
+              </NavLink>
+              <div className="flex flex-col w-full items-center justify-center">
+                <h1 className="flex items-center w-full justify-center font-bold text-lg mt-5">
+                  Algebra
+                </h1>
+                <h1 className="text-center italic	text-slate-400">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </h1>
+              </div>
             </div>
-          </div>
-          <div className="flex flex-col">
-            <NavLink
-              to="/calculus"
-              className="bg-primary-blue-dark text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
-            >
-              <img
-                className="rounded-lg h-full w-full object-cover"
-                src="https://media.giphy.com/media/l2YWF00ZX8wOs0p0s/giphy.gif"
-                alt="calculus animation"
-              ></img>
-            </NavLink>
-            <div className="flex flex-col w-full items-center justify-center">
-              <h1 className="flex items-center w-full justify-center font-bold text-lg mt-5">
-                Calculus
-              </h1>
-              <h1 className="text-center italic text-slate-400">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </h1>
+            <div className="flex flex-col">
+              <NavLink
+                to="/calculus"
+                className="bg-primary-blue-dark text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
+              >
+                <img
+                  className="rounded-lg h-full w-full object-cover"
+                  src="https://media.giphy.com/media/l2YWF00ZX8wOs0p0s/giphy.gif"
+                  alt="calculus animation"
+                ></img>
+              </NavLink>
+              <div className="flex flex-col w-full items-center justify-center">
+                <h1 className="flex items-center w-full justify-center font-bold text-lg mt-5">
+                  Calculus
+                </h1>
+                <h1 className="text-center italic text-slate-400">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </h1>
+              </div>
             </div>
-          </div>
 
-          <div className="flex flex-col">
-            <NavLink
-              to="/crypto"
-              className="bg-primary-blue-dark text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
-            >
-              <img
-                className="rounded-lg h-full w-full object-cover"
-                src="https://media.giphy.com/media/5xtDarJ7d5HXTRULbSo/giphy.gif"
-                alt="cryptography animation"
-              ></img>
-            </NavLink>
-            <div className="flex flex-col w-full items-center justify-center">
-              <h1 className="flex items-center w-full justify-center font-bold text-lg mt-5">
-                Cryptography
-              </h1>
-              <h1 className="text-center italic	text-slate-400">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </h1>
+            <div className="flex flex-col">
+              <NavLink
+                to="/crypto"
+                className="bg-primary-blue-dark text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
+              >
+                <img
+                  className="rounded-lg h-full w-full object-cover"
+                  src="https://media.giphy.com/media/5xtDarJ7d5HXTRULbSo/giphy.gif"
+                  alt="cryptography animation"
+                ></img>
+              </NavLink>
+              <div className="flex flex-col w-full items-center justify-center">
+                <h1 className="flex items-center w-full justify-center font-bold text-lg mt-5">
+                  Cryptography
+                </h1>
+                <h1 className="text-center italic	text-slate-400">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </h1>
+              </div>
             </div>
+
           </div>
+        </div>
+        {/* Algorithm Selection - panel-1*/}
+        <div className='hidden px-[22%] pb-6'
+          id='panel-1'>
+          <div className="grid grid-cols-3 grid-rows-1 grid gap-14 ">
 
-          <div className="flex flex-col">
-            <NavLink
-              to="/linalg"
-              className="bg-primary-blue-dark text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
-            >
-              <img
-                className="rounded-lg h-full w-full object-cover"
-                src="https://media.giphy.com/media/OsMRCAQICXU8j8j7LI/giphy.gif"
-                alt="linear algebra animation"
-              ></img>
-            </NavLink>
 
-            <div className="flex flex-col w-full items-center justify-center">
-              <h1 className="flex items-center w-full justify-center font-bold text-lg mt-5">
-                Linear Algebra
-              </h1>
-              <h1 className="text-center italic	text-slate-400">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </h1>
+            <div className="flex flex-col">
+              <NavLink
+                to="/linalg"
+                className="bg-primary-blue-dark text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
+              >
+                <img
+                  className="rounded-lg h-full w-full object-cover"
+                  src="https://media.giphy.com/media/OsMRCAQICXU8j8j7LI/giphy.gif"
+                  alt="linear algebra animation"
+                ></img>
+              </NavLink>
+
+              <div className="flex flex-col w-full items-center justify-center">
+                <h1 className="flex items-center w-full justify-center font-bold text-lg mt-5">
+                  Linear Algebra
+                </h1>
+                <h1 className="text-center italic	text-slate-400">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </h1>
+              </div>
             </div>
-          </div>
 
-          <div className="flex flex-col">
-            <NavLink
-              to="/linalg"
-              className="bg-primary-blue-dark text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
-            >
-              <img
-                className="rounded-lg h-full w-full object-cover"
-                src="https://media.giphy.com/media/eB5WYVSaOT0qUmHOWA/giphy.gif"
-                alt="placeholder animation"
-              ></img>
-            </NavLink>
+            <div className="flex flex-col">
+              <NavLink
+                to="/linalg"
+                className="bg-primary-blue-dark text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
+              >
+                <img
+                  className="rounded-lg h-full w-full object-cover"
+                  src="https://media.giphy.com/media/eB5WYVSaOT0qUmHOWA/giphy.gif"
+                  alt="placeholder animation"
+                ></img>
+              </NavLink>
 
-            <div className="flex flex-col w-full items-center justify-center">
-              <h1 className="flex items-center w-full justify-center font-bold text-lg mt-5">
-                ...
-              </h1>
-              <h1 className="text-center italic	 text-slate-400">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </h1>
+              <div className="flex flex-col w-full items-center justify-center">
+                <h1 className="flex items-center w-full justify-center font-bold text-lg mt-5">
+                  ...
+                </h1>
+                <h1 className="text-center italic	text-slate-400">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </h1>
+              </div>
+
+
+            </div>
+            <div className="flex flex-col">
+              <NavLink
+                to="/linalg"
+                className="bg-primary-blue-dark text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
+              >
+                <img
+                  className="rounded-lg h-full w-full object-cover"
+                  src="https://media.giphy.com/media/eB5WYVSaOT0qUmHOWA/giphy.gif"
+                  alt="placeholder animation"
+                ></img>
+              </NavLink>
+
+              <div className="flex flex-col w-full items-center justify-center">
+                <h1 className="flex items-center w-full justify-center font-bold text-lg mt-5">
+                  ...
+                </h1>
+                <h1 className="text-center italic	text-slate-400">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </h1>
+              </div>
             </div>
           </div>
         </div>
 
+        {/* Algorithm Selection - panel-2*/}
+        <div className='hidden px-[22%] pb-6'
+          id='panel-2'>
+          <div className="grid grid-cols-3 grid-rows-1 grid gap-14 ">
+            <div className="flex flex-col">
+              <NavLink
+                to="/linalg"
+                className="bg-primary-blue-dark text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
+              >
+                <img
+                  className="rounded-lg h-full w-full object-cover"
+                  src="https://media.giphy.com/media/eB5WYVSaOT0qUmHOWA/giphy.gif"
+                  alt="placeholder animation"
+                ></img>
+              </NavLink>
+
+              <div className="flex flex-col w-full items-center justify-center">
+                <h1 className="flex items-center w-full justify-center font-bold text-lg mt-5">
+                  ...
+                </h1>
+                <h1 className="text-center italic	text-slate-400">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </h1>
+              </div>
+
+
+            </div>
+
+
+            <div className="flex flex-col">
+              <NavLink
+                to="/linalg"
+                className="bg-primary-blue-dark text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
+              >
+                <img
+                  className="rounded-lg h-full w-full object-cover"
+                  src="https://media.giphy.com/media/eB5WYVSaOT0qUmHOWA/giphy.gif"
+                  alt="placeholder animation"
+                ></img>
+              </NavLink>
+
+              <div className="flex flex-col w-full items-center justify-center">
+                <h1 className="flex items-center w-full justify-center font-bold text-lg mt-5">
+                  ...
+                </h1>
+                <h1 className="text-center italic	text-slate-400">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </h1>
+              </div>
+
+
+            </div>
+            <div className="flex flex-col">
+              <NavLink
+                to="/linalg"
+                className="bg-primary-blue-dark text-2xl text-white rounded-md h-full w-full flex items-center justify-center"
+              >
+                <img
+                  className="rounded-lg h-full w-full object-cover"
+                  src="https://media.giphy.com/media/eB5WYVSaOT0qUmHOWA/giphy.gif"
+                  alt="placeholder animation"
+                ></img>
+              </NavLink>
+
+              <div className="flex flex-col w-full items-center justify-center">
+                <h1 className="flex items-center w-full justify-center font-bold text-lg mt-5">
+                  ...
+                </h1>
+                <h1 className="text-center italic	text-slate-400">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        {/* Pager Buttons */}
+        <div className="flex flex-row justify-end pb-8 mt-5 ">
+          <button className="relative w-1 h-1 border border-2 border-black rounded-full flex justify-center items-center text-center p-2 mx-2 bg-black mb-48"
+            id="pager-button-0"
+            onClick={(event) => changePage(event, 0)}>
+          </button>
+
+          <button className="relative w-1 h-1 border border-2 border-black rounded-full flex justify-center items-center text-center p-2 mx-2 bg-white"
+            id="pager-button-1"
+
+            onClick={(event) => changePage(event, 1)}>
+          </button>
+
+          <button className="relative w-1 h-1 border border-2 border-black rounded-full flex justify-center items-center text-center p-2 mx-2 bg-white"
+            id="pager-button-2"
+
+            onClick={(event) => changePage(event, 2)}>
+
+          </button>
+        </div>
+
+
+
         {/* Features */}
 
-        <div className="flex  justify-center items-center h-[650px] w-[80%]  bg-primary_blue bg-opacity-20">
+        <div className="flex justify-center items-center h-[650px] w-[80%] bg-primary_blue bg-opacity-20 mx-[10%]">
           <div className="grid grid-cols-3 w-[90%] h-[80%]">
             <NavLink
               to="/acbot"
@@ -169,7 +339,7 @@ export default function Landing() {
             </NavLink>
 
             <div className="grid grid-rows-5 gap-y-[2%] my-[2%]">
-              <NavLink to="/algorthims" className="row-span-1">
+              <NavLink to="/algorithms" className="row-span-1">
                 <div className=" bg-bg_grey flex items-center justify-center w-[96%] h-[100%] m-[4%] mr-0 rounded-md">
                   <h1 className="link link-underline link-underline-black text-2xl font-bold text-center">
                     Features
@@ -256,6 +426,13 @@ export default function Landing() {
             </div>
           </div>
         </div>
+
+        {/* Footer */}
+
+        <div className="w-full mt-64">
+          <Footer />
+        </div>
+
       </div>
     </div>
   );
