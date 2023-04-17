@@ -4,7 +4,6 @@ import { Routes, Route } from 'react-router-dom';
 
 // Components Imports
 import Landing from './pages/Landing';
-import AlgorithmsLanding from './pages/AlgorithmsLanding';
 
 // Algebra Imports
 import AlgebraLanding from './pages/Algebra/AlgebraLanding';
@@ -41,7 +40,6 @@ function App() {
       <Routes>
         {/* Landing Page Route */}
         <Route path="/" element={<Landing />} />
-        <Route path="/algorithms" element={<AlgorithmsLanding />} />
 
         {/* Algebra Routes */}
         <Route path="/algebra" element={<AlgebraLanding />} />
