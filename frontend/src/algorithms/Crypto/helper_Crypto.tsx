@@ -308,6 +308,8 @@ export function isPrimeBigInt(p: bigint): boolean {
   }
 }
 
+
+
 /**
  * Checks if input parameter "a", is a primitive root mod p
  * @param a (tested primitive root)
