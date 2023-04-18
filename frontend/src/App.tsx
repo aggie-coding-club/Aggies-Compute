@@ -4,23 +4,31 @@ import { Routes, Route } from 'react-router-dom';
 
 // Components Imports
 import Landing from './pages/Landing';
-import AlgorithmsLanding from './pages/AlgorithmsLanding';
 
 // Algebra Imports
 import AlgebraLanding from './pages/Algebra/AlgebraLanding';
 import AddSubMult from './pages/Algebra/AddSubMult';
+import Pemdas from './pages/Algebra/Pemdas'
 
 // Calculus Imports
 import CalculusLanding from './pages/Calculus/CalculusLanding';
+import TaylorSeries from './pages/Calculus/TaylorSeries';
 import SimpleDerivative from './pages/Calculus/SimpleDerivative';
 
 // Crypto Imports
 import CryptoLanding from './pages/Crypto/CryptoLanding';
+import AffineCipher from './pages/Crypto/affineCipher';
+import ShiftCipher from './pages/Crypto/shiftCipher';
+import BabyStepGiantStep from './pages/Crypto/babyStepGiantStep';
+import ChineseRemainderTheorem from './pages/Crypto/chineseRemainderTheorem';
+import DiffieHellman from './pages/Crypto/diffieHellman';
+import RSA from './pages/Crypto/RSA';
 
 // LinAlg Imports
 import LinAlgLanding from './pages/LinAlg/LinAlgLanding';
 import RREF_REF from './pages/LinAlg/RREF_REF';
 import InverseMatrix from './pages/LinAlg/InverseMatrix';
+import Determinant from './pages/LinAlg/Determinant'
 import MatrixOperation from './pages/LinAlg/MatrixOperations';
 
 // Features Imports
@@ -29,6 +37,7 @@ import Calculator from './pages/Features/Calculator';
 import PhotoMathClone from './pages/Features/PhotoMathClone';
 import Profile from './pages/Profile';
 import Education from './pages/Features/Education';
+
 
 // Personal
 import LoginPage from "./pages/Login"
@@ -48,24 +57,33 @@ function App() {
       <Routes>
         {/* Landing Page Route */}
         <Route path="/" element={<Landing />} />
-        <Route path="/algorithms" element={<AlgorithmsLanding />} />
+        {/* <Route path="/algorithms" element={<AlgorithmsLanding />} /> */}
 
         {/* Algebra Routes */}
         <Route path="/algebra" element={<AlgebraLanding />} />
         <Route path="/algebra/add_sub_mult" element={<AddSubMult />} />
+        <Route path="/algebra/pemdas" element={<Pemdas />} />
 
         {/* Calculus Routes */}
         <Route path="/calculus" element={<CalculusLanding />} />
         <Route path="/calculus/simple_derivative" element={<SimpleDerivative />} />
+        <Route path="/calculus/taylor-series" element={<TaylorSeries />} />
 
         {/* Crpyto Routes */}
         <Route path="/crypto" element={<CryptoLanding />} />
+        <Route path="/crypto/affinecipher" element={<AffineCipher />} />
+        <Route path="/crypto/shiftcipher" element={<ShiftCipher />} />
+        <Route path="/crypto/babystepgiantstep" element={<BabyStepGiantStep />} />
+        <Route path="/crypto/chineseremaindertheorem" element={<ChineseRemainderTheorem />} />
+        <Route path="/crypto/diffiehellman" element={<DiffieHellman />} />
+        <Route path="/crypto/RSA" element={<RSA />} />
 
         {/* Linear Algebra Routes */}
         <Route path="/linalg" element={<LinAlgLanding />} />
         <Route path="/linalg/rref_ref" element={<RREF_REF />} />
         <Route path="/linalg/inverse_matrix" element={<InverseMatrix />} />
-        <Route path="/linalg/matrix_operations" element={<MatrixOperation/>}/>
+        <Route path="/linalg/determinant" element={<Determinant />} />
+        <Route path="/linalg/matrix_operations" element={<MatrixOperation />} />
 
         {/* Features */}
         <Route path="/acbot" element={<ACBot />} />

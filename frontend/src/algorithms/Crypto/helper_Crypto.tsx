@@ -161,6 +161,29 @@ export function inverseMod(a: number, modulo: number): number {
 }
 
 /**
+ * Calculates the modular inverse of a number
+ *
+ * @param a (bigint)
+ * @param b (bigint)
+ * @returns (bigint)
+ */
+export function inverseModBigInt(a: bigint, modulo: bigint): bigint {
+  // Check if their GCD is 1
+  if (GCDBigInt(a, modulo) !== BigInt(1)) {
+    throw Error('gcd(a, modulo) must be equal to 1');
+  }
+
+  let c: bigint = BigInt(1);
+
+  // Checks if divisible by a
+  while (c % a !== BigInt(0)) {
+    c += modulo;
+  }
+
+  return c / a;
+}
+
+/**
  * Euclidean Algorithm to calculate the greatest common denominator between two integers
  * 1. Check if a and b are integers
  * 2. Check if a and b are positive
@@ -277,13 +300,15 @@ export function primeFactors(p: bigint): Array<bigint> {
  * @param p (bigint)
  * @returns (boolean)
  */
-export function isPrime(p: bigint): boolean {
+export function isPrimeBigInt(p: bigint): boolean {
   if (primeFactors(p).length === 1) {
     return true;
   } else {
     return false;
   }
 }
+
+
 
 /**
  * Checks if input parameter "a", is a primitive root mod p
@@ -293,8 +318,8 @@ export function isPrime(p: bigint): boolean {
  */
 export function isPrimRoot(a: bigint, p: bigint): boolean {
   // Check if p is prime
-  if (!isPrime(p)) {
-    throw Error('p must be prime');
+  if (!isPrimeBigInt(p)){
+    throw Error("p must be prime");
   }
 
   // Check a > 1

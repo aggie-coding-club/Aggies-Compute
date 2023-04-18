@@ -66,22 +66,18 @@
     Number Theory
         All primitive roots modulo of a number (5)
         Calculate Legrendre (3)
-        Chinese Remainder Theorem (3)
-        Mod Square Root of a number (2)
-
 
     Lin Alg
         Cramer's Rule (1)
         LU Decomposition (3)
-        Column space (1)
-        Matrix Diagonalization (1)
-
+        QR Decomposition
+        adjoint matrix
+        Grim-Schmidth Process
 
     Cryptography
         Classical
             Hill (2)
             ADFGVX (2)
-        Modern
 
         Discrete Logarithm Problem
             Pohlig-Hellman (2)

@@ -163,3 +163,85 @@ export function affineCipher_Decrypt(m: string, a: number, b: number, alphabet: 
 
     return result;
 }
+
+export function affineValues_Encrypt(m: string, a: number, b: number, alphabet: string,): string 
+{
+    // Create hashmaps
+    let let_to_num = char_map(alphabet);
+    let num_to_let = inverse_char_map(alphabet);
+
+    let result: string = "";
+    for (let i: number = 0; i < m.length; i++){
+        // Loop through m 
+        // First get char of iteration
+        // find the equivalent mapping number
+        // convert to int and apply the cipher equation
+        // convert back to string 
+        // find equivalent mapping char
+        // append to result
+
+        let letter: string = m[i];
+        let modulo: number = alphabet.length;
+
+        // Skips spaces
+        if (letter === " "){
+            result = result + " ";
+        }
+
+        else
+        {
+            let sNum: string | undefined = let_to_num.get(letter);
+            if (sNum === undefined){
+                throw Error("Character in m is not found in the alphabet");
+            }
+
+            let iNum: number = +(sNum ?? '');
+            iNum = ((a * iNum) + b) % modulo;
+            result += iNum + " ";
+        }
+
+    }
+
+    return result;
+}
+
+export function affineValues_Decrypt(m: string, a: number, b: number, alphabet: string,): string 
+{
+    // Create hashmaps
+    let let_to_num = char_map(alphabet);
+    let num_to_let = inverse_char_map(alphabet);
+
+    let result: string = "";
+    for (let i: number = 0; i < m.length; i++){
+        
+        let letter: string = m[i];
+        let modulo: number = alphabet.length;
+
+        // Skips spaces
+        if (letter === " "){
+            result = result + " ";
+            continue;
+        }
+
+        let sNum: string | undefined = let_to_num.get(letter);
+
+        if (sNum === undefined){
+            throw Error("Character in m is not found in the alphabet");
+        }
+
+        else
+        {
+            let iNum: number = +(sNum ?? '');
+            iNum =  (inverseMod(a, modulo) * ((iNum - b) % modulo)) % modulo;
+            
+            if (iNum < 0){
+                iNum = modulo - ((iNum*-1) % modulo);
+            }
+
+           result += iNum + " ";
+        }
+
+    }
+
+    return result;
+}

@@ -95,33 +95,6 @@ export default function Navbar({
           </li>
 
           <li>
-            <NavLink className="" to="/algorithms">
-              <svg
-                className="h-[35px] w-[40px] object-contain object-center hover:opacity-30"
-                id="algorithms"
-                onMouseOver={(event) => labelHovered(event, 'algorithms')}
-                onMouseOut={(event) => labelUnhovered(event, 'algorithms')}
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                stroke="#ffffff"
-              >
-                <g id="SVGRepo_bgCarrier" stroke-width="0" />
-                {/* prettier-ignore */}
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
-                {/* prettier-ignore */}
-                <g id="SVGRepo_iconCarrier"> <path opacity="0.1" d="M5 7C5 5.11438 5 4.17157 5.58579 3.58579C6.17157 3 7.11438 3 9 3H12H15C16.8856 3 17.8284 3 18.4142 3.58579C19 4.17157 19 5.11438 19 7V12V17C19 18.8856 19 19.8284 18.4142 20.4142C17.8284 21 16.8856 21 15 21H12H9C7.11438 21 6.17157 21 5.58579 20.4142C5 19.8284 5 18.8856 5 17V12V7Z" fill="#FFF" /> <path d="M9 7H15" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <path d="M15 17V14" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <path d="M15 11H15.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <path d="M12 11H12.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <path d="M9 11H9.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <path d="M9 14H9.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <path d="M12 14H12.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <path d="M12 17H12.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <path d="M9 17H9.01" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <path d="M5 7C5 5.11438 5 4.17157 5.58579 3.58579C6.17157 3 7.11438 3 9 3H12H15C16.8856 3 17.8284 3 18.4142 3.58579C19 4.17157 19 5.11438 19 7V12V17C19 18.8856 19 19.8284 18.4142 20.4142C17.8284 21 16.8856 21 15 21H12H9C7.11438 21 6.17157 21 5.58579 20.4142C5 19.8284 5 18.8856 5 17V12V7Z" stroke="#FFF" stroke-width="2" stroke-linejoin="round" /></g>
-              </svg>
-              <div
-                className="invisible absolute z-10 justify-center items-center text-sm text-slate-200 font-semibold bg-slate-500  py-2 px-4 rounded bg-opacity-50 translate-y-[3px] -translate-x-[30px]"
-                id="algorithms-hover-text"
-              >
-                Algorithms
-              </div>
-            </NavLink>
-          </li>
-
-          <li>
             <NavLink className="" to="/calculator">
               <svg
                 className="h-[35px] w-[40px] object-contain object-center hover:opacity-30"

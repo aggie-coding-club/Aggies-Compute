@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 
-export default function Footer() {
+export default function FooterSub() {
     return (
         <div className='grid grid-cols-2 bg-primary_blue-light-0 bg-opacity-20 h-48 p-5'>
             <div className='flex flex-col ml-2'>

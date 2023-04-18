@@ -1,0 +1,5 @@
+{
+    "title": "Cryptography",
+    "links": ["/crypto/affinecipher","/crypto/shiftcipher", "/crypto/babystepgiantstep", "/crypto/chineseremaindertheorem", "/crypto/diffiehellman", "/crypto/RSA"],
+    "names": ["Affine Cipher","Shifter Cipher", "Baby Step Giant Step", "Chinese Remainder Theorem", "Diffie Hellman", "RSA"]
+}
