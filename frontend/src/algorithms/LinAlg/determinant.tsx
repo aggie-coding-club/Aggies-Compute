@@ -28,16 +28,67 @@ import { frac_mat_toString } from './helper_LinAlg';
  */
 
 //const matrix = [[1, 2], [3, 4]];
+var math = require('mathjs');
 
-function det_2_by_2(a: number, b: number) {
-    return 0;
+function det_2_by_2(mat: math.Matrix) {
+    let a = mat.get([0,0]);
+    let b = mat.get([0,1]);
+    let c = mat.get([1,0]);
+    let d = mat.get([1,1]);
+    let det = a*d - b*c;
+    return det;
   }
 
-function det_3_by_3(a: number, b: number) {
-    return 0;
+function det_3_by_3(mat: math.Matrix) {
+    let dia_1 = mat.get([0,0])*mat.get([1,1])*mat.get([2,2]);
+    let dia_2 = mat.get([0,1])*mat.get([1,2])*mat.get([2,0]);
+    let dia_3 = mat.get([0,2])*mat.get([1,0])*mat.get([2,1]);
+    let dia_4 = mat.get([2,0])*mat.get([1,1])*mat.get([0,2]);
+    let dia_5 = mat.get([2,1])*mat.get([1,2])*mat.get([0,0]);
+    let dia_6 = mat.get([2,2])*mat.get([1,0])*mat.get([0,1]);
+    let det = dia_1 + dia_2 + dia_3 - dia_4 - dia_5 - dia_6;
+    return det;
   }
 
-function cofactor(a: number, b: number){
-    return 0;
+function minor_matrix(matrix: math.Matrix, row: number, column: number){
+    const n = matrix.size()[0];
+
+    //unsure how to implement push with math.Matrix type
+    //for now set to any
+    let new_matrix : number[][] = [];
+
+    for(let i = 0; i < n; i++){
+        if(i != row){
+            let new_row : number[] = [];
+            for(let j = 0; j < n; j++){
+                if(j != column){
+                    new_row.push(matrix.get([i,j]));
+                }
+            }
+            new_matrix.push(new_row);
+        }
+    }
+    return math.matrix(new_matrix);
 }
+//co-factor expanding along first row
+function cofactor(mat: math.Matrix){
+    let n = mat.size()[0];
+    //sum
+    let sum = 0;
+    //set i as the row to expand on
+    let i = 0;
+    //loop through each column
+    for(let j = 0; j < n; j++){
+        let minor = minor_matrix(mat, i, j);
+        if(minor.size()[0] == 2){
+            let det = det_2_by_2(minor);
+            sum+=det*mat.get([0,j]);
+        }
+        else{
+            sum += cofactor(minor);
+        }
+    }
+    return sum;
+}
+
 

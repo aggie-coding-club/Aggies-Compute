@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Navbar from '../../components/Navbar';
-import Sidebar_Crypto from '../../components/SideBar_Crypto';
+import Sidebar from '../../components/Sidebar';
+import info_ from '../../components/info_crypto.json';
 import { Text } from "@nextui-org/react";
 import { CRT_helper } from '../../algorithms/Crypto/chineseRemainderTheorem';
 import { GCDBigInt } from '../../algorithms/Crypto/helper_Crypto';
@@ -29,9 +30,9 @@ export default function ChineseRemainderTheorem() {
   const [step8, setStep8] = useState("");
 
   const handle_a1_Change = (event: React.FormEvent<HTMLInputElement>) => {
-    const t= event.target as HTMLInputElement;
+    const t = event.target as HTMLInputElement;
     const inputtedCharacter = t.value.slice(-1);
-    if(allowedCharacters.includes(inputtedCharacter)) {
+    if (allowedCharacters.includes(inputtedCharacter)) {
       set_a1(t.value);
     } else {
       t.value = a1;
@@ -39,9 +40,9 @@ export default function ChineseRemainderTheorem() {
   };
 
   const handle_a2_Change = (event: React.FormEvent<HTMLInputElement>) => {
-    const t= event.target as HTMLInputElement;
+    const t = event.target as HTMLInputElement;
     const inputtedCharacter = t.value.slice(-1);
-    if(allowedCharacters.includes(inputtedCharacter)) {
+    if (allowedCharacters.includes(inputtedCharacter)) {
       set_a2(t.value);
     } else {
       t.value = a2;
@@ -49,9 +50,9 @@ export default function ChineseRemainderTheorem() {
   };
 
   const handle_p1_Change = (event: React.FormEvent<HTMLInputElement>) => {
-    const t= event.target as HTMLInputElement;
+    const t = event.target as HTMLInputElement;
     const inputtedCharacter = t.value.slice(-1);
-    if(allowedCharacters.includes(inputtedCharacter)) {
+    if (allowedCharacters.includes(inputtedCharacter)) {
       set_p1(t.value);
     } else {
       t.value = p1;
@@ -59,9 +60,9 @@ export default function ChineseRemainderTheorem() {
   };
 
   const handle_p2_Change = (event: React.FormEvent<HTMLInputElement>) => {
-    const t= event.target as HTMLInputElement;
+    const t = event.target as HTMLInputElement;
     const inputtedCharacter = t.value.slice(-1);
-    if(allowedCharacters.includes(inputtedCharacter)) {
+    if (allowedCharacters.includes(inputtedCharacter)) {
       set_p2(t.value);
     } else {
       t.value = p2;
@@ -70,9 +71,8 @@ export default function ChineseRemainderTheorem() {
 
 
   const handleCalculateClick = () => {
-    if (GCDBigInt(BigInt(p1), BigInt(p2)) === BigInt(1))
-    {
-      setSolution(CRT_helper(BigInt(a1),BigInt(a2),BigInt(p1),BigInt(p2)).toString());
+    if (GCDBigInt(BigInt(p1), BigInt(p2)) === BigInt(1)) {
+      setSolution(CRT_helper(BigInt(a1), BigInt(a2), BigInt(p1), BigInt(p2)).toString());
       setStep1("x = " + a1 + " (mod " + p1 + ")");
       setStep2(p1 + " | x - " + a1);
       setStep3("x = " + a1 + " + " + p1 + "k");
@@ -84,11 +84,10 @@ export default function ChineseRemainderTheorem() {
       setStep6("k = " + k + " mod(" + p2 + ")");
       setStep7("...");
       setStep8("x = " + a1 + " + " + p1 + "(" + k + ") = " + solution);
-    
+
     }
 
-    else
-    {
+    else {
       setSolution("Error: p1 and p2 must be coprime");
       setStep1("")
       setStep2("")
@@ -105,7 +104,7 @@ export default function ChineseRemainderTheorem() {
     <div>
       <Navbar isLanding={false} />
       <div className="flex">
-        <Sidebar_Crypto/>
+        <Sidebar info={info_} />
         <div className="flex flex-col w-[60%] mt-20">
 
           {/* Title */}
@@ -121,8 +120,8 @@ export default function ChineseRemainderTheorem() {
               Description
             </h1>
             <p>
-            The Chinese Remainder Theorem solves a set of congruences where the moduli are coprime with each other.
-            (x = a1 (mod p1), x = a2 (mod p2))
+              The Chinese Remainder Theorem solves a set of congruences where the moduli are coprime with each other.
+              (x = a1 (mod p1), x = a2 (mod p2))
             </p>
           </div>
 
@@ -133,63 +132,63 @@ export default function ChineseRemainderTheorem() {
             </h1>
 
             <label className="text-md font-bold dark:text-black-50 mr-5">a1:</label>
-            <input 
-              type="text" id="input" 
-              name="yourOwnVariable" 
-              title="Enter an expression" 
-              placeholder="Enter a1 (int)" 
-              className=" max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" 
-              onChange={handle_a1_Change} 
+            <input
+              type="text" id="input"
+              name="yourOwnVariable"
+              title="Enter an expression"
+              placeholder="Enter a1 (int)"
+              className=" max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none"
+              onChange={handle_a1_Change}
               required
             />
             <div className="h-3"> </div>
 
             <label className="text-md font-bold dark:text-black-50 mr-5">p1:</label>
-            <input 
-              type="text" id="input" 
-              name="yourOwnVariable" 
-              title="Enter an expression" 
-              placeholder="Enter p1 (int)" 
-              className=" max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" 
-              onChange={handle_p1_Change} 
+            <input
+              type="text" id="input"
+              name="yourOwnVariable"
+              title="Enter an expression"
+              placeholder="Enter p1 (int)"
+              className=" max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none"
+              onChange={handle_p1_Change}
               required
             />
             <div className="h-3"> </div>
 
             <label className="text-md font-bold dark:text-black-50 mr-5">a2:</label>
-            <input 
-              type="text" id="input" 
-              name="yourOwnVariable" 
-              title="Enter an expression" 
-              placeholder="Enter a2 (int)" 
-              className=" max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" 
-              onChange={handle_a2_Change} 
+            <input
+              type="text" id="input"
+              name="yourOwnVariable"
+              title="Enter an expression"
+              placeholder="Enter a2 (int)"
+              className=" max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none"
+              onChange={handle_a2_Change}
               required
             />
             <div className="h-3"> </div>
 
             <label className="text-md font-bold dark:text-black-50 mr-5">p2:</label>
-            <input 
-              type="text" id="input" 
-              name="yourOwnVariable" 
-              title="Enter an expression" 
-              placeholder="Enter p2 (int)" 
-              className=" max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" 
-              onChange={handle_p2_Change} 
+            <input
+              type="text" id="input"
+              name="yourOwnVariable"
+              title="Enter an expression"
+              placeholder="Enter p2 (int)"
+              className=" max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none"
+              onChange={handle_p2_Change}
               required
             />
             <div className="h-3"> </div>
 
-            
+
             <div className="flex flex-row justify-center">
-                <input 
-                  type="button" 
-                  id="calculate" 
-                  value="Calculate" 
-                 
-                  className="text-white bg-gradient-to-b from-[#27476E] to-[#000000] rounded-xl disabled:opacity-25 focus:outline-none transform: transition duration-100 hover:hover:scale-105 motion-reduce:transform-none p-2" 
-                  onClick={handleCalculateClick}
-                  />
+              <input
+                type="button"
+                id="calculate"
+                value="Calculate"
+
+                className="text-white bg-gradient-to-b from-[#27476E] to-[#000000] rounded-xl disabled:opacity-25 focus:outline-none transform: transition duration-100 hover:hover:scale-105 motion-reduce:transform-none p-2"
+                onClick={handleCalculateClick}
+              />
             </div>
           </div>
 

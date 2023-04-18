@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Navbar from '../../components/Navbar';
-import Sidebar_Crypto from '../../components/SideBar_Crypto';
+import Sidebar from '../../components/Sidebar';
+import info_ from '../../components/info_crypto.json';
 import { Text } from "@nextui-org/react";
 import { affineCipher_Encrypt, affineValues_Encrypt, affineValues_Decrypt } from '../../algorithms/Crypto/affineCipher';
 import { affineCipher_Decrypt } from '../../algorithms/Crypto/affineCipher';
@@ -28,27 +29,27 @@ export default function AffineCipher() {
   const [step4, setStep4] = useState("");
 
   const handle_ciphertext_Change = (event: React.FormEvent<HTMLInputElement>) => {
-    const t= event.target as HTMLInputElement;
+    const t = event.target as HTMLInputElement;
     const inputtedCharacter = t.value.slice(-1);
-    if(allowedLetters.includes(inputtedCharacter)) {
+    if (allowedLetters.includes(inputtedCharacter)) {
       set_ciphertext(t.value);
     } else {
       t.value = ciphertext;
     }
   }
   const handle_a_Change = (event: React.FormEvent<HTMLInputElement>) => {
-    const t= event.target as HTMLInputElement;
+    const t = event.target as HTMLInputElement;
     const inputtedCharacter = t.value.slice(-1);
-    if(allowedNumbers.includes(inputtedCharacter)) {
+    if (allowedNumbers.includes(inputtedCharacter)) {
       set_a(t.value);
     } else {
       t.value = a;
     }
   }
   const handle_b_Change = (event: React.FormEvent<HTMLInputElement>) => {
-    const t= event.target as HTMLInputElement;
+    const t = event.target as HTMLInputElement;
     const inputtedCharacter = t.value.slice(-1);
-    if(allowedNumbers.includes(inputtedCharacter)) {
+    if (allowedNumbers.includes(inputtedCharacter)) {
       set_b(t.value);
     } else {
       t.value = b;
@@ -57,8 +58,7 @@ export default function AffineCipher() {
 
 
   const handleCalculateEncrypt = () => {
-    if (GCDBigInt(BigInt(a), BigInt(alphabet.length)) === BigInt(1))
-    {
+    if (GCDBigInt(BigInt(a), BigInt(alphabet.length)) === BigInt(1)) {
       setSolution(affineCipher_Encrypt(ciphertext, Number(a), Number(b), alphabet))
       setStep1(spaceOutLetters(ciphertext));
       setStep2(toNumbers(ciphertext, 0, allowedLetters))
@@ -67,25 +67,22 @@ export default function AffineCipher() {
 
     }
 
-    else
-    {
+    else {
       setSolution("Error: GCD of a and the alphabet length must be 1")
     }
   }
   const handleCalculateDecrypt = () => {
-    if (GCDBigInt(BigInt(a), BigInt(alphabet.length)) === BigInt(1))
-    {
+    if (GCDBigInt(BigInt(a), BigInt(alphabet.length)) === BigInt(1)) {
       setSolution(affineCipher_Decrypt(ciphertext, Number(a), Number(b), alphabet))
       setStep1(spaceOutLetters(ciphertext));
       setStep2(toNumbers(ciphertext, 0, allowedLetters))
       setStep3(affineValues_Decrypt(ciphertext, Number(a), Number(b), alphabet))
       setStep4(spaceOutShifted(affineCipher_Decrypt(ciphertext, Number(a), Number(b), alphabet), 0, allowedLetters));
-      
+
 
     }
 
-    else
-    {
+    else {
       setSolution("Error: GCD of a and the alphabet length must be 1")
       setStep1("")
       setStep2("")
@@ -98,9 +95,9 @@ export default function AffineCipher() {
     <div>
       <Navbar isLanding={false} />
       <div className="flex">
-        <Sidebar_Crypto/>
-        <div className="flex flex-col w-[60%] mt-20">
+        <Sidebar info={info_} />
 
+        <div className="flex flex-col w-[60%] mt-20">
           {/* Title */}
           <div className="flex items-center justify-center rounded-xl">
             <Text h1 size={60} css={{ textGradient: "0deg, #F0F0F0, #27476E 50%" }} weight="bold">
@@ -114,8 +111,8 @@ export default function AffineCipher() {
               Description
             </h1>
             <p>
-            The Affine Cipher is a type of substituation shift cipher that relies on two keys, "a" and "b" to encrypt/decrypt ciphertext. 
-            (y = ax + b (mod p)) where y is the encrypted letter, x is the decrypted letter, and p is the length of the alphabet
+              The Affine Cipher is a type of substituation shift cipher that relies on two keys, "a" and "b" to encrypt/decrypt ciphertext.
+              (y = ax + b (mod p)) where y is the encrypted letter, x is the decrypted letter, and p is the length of the alphabet
             </p>
           </div>
 
@@ -126,63 +123,63 @@ export default function AffineCipher() {
             </h1>
 
             <label className="text-md font-bold dark:text-black-50 mr-5">Ciphertext:</label>
-            <input 
-              type="text" id="input" 
-              name="yourOwnVariable" 
-              title="Enter an expression" 
-              placeholder="Enter ciphertext (string)" 
-              className=" max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" 
-              onChange={handle_ciphertext_Change} 
+            <input
+              type="text" id="input"
+              name="yourOwnVariable"
+              title="Enter an expression"
+              placeholder="Enter ciphertext (string)"
+              className=" max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none"
+              onChange={handle_ciphertext_Change}
               required
             />
             <div className="h-3"> </div>
 
             <label className="text-md font-bold dark:text-black-50 mr-5">a:</label>
-            <input 
-              type="text" id="input" 
-              name="yourOwnVariable" 
-              title="Enter an expression" 
-              placeholder="Enter a (int)" 
-              className=" max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" 
+            <input
+              type="text" id="input"
+              name="yourOwnVariable"
+              title="Enter an expression"
+              placeholder="Enter a (int)"
+              className=" max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none"
               onChange={handle_a_Change}
               required
             />
             <div className="h-3"> </div>
 
             <label className="text-md font-bold dark:text-black-50 mr-5">b:</label>
-            <input 
-              type="text" id="input" 
-              name="yourOwnVariable" 
-              title="Enter an expression" 
-              placeholder="Enter b (int)" 
-              className=" max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" 
+            <input
+              type="text" id="input"
+              name="yourOwnVariable"
+              title="Enter an expression"
+              placeholder="Enter b (int)"
+              className=" max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none"
               onChange={handle_b_Change}
               required
             />
             <div className="h-3"> </div>
 
             <div className="flex flex-row justify-center">
-                <input 
-                  type="button" 
-                  id="calculate" 
-                  value="Encrypt" 
-            
-                  className="text-white bg-gradient-to-b from-[#27476E] to-[#000000] rounded-xl disabled:opacity-25 focus:outline-none transform: transition duration-100 hover:hover:scale-105 motion-reduce:transform-none p-2" 
-                  onClick={handleCalculateEncrypt}
-                  />
-                  
-                <input 
-                  type="button" 
-                  id="calculate" 
-                  value="Decrypt" 
-                 
-                  className="text-white bg-gradient-to-b from-[#27476E] to-[#000000] rounded-xl disabled:opacity-25 focus:outline-none transform: transition duration-100 hover:hover:scale-105 motion-reduce:transform-none p-2" 
-                  onClick={handleCalculateDecrypt}
-                  />
+              <input
+                type="button"
+                id="calculate"
+                value="Encrypt"
+
+                className="text-white bg-gradient-to-b from-[#27476E] to-[#000000] rounded-xl disabled:opacity-25 focus:outline-none transform: transition duration-100 hover:hover:scale-105 motion-reduce:transform-none p-2"
+                onClick={handleCalculateEncrypt}
+              />
+
+              <input
+                type="button"
+                id="calculate"
+                value="Decrypt"
+
+                className="text-white bg-gradient-to-b from-[#27476E] to-[#000000] rounded-xl disabled:opacity-25 focus:outline-none transform: transition duration-100 hover:hover:scale-105 motion-reduce:transform-none p-2"
+                onClick={handleCalculateDecrypt}
+              />
             </div>
 
-            
-            
+
+
           </div>
 
           {/* Solutions */}

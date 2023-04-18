@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Navbar from '../../components/Navbar';
-import Sidebar_Crypto from '../../components/SideBar_Crypto';
+import Sidebar from '../../components/Sidebar';
+import info_ from '../../components/info_crypto.json';
 import { Text } from "@nextui-org/react";
 import { babyList, babystep_giantstep, bgComparison, getN, giantList, matchingNumber } from '../../algorithms/Crypto/babystep_giantstep';
 
@@ -25,9 +26,9 @@ export default function BabyStepGiantStep() {
 
 
   const handleBaseChange = (event: React.FormEvent<HTMLInputElement>) => {
-    const t= event.target as HTMLInputElement;
+    const t = event.target as HTMLInputElement;
     const inputtedCharacter = t.value.slice(-1);
-    if(allowedCharacters.includes(inputtedCharacter)) {
+    if (allowedCharacters.includes(inputtedCharacter)) {
       setBase(t.value);
     } else {
       t.value = base;
@@ -35,9 +36,9 @@ export default function BabyStepGiantStep() {
   };
 
   const handleTargetChange = (event: React.FormEvent<HTMLInputElement>) => {
-    const t= event.target as HTMLInputElement;
+    const t = event.target as HTMLInputElement;
     const inputtedCharacter = t.value.slice(-1);
-    if(allowedCharacters.includes(inputtedCharacter)) {
+    if (allowedCharacters.includes(inputtedCharacter)) {
       setTarget(t.value);
     } else {
       t.value = target;
@@ -45,9 +46,9 @@ export default function BabyStepGiantStep() {
   };
 
   const handleModulusChange = (event: React.FormEvent<HTMLInputElement>) => {
-    const t= event.target as HTMLInputElement;
+    const t = event.target as HTMLInputElement;
     const inputtedCharacter = t.value.slice(-1);
-    if(allowedCharacters.includes(inputtedCharacter)) {
+    if (allowedCharacters.includes(inputtedCharacter)) {
       setModulus(t.value);
     } else {
       t.value = modulus;
@@ -63,14 +64,14 @@ export default function BabyStepGiantStep() {
     setStep5(bgComparison(BigInt(base), BigInt(modulus), BigInt(target)))
   }
 
-  
+
 
 
   return (
     <div>
       <Navbar isLanding={false} />
       <div className="flex">
-        <Sidebar_Crypto/>
+        <Sidebar info={info_} />
         <div className="flex flex-col w-[60%] mt-20">
 
           {/* Title */}
@@ -86,8 +87,8 @@ export default function BabyStepGiantStep() {
               Description
             </h1>
             <p>
-            The Baby Step Giant Step Algorithm is a method used to solve the Discrete Log Problem in which two generator elements calculate 
-            a list of values until they have a matching element, where the values can then be compared and the DLP can be solved.
+              The Baby Step Giant Step Algorithm is a method used to solve the Discrete Log Problem in which two generator elements calculate
+              a list of values until they have a matching element, where the values can then be compared and the DLP can be solved.
             </p>
           </div>
 
@@ -98,53 +99,53 @@ export default function BabyStepGiantStep() {
             </h1>
 
             <label className="text-md font-bold dark:text-black-50 mr-5">Base:</label>
-            <input 
-              type="text" id="input" 
-              name="yourOwnVariable" 
-              title="Enter an expression" 
-              placeholder="Enter base (int)" 
-              className=" max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" 
-              onChange={handleBaseChange} 
+            <input
+              type="text" id="input"
+              name="yourOwnVariable"
+              title="Enter an expression"
+              placeholder="Enter base (int)"
+              className=" max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none"
+              onChange={handleBaseChange}
               required
             />
 
             <div className="h-3"> </div>
 
             <label className="text-md font-bold dark:text-black-50 mr-5">Target:</label>
-            <input 
-              type="text" id="input" 
-              name="yourOwnVariable" 
-              title="Enter an expression" 
-              placeholder="Enter target (int)" 
-              className=" max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" 
-              onChange={handleTargetChange} 
+            <input
+              type="text" id="input"
+              name="yourOwnVariable"
+              title="Enter an expression"
+              placeholder="Enter target (int)"
+              className=" max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none"
+              onChange={handleTargetChange}
               required
             />
 
             <div className="h-3"> </div>
 
             <label className="text-md font-bold dark:text-black-50 mr-5">Modulus:</label>
-            <input 
-              type="text" id="input" 
-              name="yourOwnVariable" 
-              title="Enter an expression" 
-              placeholder="Enter modulus (int)" 
-              className=" max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" 
-              onChange={handleModulusChange} 
+            <input
+              type="text" id="input"
+              name="yourOwnVariable"
+              title="Enter an expression"
+              placeholder="Enter modulus (int)"
+              className=" max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none"
+              onChange={handleModulusChange}
               required
             />
 
             <div className="h-3"> </div>
 
             <div className="flex flex-row justify-center">
-                <input 
-                  type="button" 
-                  id="calculate" 
-                  value="Calculate" 
-                 
-                  className="text-white bg-gradient-to-b from-[#27476E] to-[#000000] rounded-xl disabled:opacity-25 focus:outline-none transform: transition duration-100 hover:hover:scale-105 motion-reduce:transform-none p-2" 
-                  onClick={handleCalculateClick}
-                  />
+              <input
+                type="button"
+                id="calculate"
+                value="Calculate"
+
+                className="text-white bg-gradient-to-b from-[#27476E] to-[#000000] rounded-xl disabled:opacity-25 focus:outline-none transform: transition duration-100 hover:hover:scale-105 motion-reduce:transform-none p-2"
+                onClick={handleCalculateClick}
+              />
             </div>
           </div>
 

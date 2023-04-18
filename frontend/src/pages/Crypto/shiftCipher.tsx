@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Navbar from '../../components/Navbar';
-import Sidebar_Crypto from '../../components/SideBar_Crypto';
+import Sidebar from '../../components/Sidebar';
+import info_ from '../../components/info_crypto.json';
 import { Text } from "@nextui-org/react";
 import { shiftCipher } from '../../algorithms/Crypto/shiftCipher';
 import { toNumbers } from '../../algorithms/Crypto/shiftCipher';
@@ -26,9 +27,9 @@ export default function ShiftCipher() {
 
 
   const handle_ciphertext_Change = (event: React.FormEvent<HTMLInputElement>) => {
-    const t= event.target as HTMLInputElement;
+    const t = event.target as HTMLInputElement;
     const inputtedCharacter = t.value.slice(-1);
-    if(allowedLetters.includes(inputtedCharacter)) {
+    if (allowedLetters.includes(inputtedCharacter)) {
       set_ciphertext(t.value);
     } else {
       t.value = ciphertext;
@@ -36,9 +37,9 @@ export default function ShiftCipher() {
   };
 
   const handle_shift_Change = (event: React.FormEvent<HTMLInputElement>) => {
-    const t= event.target as HTMLInputElement;
+    const t = event.target as HTMLInputElement;
     const inputtedCharacter = t.value.slice(-1);
-    if(allowedNumbers.includes(inputtedCharacter)) {
+    if (allowedNumbers.includes(inputtedCharacter)) {
       set_shift(t.value);
     } else {
       t.value = shift;
@@ -53,13 +54,13 @@ export default function ShiftCipher() {
     setStep4(spaceOutShifted(ciphertext, Number(shift), allowedLetters));
 
   }
-  
+
 
   return (
     <div>
       <Navbar isLanding={false} />
       <div className="flex">
-        <Sidebar_Crypto/>
+        <Sidebar info={info_} />
         <div className="flex flex-col w-[60%] mt-20">
 
           {/* Title */}
@@ -75,8 +76,8 @@ export default function ShiftCipher() {
               Description
             </h1>
             <p>
-            The Shift Cipher (also known as the Caesar Cipher) is a basic substitution cipher that substitutes a letter with a another 
-            positioned a certain distance value or "shift" within a given alphabet. 
+              The Shift Cipher (also known as the Caesar Cipher) is a basic substitution cipher that substitutes a letter with a another
+              positioned a certain distance value or "shift" within a given alphabet.
             </p>
           </div>
 
@@ -87,38 +88,38 @@ export default function ShiftCipher() {
             </h1>
 
             <label className="text-md font-bold dark:text-black-50 mr-5">Ciphertext:</label>
-            <input 
-              type="text" id="input" 
-              name="yourOwnVariable" 
-              title="Enter an expression" 
-              placeholder="Enter ciphertext (string)" 
-              className=" max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" 
-              onChange={handle_ciphertext_Change} 
+            <input
+              type="text" id="input"
+              name="yourOwnVariable"
+              title="Enter an expression"
+              placeholder="Enter ciphertext (string)"
+              className=" max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none"
+              onChange={handle_ciphertext_Change}
               required
             />
             <div className="h-3"> </div>
 
             <label className="text-md font-bold dark:text-black-50 mr-5">Shift:</label>
-            <input 
-              type="text" id="input" 
-              name="yourOwnVariable" 
-              title="Enter an expression" 
-              placeholder="Enter shift (int)" 
-              className=" max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none" 
-              onChange={handle_shift_Change} 
+            <input
+              type="text" id="input"
+              name="yourOwnVariable"
+              title="Enter an expression"
+              placeholder="Enter shift (int)"
+              className=" max-w-20 bg-gray-100 rounded-xl p-2.5 text-black text-center outline-[#27476E] transform: transition duration-100 hover:bg-gray-50 hover:scale-105 motion-reduce:transform-none"
+              onChange={handle_shift_Change}
               required
             />
             <div className="h-3"> </div>
 
             <div className="flex flex-row justify-center">
-                <input 
-                  type="button" 
-                  id="calculate" 
-                  value="Encrypt/Decrypt" 
-                 
-                  className="text-white bg-gradient-to-b from-[#27476E] to-[#000000] rounded-xl disabled:opacity-25 focus:outline-none transform: transition duration-100 hover:hover:scale-105 motion-reduce:transform-none p-2" 
-                  onClick={handleCalculateClick}
-                  />
+              <input
+                type="button"
+                id="calculate"
+                value="Encrypt/Decrypt"
+
+                className="text-white bg-gradient-to-b from-[#27476E] to-[#000000] rounded-xl disabled:opacity-25 focus:outline-none transform: transition duration-100 hover:hover:scale-105 motion-reduce:transform-none p-2"
+                onClick={handleCalculateClick}
+              />
             </div>
           </div>
 
