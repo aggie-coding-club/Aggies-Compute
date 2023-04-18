@@ -1,4 +1,3 @@
-export function multiply(functions: string[]): string {
     /*  Algorithm
         1. Get strings from input
         2. For each string:
@@ -50,7 +49,16 @@ export function multiply(functions: string[]): string {
             (expected output)
                 "432x^3 + 594x^2 + 297x + 54"
     */
+import safeEval from 'safe-eval';
 
-                
-    return "Placeholder";
+export default function multiply(func1:string, func2:string): string {
+    const onlyConsts = /^[\d\s+-]+$/; // regex matches only constants, excluding variables and other characters
+    if (onlyConsts.test(func1) && onlyConsts.test(func2)) {
+        console.log('true')
+        const product = parseFloat(safeEval(func1)) * parseFloat(safeEval(func2));
+        return product.toString();
+    } else {
+        console.log('false')
+    }
+    return multiply(func1, func2);
 }

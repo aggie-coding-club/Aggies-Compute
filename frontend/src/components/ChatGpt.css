@@ -1,0 +1,20 @@
+#chat-input {
+    border-color: #006992;
+    border-width: 2px;
+    width: 40%;
+    margin-left: 40%;
+    margin-top: 10%;
+    word-wrap: "break-word";
+    position: absolute;
+}
+
+#myPrompt {
+    font-weight: bold;
+    margin-left: 40%;
+    margin-top: 5%;
+    position: absolute;
+}
+
+#myCol {
+    position: absolute;
+}

@@ -1,3 +1,4 @@
+import { resultKeyNameFromField } from '@apollo/client/utilities';
 import {char_map} from './helper_Crypto';
 import {inverse_char_map} from './helper_Crypto';
 import {num_to_key} from './helper_Crypto';
@@ -82,5 +83,108 @@ export function shiftCipher(m: string, shift: number, alpha: string): string
     return result;
 }
 
+export function spaceOutLetters(m: string): string
+{
+    let result: string = "";
+    for (let i: number = 0; i < m.length; i++)
+    {
+        result += m[i] + " ";
+    }
 
+    return result;
+}
 
+export function toNumbers(m: string, shift: number, alpha: string): string 
+{
+    let result: string = "";
+    let let_to_num = char_map(alpha);
+    for (let i: number = 0; i < m.length; i++)
+    {
+        let letter: string = m[i];
+
+        // Skips spaces
+        if (letter === " "){
+            result = result + " ";
+        }
+
+        // Encrypts
+        else{
+            let sNum: string | undefined = let_to_num.get(letter);
+
+            if (sNum === undefined){
+                throw Error("Character in m is not found in the alphabet");
+            }
+
+            let iNum: number = +(sNum ?? '');
+            result += iNum + " ";
+        }
+    }
+
+    return result;
+}
+
+export function shiftValues(m: string, shift: number, alpha: string): string 
+{
+    let result: string = "";
+    let let_to_num = char_map(alpha);
+    let modulo: number = let_to_num.size;
+    for (let i: number = 0; i < m.length; i++)
+    {
+        let letter: string = m[i];
+
+        // Skips spaces
+        if (letter === " "){
+            result = result + " ";
+        }
+
+        // Encrypts
+        else{
+            let sNum: string | undefined = let_to_num.get(letter);
+
+            if (sNum === undefined){
+                throw Error("Character in m is not found in the alphabet");
+            }
+
+            let iNum: number = +(sNum ?? '');
+            iNum = (iNum + shift) % modulo;
+            
+            result += iNum + " ";
+        }
+    }
+
+    return result;
+}
+
+export function spaceOutShifted(m: string, shift: number, alpha: string): string 
+{
+    let result: string = "";
+    let let_to_num = char_map(alpha);
+    let num_to_let = inverse_char_map(alpha);
+    let modulo: number = let_to_num.size;
+    for (let i: number = 0; i < m.length; i++)
+    {
+        let letter: string = m[i];
+
+        // Skips spaces
+        if (letter === " "){
+            result = result + " ";
+        }
+
+        // Encrypts
+        else{
+            let sNum: string | undefined = let_to_num.get(letter);
+
+            if (sNum === undefined){
+                throw Error("Character in m is not found in the alphabet");
+            }
+
+            let iNum: number = +(sNum ?? '');
+            iNum = (iNum + shift) % modulo;
+            sNum = num_to_key(iNum, (sNum ?? '').length);
+            let c: string | undefined = num_to_let.get(sNum);
+            result = result + c + " ";
+        }
+    }
+
+    return result;
+}

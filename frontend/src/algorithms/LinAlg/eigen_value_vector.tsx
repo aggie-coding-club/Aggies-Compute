@@ -10,11 +10,17 @@ export function eigen_value_vector(mat: string, mat_var: string) {
   let format_matrix = ""
   // var format_matrix = "matrix("
 
+<<<<<<< HEAD
   let start: boolean = true;
   let count: number = 0;
   let row_count: number = 0;
   let is_neg: boolean = false;
 
+=======
+  var start: boolean = true;
+  var count: number = 0;
+  var row_count: number = 0;
+>>>>>>> main
   for (let i = 0; i < mat.length; ++i) {
     if (start === true) {
       format_matrix += "[";
