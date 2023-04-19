@@ -49,27 +49,31 @@ export default function subtract(func1:string, func2:string):string{
     const constant = /^[-+]?\d+$/; // identifies constants 
 
     function start(exp1: string, exp2: string): string{
-        const newExp2 = exp2.replace(/[+-]|^([^+-])/g, (match, group1) => {
-            return match === "+" ? "-" : match === "-" ? "+" : `-${group1}`;
-        });
-        
-        var combined = exp1 + "+" + newExp2; // combine both expressions to isolate terms
-        if (/\+-/.test(combined)) {
-            combined = combined.replace(/\+-/, '-')
-        }
-        if (/(\+\+)/g.test(combined)) {
-            combined = combined.replace(/(\+\+)/g, "+");
-        }
-        
-        console.log(combined)
-        const simplifiedStr = combined.replace(/\s/g, "") // regex removes spaces
-        const terms = simplifiedStr.match(regex);
-    
-        if (terms) {
-            const newArray: string[] = terms.filter((string) => string !== '');
-            return groupTerms(newArray);
+        if (exp1 === exp2) {
+            return '0';
         } else {
-            return "";
+            const newExp2 = exp2.replace(/[+-]|^([^+-])/g, (match, group1) => {
+                return match === "+" ? "-" : match === "-" ? "+" : `-${group1}`;
+            });
+            
+            var combined = exp1 + "+" + newExp2; // combine both expressions to isolate terms
+            if (/\+-/.test(combined)) {
+                combined = combined.replace(/\+-/, '-')
+            }
+            if (/(\+\+)/g.test(combined)) {
+                combined = combined.replace(/(\+\+)/g, "+");
+            }
+            
+            console.log(combined)
+            const simplifiedStr = combined.replace(/\s/g, "") // regex removes spaces
+            const terms = simplifiedStr.match(regex);
+        
+            if (terms) {
+                const newArray: string[] = terms.filter((string) => string !== '');
+                return groupTerms(newArray);
+            } else {
+                return "";
+            }
         }
     }
     
@@ -162,7 +166,7 @@ export default function subtract(func1:string, func2:string):string{
         }
         
     }
-    console.log(sumsExp)
+    // console.log(sumsExp)
     const resultExponents: string[] = [];
     for (let i = 0; i < sumsExp.length; i++) {
         resultExponents.push(sumsExp[i] + remaindingChars[i])
@@ -202,7 +206,7 @@ export default function subtract(func1:string, func2:string):string{
             varList[i] = varList[i].replace(/^0[A-Za-z]$/, '');
         }
     }
-    console.log(varList)
+    // console.log(varList)
     const finalCombinedList: string[][] = []
     finalCombinedList.push(newRemaindingChars)
     finalCombinedList.push(varList)
@@ -215,25 +219,23 @@ export default function subtract(func1:string, func2:string):string{
         return typeof item === 'string' ? item : concatenate(item);
     }).join(" + ");
     }
+    
     // formatting in if statements
     var answer = start(func1, func2)
     if (/\+ 0|- 0\b/g.test(answer)) {
         answer = answer.replace(/\+ 0|- 0\b/g, '')
     }
-
     if (/\+\s*\-/g.test(answer)) {
         answer = answer.replace(/\+\s*\-/g, '- ')
     }
-    console.log(answer)
     answer = answer.replace(/^(?:\s*\+|\+?\s+)/, '');
-    console.log(answer)
     if (answer.trim().length === 1 && /[a-z]/i.test(answer.trim())) {
         answer = '0'
     }
-
     if (/\+ {0,2}\+/g.test(answer)) {
         answer = answer.replace(/\+ {0,2}\+/g, '+')
     }
+    console.log(answer)
         return answer;
 
 }

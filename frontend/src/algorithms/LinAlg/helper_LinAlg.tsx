@@ -23,7 +23,3 @@ export function frac_mat_toString(mat: math.Matrix) {
   // return string_list;
 }
 
-// TODO: Row/column matrix operations
-export function matrix_OP(mat: math.Matrix): math.Matrix {
-  return mat;
-}

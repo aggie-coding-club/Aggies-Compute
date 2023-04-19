@@ -72,7 +72,8 @@ export default function add(func1:string, func2:string):string{
     const power = /^([+-]?\d*)[a-zA-Z]\^([+-]?\d+)$/; // identifies use of ^ symbol
     const variable = /^[+-]?\d*?[a-zA-Z](?!\^)$/; // identifies variables 
     const constant = /^[-+]?\d+$/; // identifies constants 
-
+    
+    // let stepsExplaination = ['isolate expressions']; // stores all steps *****************************************FIX
     function start(exp1: string, exp2: string): string{
         var combined = exp1 + "+" + exp2; // combine both expressions to isolate terms
         if (/\+-/.test(combined)) {
@@ -81,7 +82,7 @@ export default function add(func1:string, func2:string):string{
         // console.log(combined)
         const simplifiedStr = combined.replace(/\s/g, "") // regex removes spaces
         const terms = simplifiedStr.match(regex);
-    
+
         if (terms) {
             const newArray: string[] = terms.filter((string) => string !== '');
             return groupTerms(newArray);

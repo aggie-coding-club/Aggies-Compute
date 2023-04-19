@@ -124,7 +124,11 @@ export default function AddSubMult() {
               Steps
             </h1>
             <p className="text-gray-900">
-              Enter steps here
+              {/* {steps.map((value, index) => (
+                <li className="text-gray-900 dark:text-gray-50" key={index}>
+                  {value}
+                </li>
+              ))} */}
             </p>
           </div>
         </div>

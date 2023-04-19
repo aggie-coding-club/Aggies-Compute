@@ -22,6 +22,8 @@
         10. Return final result as a string  
     */
 
+import { check } from "prettier";
+
     /*  Input --> List of strings
         Output -> String
         EG: 
@@ -49,16 +51,65 @@
             (expected output)
                 "432x^3 + 594x^2 + 297x + 54"
     */
-import safeEval from 'safe-eval';
-
 export default function multiply(func1:string, func2:string): string {
     const onlyConsts = /^[\d\s+-]+$/; // regex matches only constants, excluding variables and other characters
+    const exponent = /^[-+]?\d?[a-zA-Z]\^\d$/; // exponents regex
+    const variable = /^[-+]?\d?[a-zA-Z]$/; // variables regex
+    const constant = /^[-+]?\d+$/; // constants regex
+    const noCoefficient = /^[+-]?[a-zA-Z](\^\d+)?$/; // coefficient test regex
+
     if (onlyConsts.test(func1) && onlyConsts.test(func2)) {
         console.log('true')
-        const product = parseFloat(safeEval(func1)) * parseFloat(safeEval(func2));
+        const product = parseFloat(func1) * parseFloat(func2);
         return product.toString();
     } else {
-        console.log('false')
+        var exp1 = func1.split(/(?=[+-])/); // splits expression by '+' or '-' between terms, excluding symbols in the first index
+        var exp2 = func2.split(/(?=[+-])/);
+ 
+        exp1 = checkCoeff(exp1);
+        exp2 = checkCoeff(exp2);
+        return distribute(exp1, exp2);
+        function checkCoeff(exp: string[]): string[] { // checks if there is a coefficient present in front of a variable, if not, add '1' constant multiplier
+            const updatedArray = []
+            for (var item of exp) {
+                if (noCoefficient.test(item)) {
+                    if (item.includes('+') || item.includes('-')) {
+                        item = item.slice(0, 1) + '1' + item.slice(1)
+                    } else {
+                        item = '1' + item;
+                    }
+                    updatedArray.push(item);
+                } else {
+                    updatedArray.push(item);
+                }
+            }
+            return updatedArray;
+        }
+    }
+
+    function distribute(arr1:string[], arr2:string[]): string {
+        var varContainer1:string[] = [];
+        var varContainer2:string[] = [];
+        var numContainer1:string[] = [];
+        var numContainer2:string[] = [];
+        const numProduct: string[] = []; // stores the products of coefficients
+        
+        console.log(arr1)
+        console.log(arr2)
+
+        for (let i=0; i < arr1.length; i++) { // could be shortened with another function
+            var toString = parseFloat(arr1[i]).toString();
+            numContainer1.push(toString);
+            // varContainer1.push()
+        }
+        for (let i=0; i < arr2.length; i++) {
+            console.log(arr2[i]);
+            var toString = parseFloat(arr2[i]).toString();
+            numContainer2.push(toString);
+            // varContainer2.push()
+        }
+
+        return 'placeholder';
     }
     return multiply(func1, func2);
 }
