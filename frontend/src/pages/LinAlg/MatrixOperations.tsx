@@ -3,7 +3,8 @@ import React from 'react';
 import { useState } from 'react';
 import Navbar from '../../components/Navbar';
 import SidebarLinalg from '../../components/SidebarLinAlg';
-
+import { multiply } from '../../algorithms/LinAlg/matrixMultiplication';
+import { add,subtract } from '../../algorithms/LinAlg/addSubMatrix';
 export{}
 
 
@@ -45,10 +46,18 @@ class DMatrix{
     {
       return this.values
     }
-    transferVals()
-    {
-      let tem=0
-    }
+    transferVals(prev : number[][])
+  {
+    const Rowlimit = Math.min(prev.length,this.values.length)
+    const Collimt = Math.min(prev[0].length,this.values[0].length)
+    for (let i=0;i<Rowlimit;i++)
+      {
+        for(let j =0;j<Collimt;j++)
+          {
+            this.values[i][j] = prev[i][j]
+          }
+      }
+  }
   }
 //Creating the Component that renders the elements of the given Matrix
 function Divmatrix(props:any)
@@ -68,7 +77,7 @@ function Divmatrix(props:any)
                 className='bg-blue-300 w-7 rounded text-center 
             appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none[&::-webkit-inner-spin-button]:appearance-none ' 
                 type = "number"
-                defaultValue={0}
+                defaultValue={props.matrix[i][j]}
                 key={`${i}-${j}`}
                 onChange={(e) => handleInput(e, i, j)}
                 ></input>
@@ -83,6 +92,30 @@ function Divmatrix(props:any)
  else {return stuff2}
   
 }
+function ShowResult(props:any)
+{
+  if(props.matrix != null && props.show ==true)
+  {
+    const stuff2:any =[]
+    for(let i=0;i<props.matrix.length;i++)
+    {
+        for(let j =0;j<props.matrix[0].length;j++)
+        {
+            stuff2.push(<div className='bg-blue-300 w-7 rounded text-center 
+            appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none[&::-webkit-inner-spin-button]:appearance-none ' 
+                defaultValue={props.matrix[i][j]}> 
+                      </div>)
+        }
+    }
+    if     (props.matrix[0].length ===2){return(<div className='grid grid-cols-2 gap-3 max-h-[20%]'> {stuff2} </div>)}
+ else if(props.matrix[0].length ===3){return(<div className='grid grid-cols-3 gap-3 max-h-[20%]'> {stuff2}</div>) }
+ else if(props.matrix[0].length ===4){return(<div className='grid grid-cols-4 gap-3 max-h-[20%]'> {stuff2}</div>) }
+ else if(props.matrix[0].length ===5){return(<div className='grid grid-cols-5 gap-3 max-h-[20%]'> {stuff2}</div>) }
+ else if(props.matrix[0].length ===6){return(<div className='grid grid-cols-6 gap-3 max-h-[20%]'> {stuff2}</div>) }
+ else {return stuff2}
+  }
+
+}
 
 
 
@@ -93,29 +126,40 @@ export default function MatrixOperation()
     let [Matrixrow,setRow] =useState(3)
     let [Matrixcol , setCol] = useState(3)
     let [matrixA,setMatrix] = useState(new DMatrix(Matrixrow,Matrixcol))
+    let [MatrixrowB,setRowB] =useState(3)
+    let [MatrixcolB , setColB] = useState(3)
+    let [matrixB,setMatrixB] = useState(new DMatrix(MatrixrowB,MatrixcolB))
+    let [see, setSee] =useState(false)
+
+      const handleClick = (e:any) =>
+      {
+        setSee(true)
+      }
 
     const handleRowChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if(e.target.value =="")
-        {setRow(2)}
-        const newRows = parseInt(e.target.value)
+      const a =Number(e.target.value)
+      const newRows = parseInt(e.target.value)
         if(newRows > 6)
         { setRow(6)}
         else {setRow(newRows)}
         if(newRows < 2){ setRow(2)}
         else {setRow(newRows)}
         const b = new DMatrix(newRows, Matrixcol)
-        setMatrix(b);
+        //Tranfer that values from the previous matrix(that fit) to the new one
+        b.transferVals(matrixA.values)
+        setMatrix(b); 
       };
     const handleColChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if(e.target.value =="")
-        {setCol(2)}
-        const newCols = parseInt(e.target.value)
-        if(newCols > 6){ setCol(6)}
-        else {setCol(newCols)}
-        if(newCols < 2){ setCol(2)}
-        else {setCol(newCols)}
-        const b =new DMatrix(Matrixrow, newCols)
-        setMatrix(b);
+      if(e.target.value =="NaN")
+      {setCol(2)}
+      const newCols = parseInt(e.target.value)
+      if(newCols > 6){ setCol(6)}
+      else {setCol(newCols)}
+      if(newCols < 2){ setCol(2)}
+      else {setCol(newCols)}
+      const b =new DMatrix(Matrixrow, newCols)
+      b.transferVals(matrixA.values)
+      setMatrix(b);
       };
       const handleInputChange = (row: number, col: number, value: number) => { 
 
@@ -132,8 +176,48 @@ export default function MatrixOperation()
         const newMatrixA = new DMatrix(Matrixrow, Matrixcol,NewMatrix);
         setMatrix(newMatrixA);
       }
- 
-        
+      
+      const handleRowChangeB = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const a =Number(e.target.value)
+        const newRows = parseInt(e.target.value)
+          if(newRows > 6)
+          { setRowB(6)}
+          else {setRowB(newRows)}
+          if(newRows < 2){ setRowB(2)}
+          else {setRowB(newRows)}
+          const b = new DMatrix(newRows, MatrixcolB)
+          //Tranfer that values from the previous matrix(that fit) to the new one
+          b.transferVals(matrixB.values)
+          setMatrixB(b); 
+      };
+      const handleColChangeB = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if(e.target.value =="NaN")
+      {setColB(2)}
+      const newCols = parseInt(e.target.value)
+      if(newCols > 6){ setColB(6)}
+      else {setColB(newCols)}
+      if(newCols < 2){ setColB(2)}
+      else {setColB(newCols)}
+      const b =new DMatrix(MatrixrowB, newCols)
+      b.transferVals(matrixB.values)
+      setMatrixB(b);
+      };
+       
+      const handleInputChangeB = (row: number, col: number, value: number) => { 
+
+        let NewMatrix: number[][] = new Array(matrixB.rows).fill(0).map(() => new Array(matrixB.cols).fill(0));
+        for(let i =0;i<matrixB.rows;i++)
+          {
+            for(let j=0;j<matrixB.cols;j++)
+              { 
+                NewMatrix[i][j]=matrixB.values[i][j]
+              }
+          }
+          console.log("After",NewMatrix)
+          NewMatrix[row][col] = value;
+          const newMatrixB = new DMatrix(MatrixrowB, MatrixcolB,NewMatrix);
+          setMatrixB(newMatrixB);
+        }
       
 
     
@@ -163,9 +247,9 @@ export default function MatrixOperation()
                     {/* Input boxes split into 3 cols */}
                     <div className='grid grid-cols-3  mb-2 w-[20%] '>
                         {/*Matrix A */}
-                        <input className='  text-center bg-gray-400 rounded ' max ='6' type ='number'value={Matrixrow} onChange={handleRowChange}></input>
+                        <input className='  text-center bg-gray-400 rounded ' min ="2"max ='6' type ='number'value={Matrixrow} onChange={handleRowChange}></input>
                         <div className=' text-center'> x </div>
-                        <input className='text-center bg-gray-400 rounded' max ={6}type ='number' value={Matrixcol} onChange={handleColChange}></input>
+                        <input className='text-center bg-gray-400 rounded' min ="2" max ={6}type ='number' value={Matrixcol} onChange={handleColChange}></input>
                     </div>
                     <div>
                     <Divmatrix matrix ={matrixA.values} rows= {Matrixrow} cols ={Matrixcol} onInputChange ={handleInputChange}></Divmatrix>
@@ -174,29 +258,31 @@ export default function MatrixOperation()
                     {matrixA.getValue()}
                     </div>
                 </div>
-                <div className='grid grid-flow-row place-items-center '> 
+                <div className='grid grid-flow-row place-items-center max-h-[20%]'> 
                     {/* Input boxes split into 3 cols */}
                     <div className='grid grid-cols-3  mb-2 w-[20%] '>
                         {/*Matrix B */}
-                        <input className='  text-center bg-gray-400 rounded ' type="number" value={Matrixrow} ></input>
+                        <input className='  text-center bg-gray-400 rounded ' min ="2"max ='6' type ='number'value={MatrixrowB} onChange={handleRowChangeB}></input>
                         <div className=' text-center'> x </div>
-                        <input className='text-center bg-gray-400 rounded'></input>
+                        <input className='text-center bg-gray-400 rounded' min ="2" max ="6" type ='number' value={MatrixcolB} onChange={handleColChangeB}></input>
+                    </div>
+                    <div>
+                    <Divmatrix matrix ={matrixB.values} rows= {MatrixrowB} cols ={MatrixcolB} onInputChange ={handleInputChangeB}></Divmatrix>
                     </div>
                     <div> 
-                    {'Placeholder for the second matrix'}
+                    {matrixB.getValue()}
                     </div>
                 </div>
-                    
+                  
             </div>
                 {/*The grid to contain the two matrices  */}
-                <div className='grid grid-cols-2 gap-10 text-center'>
-                    {/* Matrix A */}
-                    
-                
-
-                </div>
-            <div className='bg-black w-100'></div>
+            <button className='bg-blue-300 w-fit rounded ' onClick={handleClick}>Calculate</button>
+            {multiply(matrixA.values,matrixB.values)}
             <h3 className='font-bold text-xl'> Solution</h3>
+           <div>
+            
+            { <ShowResult martrix={multiply(matrixA.values,matrixB.values)} show ={see}></ShowResult>}
+            </div>
             </div>
         {/* This is the right sidebar for something*/}
         <div className="flex bg-[#DEDEDE] w-[20%] m-16 items-center justify-center">
