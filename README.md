@@ -1,3 +1,9 @@
+# SUMMER UPDATES
+(05/12) Sepeartion of Backend moved to (https://github.com/JasonIsAzn/Aggies-Compute-BFF)
+
+
+
+
 # Welcome to Aggie Compute!
 We value everybody's contribution to bringing our idea to fruition. 
 
@@ -11,34 +17,3 @@ Alana Ordonez, alordonez1@tamu.edu
 
 ## Important Resources
 Join the [Discord](https://discord.gg/8eDhEfzh)!
-
-
-## Important Deadlines
-  
-  Phase 1: Pre-AC                              (Feb 25 - Mar 4)
-  
-  Phase 2: Develope Frontend Skeleton          (Mar 4 - Mar 18)
-  
-  Phase 3: Frontend + Backend, Features        (Mar 18 - Apr 1)
-  
-  Phase 4: Frontend + Enhancements    (Apr 1 - Apr 14) 
-  
- ## Finial Dilverables
-      Algorithms:
-          40 Total Algorithms (each member completes three or more)
-      
-      Frontend:
-          Completed Landing Pages
-          10 Completed Pages (each member completes one or more pages)
-          3 Features
-              Pratice Problem w/ ChatGPT bot
-              Calculator (a pop up window on each page + it's own page)
-              Math OCR 
-      Backend
-         User History of Computations (btn)
-         Saved State of User Calculations
-         User Favorite Calculators
-         User Current Courses
-         User Stats (graphs/charts - computations done, pratice quetions solved, etc)
-      
-
